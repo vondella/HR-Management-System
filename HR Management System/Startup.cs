@@ -36,17 +36,19 @@ namespace HR_Management_System
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            services.AddDbContext<ApplicationDbContext>(options =>
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            services.AddDbContext<HRMS_DB_Context>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
 
             //services.AddIdentity<IdentityUser, IdentityRole>();
 
-            services.AddDefaultIdentity<IdentityUser>()
-                .AddDefaultUI(UIFramework.Bootstrap4)
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+            //services.AddDefaultIdentity<IdentityUser>()
+            //    .AddDefaultUI(UIFramework.Bootstrap4)
+            //    .AddEntityFrameworkStores<ApplicationDbContext>();
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
 
             //services.ConfigureApplicationCookie(options =>
             //{
@@ -77,7 +79,7 @@ namespace HR_Management_System
             app.UseStaticFiles();
             app.UseCookiePolicy();
 
-            app.UseAuthentication();
+            //app.UseAuthentication();
 
             app.UseMvc(routes =>
             {

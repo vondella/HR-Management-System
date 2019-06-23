@@ -23,7 +23,7 @@ namespace HR_Management_System.Controllers
 
         public IActionResult Login()
         {
-            return View();
+            return RedirectToPage("/LoginPage");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

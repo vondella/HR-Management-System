@@ -62,3 +62,35 @@ E:\Github\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\HR M
 E:\Github\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\HR Management System.pdb
 E:\Github\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\HR Management System.csproj.CopyComplete
 E:\Github\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Views\Home\Login.g.cshtml.cs
+D:\GitHub\ASPNETCORE\HR Management System\HR-Management-System\HR Management System\bin\Debug\netcoreapp2.2\HR Management System.deps.json
+D:\GitHub\ASPNETCORE\HR Management System\HR-Management-System\HR Management System\bin\Debug\netcoreapp2.2\HR Management System.runtimeconfig.json
+D:\GitHub\ASPNETCORE\HR Management System\HR-Management-System\HR Management System\bin\Debug\netcoreapp2.2\HR Management System.runtimeconfig.dev.json
+D:\GitHub\ASPNETCORE\HR Management System\HR-Management-System\HR Management System\bin\Debug\netcoreapp2.2\HR Management System.dll
+D:\GitHub\ASPNETCORE\HR Management System\HR-Management-System\HR Management System\bin\Debug\netcoreapp2.2\HR Management System.pdb
+D:\GitHub\ASPNETCORE\HR Management System\HR-Management-System\HR Management System\bin\Debug\netcoreapp2.2\HR Management System.Views.dll
+D:\GitHub\ASPNETCORE\HR Management System\HR-Management-System\HR Management System\bin\Debug\netcoreapp2.2\HR Management System.Views.pdb
+D:\GitHub\ASPNETCORE\HR Management System\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\HR Management System.csprojAssemblyReference.cache
+D:\GitHub\ASPNETCORE\HR Management System\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\HR Management System.csproj.CoreCompileInputs.cache
+D:\GitHub\ASPNETCORE\HR Management System\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\HR Management System.RazorAssemblyInfo.cache
+D:\GitHub\ASPNETCORE\HR Management System\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\HR Management System.RazorAssemblyInfo.cs
+D:\GitHub\ASPNETCORE\HR Management System\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\HR Management System.AssemblyInfoInputs.cache
+D:\GitHub\ASPNETCORE\HR Management System\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\HR Management System.AssemblyInfo.cs
+D:\GitHub\ASPNETCORE\HR Management System\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\HR Management System.TagHelpers.input.cache
+D:\GitHub\ASPNETCORE\HR Management System\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\HR Management System.TagHelpers.output.cache
+D:\GitHub\ASPNETCORE\HR Management System\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\HR Management System.RazorCoreGenerate.cache
+D:\GitHub\ASPNETCORE\HR Management System\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Views\Home\Index.g.cshtml.cs
+D:\GitHub\ASPNETCORE\HR Management System\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Views\Home\Privacy.g.cshtml.cs
+D:\GitHub\ASPNETCORE\HR Management System\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Views\Shared\Error.g.cshtml.cs
+D:\GitHub\ASPNETCORE\HR Management System\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_CookieConsentPartial.g.cshtml.cs
+D:\GitHub\ASPNETCORE\HR Management System\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_Layout.g.cshtml.cs
+D:\GitHub\ASPNETCORE\HR Management System\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_LoginPartial.g.cshtml.cs
+D:\GitHub\ASPNETCORE\HR Management System\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_ValidationScriptsPartial.g.cshtml.cs
+D:\GitHub\ASPNETCORE\HR Management System\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Views\_ViewImports.g.cshtml.cs
+D:\GitHub\ASPNETCORE\HR Management System\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Views\_ViewStart.g.cshtml.cs
+D:\GitHub\ASPNETCORE\HR Management System\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\HR Management System.RazorTargetAssemblyInfo.cache
+D:\GitHub\ASPNETCORE\HR Management System\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\HR Management System.RazorTargetAssemblyInfo.cs
+D:\GitHub\ASPNETCORE\HR Management System\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\HR Management System.Views.pdb
+D:\GitHub\ASPNETCORE\HR Management System\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\HR Management System.dll
+D:\GitHub\ASPNETCORE\HR Management System\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\HR Management System.pdb
+D:\GitHub\ASPNETCORE\HR Management System\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\HR Management System.csproj.CopyComplete
+D:\GitHub\ASPNETCORE\HR Management System\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\LoginPage.g.cshtml.cs
