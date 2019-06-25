@@ -50,9 +50,9 @@ namespace HR_Management_System.Pages
             var yes = _db.Users.Any();
         }
 
-        public async Task<IActionResult> OnPostAsync()
+        public IActionResult OnPostAsync()
         {
-            var _user = await _db.Users.FindAsync(UserName);
+            var _user = _db.Users.Where( a => a.UserName == UserName).ToList().SingleOrDefault();
 
             if(_user == null)
             {
@@ -61,7 +61,7 @@ namespace HR_Management_System.Pages
 
             if(Password == _user.Password)
             {
-                return RedirectToPage("/Index");
+                return RedirectToPage("/Dashboard");
             }
             else
             {

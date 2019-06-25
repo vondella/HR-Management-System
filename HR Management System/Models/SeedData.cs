@@ -26,7 +26,6 @@ namespace HR_Management_System.Models
                         Email = "admin@gmail.com",
                         Name = "Admin",
                         Password = "admin",
-                        Id = 1,
                         RememberMe = true,
                         UserName = "admin"
                     }

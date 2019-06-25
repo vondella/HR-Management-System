@@ -61,7 +61,6 @@ E:\Github\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\HR M
 E:\Github\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\HR Management System.dll
 E:\Github\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\HR Management System.pdb
 E:\Github\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\HR Management System.csproj.CopyComplete
-E:\Github\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Views\Home\Login.g.cshtml.cs
 D:\GitHub\ASPNETCORE\HR Management System\HR-Management-System\HR Management System\bin\Debug\netcoreapp2.2\HR Management System.deps.json
 D:\GitHub\ASPNETCORE\HR Management System\HR-Management-System\HR Management System\bin\Debug\netcoreapp2.2\HR Management System.runtimeconfig.json
 D:\GitHub\ASPNETCORE\HR Management System\HR-Management-System\HR Management System\bin\Debug\netcoreapp2.2\HR Management System.runtimeconfig.dev.json
@@ -95,3 +94,5 @@ D:\GitHub\ASPNETCORE\HR Management System\HR-Management-System\HR Management Sys
 D:\GitHub\ASPNETCORE\HR Management System\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\HR Management System.csproj.CopyComplete
 D:\GitHub\ASPNETCORE\HR Management System\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\LoginPage.g.cshtml.cs
 D:\GitHub\ASPNETCORE\HR Management System\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\Dashboard.g.cshtml.cs
+E:\Github\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\Dashboard.g.cshtml.cs
+E:\Github\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\LoginPage.g.cshtml.cs
