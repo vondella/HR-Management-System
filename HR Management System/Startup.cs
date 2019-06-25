@@ -36,11 +36,13 @@ namespace HR_Management_System
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            services.AddDbContext<HRMS_DB_Context>(options =>
+               options.UseSqlServer(
+                   Configuration.GetConnectionString("DefaultConnection")));
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
-            services.AddDbContext<HRMS_DB_Context>(options =>
-                options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection")));
+           
 
             //services.AddIdentity<IdentityUser, IdentityRole>();
 

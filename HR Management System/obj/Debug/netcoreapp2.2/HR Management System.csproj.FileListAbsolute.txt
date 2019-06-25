@@ -94,3 +94,4 @@ D:\GitHub\ASPNETCORE\HR Management System\HR-Management-System\HR Management Sys
 D:\GitHub\ASPNETCORE\HR Management System\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\HR Management System.pdb
 D:\GitHub\ASPNETCORE\HR Management System\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\HR Management System.csproj.CopyComplete
 D:\GitHub\ASPNETCORE\HR Management System\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\LoginPage.g.cshtml.cs
+D:\GitHub\ASPNETCORE\HR Management System\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\Dashboard.g.cshtml.cs
