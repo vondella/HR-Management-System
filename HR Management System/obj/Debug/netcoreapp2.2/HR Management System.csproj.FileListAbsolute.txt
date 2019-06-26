@@ -96,3 +96,37 @@ D:\GitHub\ASPNETCORE\HR Management System\HR-Management-System\HR Management Sys
 D:\GitHub\ASPNETCORE\HR Management System\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\Dashboard.g.cshtml.cs
 E:\Github\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\Dashboard.g.cshtml.cs
 E:\Github\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\LoginPage.g.cshtml.cs
+E:\Visual studio\HR-Management-System\HR Management System\bin\Debug\netcoreapp2.2\HR Management System.deps.json
+E:\Visual studio\HR-Management-System\HR Management System\bin\Debug\netcoreapp2.2\HR Management System.runtimeconfig.json
+E:\Visual studio\HR-Management-System\HR Management System\bin\Debug\netcoreapp2.2\HR Management System.runtimeconfig.dev.json
+E:\Visual studio\HR-Management-System\HR Management System\bin\Debug\netcoreapp2.2\HR Management System.dll
+E:\Visual studio\HR-Management-System\HR Management System\bin\Debug\netcoreapp2.2\HR Management System.pdb
+E:\Visual studio\HR-Management-System\HR Management System\bin\Debug\netcoreapp2.2\HR Management System.Views.dll
+E:\Visual studio\HR-Management-System\HR Management System\bin\Debug\netcoreapp2.2\HR Management System.Views.pdb
+E:\Visual studio\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\HR Management System.csprojAssemblyReference.cache
+E:\Visual studio\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\HR Management System.csproj.CoreCompileInputs.cache
+E:\Visual studio\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\HR Management System.RazorAssemblyInfo.cache
+E:\Visual studio\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\HR Management System.RazorAssemblyInfo.cs
+E:\Visual studio\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\HR Management System.AssemblyInfoInputs.cache
+E:\Visual studio\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\HR Management System.AssemblyInfo.cs
+E:\Visual studio\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\HR Management System.TagHelpers.input.cache
+E:\Visual studio\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\HR Management System.TagHelpers.output.cache
+E:\Visual studio\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\HR Management System.RazorCoreGenerate.cache
+E:\Visual studio\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\Dashboard.g.cshtml.cs
+E:\Visual studio\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\LoginPage.g.cshtml.cs
+E:\Visual studio\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Views\Home\Index.g.cshtml.cs
+E:\Visual studio\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Views\Home\Login.g.cshtml.cs
+E:\Visual studio\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Views\Home\Privacy.g.cshtml.cs
+E:\Visual studio\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Views\Shared\Error.g.cshtml.cs
+E:\Visual studio\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_CookieConsentPartial.g.cshtml.cs
+E:\Visual studio\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_Layout.g.cshtml.cs
+E:\Visual studio\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_LoginPartial.g.cshtml.cs
+E:\Visual studio\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_ValidationScriptsPartial.g.cshtml.cs
+E:\Visual studio\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Views\_ViewImports.g.cshtml.cs
+E:\Visual studio\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Views\_ViewStart.g.cshtml.cs
+E:\Visual studio\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\HR Management System.RazorTargetAssemblyInfo.cache
+E:\Visual studio\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\HR Management System.RazorTargetAssemblyInfo.cs
+E:\Visual studio\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\HR Management System.Views.pdb
+E:\Visual studio\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\HR Management System.dll
+E:\Visual studio\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\HR Management System.pdb
+E:\Visual studio\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\HR Management System.csproj.CopyComplete
