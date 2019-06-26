@@ -23,18 +23,26 @@
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">PC LINK IT</a>
                 @*<button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>*@
-               
-                    <ul>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="Home" asp-action="Login">Login</a>
-                        </li>
-                    </ul>
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>*@
+
+                <ul>
+
+                    <a class="nav-link text-dark" asp-controller="Home" asp-action="Login">Login</a>
                     
-                    @*<partial name="_LoginPartial" />*@
-                    @*<ul class="navbar-nav flex-grow-1">
+
+                </ul>
+                <ul>
+
+                    
+                    <a class="nav-link text-dark" asp-controller="Home" asp-action="CareerLogin">Career</a>
+
+                </ul>
+
+
+                @*<partial name="_LoginPartial" />*@
+                @*<ul class="navbar-nav flex-grow-1">
             <li class="nav-item">
                 <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
             </li>
@@ -42,7 +50,7 @@
                 <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
             </li>
         </ul>*@
-                
+
             </div>
         </nav>
     </header>
