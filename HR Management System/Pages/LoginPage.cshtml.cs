@@ -13,16 +13,19 @@ namespace HR_Management_System.Pages
     public class LoginPageModel : PageModel
     {
         private readonly HRMS_DB_Context _db;
+        private MyDependency _dependency;
 
-        public LoginPageModel(HRMS_DB_Context context)
+        public LoginPageModel(HRMS_DB_Context context, MyDependency myDependency)
         {
             _db = context;
+            _dependency = myDependency;
         }
 
         public List<UserModel> Users { get; set; }
 
        
-
+        [BindProperty]
+        public string SimpleMessage { get; set; }
 
 
 
@@ -48,6 +51,7 @@ namespace HR_Management_System.Pages
         public void OnGet()
         {
             var yes = _db.Users.Any();
+            SimpleMessage = _dependency.GetMessage();
         }
 
         public IActionResult OnPostAsync()
