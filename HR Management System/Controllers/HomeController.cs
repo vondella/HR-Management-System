@@ -30,6 +30,10 @@ namespace HR_Management_System.Controllers
         {
             return RedirectToPage("/Career_Login");
         }
+
+
+
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
