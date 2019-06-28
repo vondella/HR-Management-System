@@ -15,22 +15,42 @@ namespace HR_Management_System.Models
             using (var context = new HRMS_DB_Context(
                 serviceProvider.GetRequiredService<DbContextOptions<HRMS_DB_Context>>()))
             {
-                if (context.Users.Any())
+                if(context.Users.Any() && context.CareerUsers.Any())
                 {
                     return;
                 }
 
-                context.Users.AddRange(
-                    new UserModel
+                if (!context.Users.Any())
+                {
+                    context.Users.AddRange(
+                   new UserModel
+                   {
+                       Email = "admin@gmail.com",
+                       Name = "Admin",
+                       Password = "admin",
+                       RememberMe = true,
+                       UserName = "admin"
+                   }
+                   );
+
+                    context.SaveChanges();
+                }
+
+
+                if (!context.CareerUsers.Any())
+                {
+                    context.CareerUsers.AddRange(
+                    new CareerUser
                     {
-                        Email = "admin@gmail.com",
-                        Name = "Admin",
-                        Password = "admin",
-                        RememberMe = true,
-                        UserName = "admin"
-                    }
-                    ) ;
-                context.SaveChanges();
+                        Email = "shakir@gmail.com",
+                        FirstName = "Shakir",
+                        LastName = "Ahmed",
+                        Password = "12345",
+                        Username = "shakir12345"
+                    });
+                    context.SaveChanges();
+                }
+                
             }
         }
     }
