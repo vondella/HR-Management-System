@@ -61,7 +61,7 @@ namespace HR_Management_System.Pages
 
             if(Password == _user.Password)
             {
-                return RedirectToPage("/Dashboard");
+                return RedirectToPage("/AdminDashboard");
             }
             else
             {
