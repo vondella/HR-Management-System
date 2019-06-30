@@ -10,6 +10,7 @@ namespace HR_Management_System.Models
     {
         public long Id { get; set;}
 
+        
         [Required]
         public string Name { get; set; }
 

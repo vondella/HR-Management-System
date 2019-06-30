@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\GitHub\\ASPNETCORE\\HR Management System\\HR-Management-System\\HR Management System\\HR Management System.csproj": {}
+    "C:\\Users\\SHAKIR\\Desktop\\HR Project\\HR Management System\\HR Management System.csproj": {}
   },
   "projects": {
-    "D:\\GitHub\\ASPNETCORE\\HR Management System\\HR-Management-System\\HR Management System\\HR Management System.csproj": {
+    "C:\\Users\\SHAKIR\\Desktop\\HR Project\\HR Management System\\HR Management System.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\GitHub\\ASPNETCORE\\HR Management System\\HR-Management-System\\HR Management System\\HR Management System.csproj",
+        "projectUniqueName": "C:\\Users\\SHAKIR\\Desktop\\HR Project\\HR Management System\\HR Management System.csproj",
         "projectName": "HR Management System",
-        "projectPath": "D:\\GitHub\\ASPNETCORE\\HR Management System\\HR-Management-System\\HR Management System\\HR Management System.csproj",
+        "projectPath": "C:\\Users\\SHAKIR\\Desktop\\HR Project\\HR Management System\\HR Management System.csproj",
         "packagesPath": "C:\\Users\\SHAKIR\\.nuget\\packages\\",
-        "outputPath": "D:\\GitHub\\ASPNETCORE\\HR Management System\\HR-Management-System\\HR Management System\\obj\\",
+        "outputPath": "C:\\Users\\SHAKIR\\Desktop\\HR Project\\HR Management System\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

@@ -14,7 +14,6 @@ using HR_Management_System.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Identity.UI.Services;
-using HR_Management_System.Models;
 
 namespace HR_Management_System
 {
@@ -42,7 +41,7 @@ namespace HR_Management_System
                    Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-            services.AddSingleton<MyDependency>();
+
            
 
             //services.AddIdentity<IdentityUser, IdentityRole>();
