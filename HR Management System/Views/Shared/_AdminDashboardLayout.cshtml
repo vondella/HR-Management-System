@@ -45,7 +45,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
 
                         <a class="collapse-item" asp-controller="admin" asp-action="SetWorkingDays">Set Working Days</a>
-                        <a class="collapse-item" href="Holiday_List.cshtml">Holiday List</a>
+                        <a class="collapse-item" asp-controller="admin" asp-action="HolidayList">Holiday List</a>
                         <a class="collapse-item" asp-controller="admin" asp-action="LeaveCategory">Leave Category</a>
 
 
@@ -77,7 +77,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
 
                         <a class="collapse-item" asp-controller="admin" asp-action="AddEmployee">Add Employee</a>
-                        <a class="collapse-item" href="Employee_List.cshtml">Employee List</a>
+                        <a class="collapse-item" asp-controller="admin" asp-action="EmployeeList">Employee List</a>
 
 
                     </div>
@@ -91,8 +91,8 @@
                 <div id="collapseattendence" class="collapse" aria-labelledby="headingattendence" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
 
-                        <a class="collapse-item" href="Manage_Attandence.cshtml">Manage Attandence</a>
-                        <a class="collapse-item" href="Attandence_Report.cshtml">Attandence Report</a>
+                        <a class="collapse-item" asp-controller="admin" asp-action="ManageAttendence">Manage Attandence</a>
+                        <a class="collapse-item" asp-controller="admin" asp-action="AttandenceReport">Attandence Report</a>
 
                     </div>
                 </div>
@@ -103,7 +103,7 @@
             <!-- Nav Item - Pages Collapse Menu -->
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" href="Leave_Application_list.html">
+                <a class="nav-link" asp-controller="admin" asp-action="LeaveApplicationList">
                     <i class="fa fa-rocket"></i>
                     <span>Leave Application List</span>
                 </a>
@@ -117,10 +117,10 @@
                 <div id="collapsePayroll" class="collapse" aria-labelledby="headingPayroll" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
 
-                        <a class="collapse-item" href="Manage_Salary_Details.cshtml">Manage Salary Details</a>
-                        <a class="collapse-item" href="Employee_Salary_List.cshtml">Employee Salary List</a>
-                        <a class="collapse-item" href="Make_Payment.cshtml">Make Payment</a>
-                        <a class="collapse-item" href="Generate_Payslip.cshtml">Generate Payslip</a>
+                        <a class="collapse-item" asp-controller="admin" asp-action="ManageSalaryDetails">Manage Salary Details</a>
+                        <a class="collapse-item" asp-controller="admin" asp-action="EmployeeSalaryList">Employee Salary List</a>
+                        <a class="collapse-item" asp-controller="admin" asp-action="MakePayment">Make Payment</a>
+                        <a class="collapse-item" asp-controller="admin" asp-action="GeneratePayslip">Generate Payslip</a>
 
                     </div>
                 </div>
@@ -134,8 +134,8 @@
                 <div id="collapseNotice" class="collapse" aria-labelledby="headingNotice" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
 
-                        <a class="collapse-item" href="Add_Notice.cshtml">Add Notice</a>
-                        <a class="collapse-item" href="Manage_Notice.cshtml">Manage Notice</a>
+                        <a class="collapse-item" asp-controller="admin" asp-action="AddNotice">Add Notice</a>
+                        <a class="collapse-item" asp-controller="admin" asp-action="ManageNotice">Manage Notice</a>
 
                     </div>
                 </div>
@@ -149,10 +149,10 @@
                 <div id="collapseRecruitment" class="collapse" aria-labelledby="headingPayroll" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
 
-                        <a class="collapse-item" href="Add_Recruitment_Notice.cshtml">Add Recruitment Notice</a>
-                        <a class="collapse-item" href="Manage_Recruitment_Notice.cshtml">Manage Recruitment Notice</a>
-                        <a class="collapse-item" href="Recruitment_Applicant_List.cshtml">Recruitment Applicant List</a>
-                        <a class="collapse-item" href="Selected_Applicant_List.cshtml">Selected Applicant List</a>
+                        <a class="collapse-item" asp-controller="admin" asp-action="AddRecruitmentNotice">Add Recruitment Notice</a>
+                        <a class="collapse-item" asp-controller="admin" asp-action="ManageRecruitmentNotice">Manage Recruitment Notice</a>
+                        <a class="collapse-item" asp-controller="admin" asp-action="Recruitment_Applicant_List">Recruitment Applicant List</a>
+                        <a class="collapse-item" asp-controller="admin" asp-action="Selected_Applicant_List">Selected Applicant List</a>
 
                     </div>
                 </div>
@@ -217,7 +217,7 @@
                             <!-- Dropdown - Alerts -->
                             <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
                                 <h6 class="dropdown-header">
-                                    Alerts Center
+                                    Notice Board
                                 </h6>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
@@ -229,7 +229,7 @@
                                         <div class="small text-gray-500">Chicken the Dog · 2w</div>
                                     </div>
                                 </a>
-                                <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+                                <a class="dropdown-item text-center small text-gray-500" asp-controller="admin" asp-action="ManageNotice">Show All Notice</a>
                             </div>
                         </li>
 
@@ -244,7 +244,7 @@
 
                             <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
                                 <h6 class="dropdown-header">
-                                    Message Center
+                                  Leave Application List
                                 </h6>
 
                                 <a class="dropdown-item d-flex align-items-center" href="#">
@@ -257,7 +257,7 @@
                                         <div class="small text-gray-500">Chicken the Dog · 2w</div>
                                     </div>
                                 </a>
-                                <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
+                                <a class="dropdown-item text-center small text-gray-500" asp-controller="admin" asp-action="LeaveApplicationList">See All Application</a>
                             </div>
                         </li>
 
@@ -271,7 +271,7 @@
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" asp-controller="admin" asp-action="Profile">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
                                 </a>
@@ -319,6 +319,6 @@
 
             </div>
         </div>
-    </div>
+    
 </body>
 </html>
