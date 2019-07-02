@@ -251,3 +251,5 @@ C:\Users\SHAKIR\Desktop\HR Project\HR Management System\obj\Debug\netcoreapp2.2\
 C:\Users\SHAKIR\Desktop\HR Project\HR Management System\obj\Debug\netcoreapp2.2\HR Management System.dll
 C:\Users\SHAKIR\Desktop\HR Project\HR Management System\obj\Debug\netcoreapp2.2\HR Management System.pdb
 C:\Users\SHAKIR\Desktop\HR Project\HR Management System\obj\Debug\netcoreapp2.2\HR Management System.csproj.CopyComplete
+E:\Visual studio\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\MakePayment.g.cshtml.cs
+E:\Visual studio\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_EmployeeLayout.g.cshtml.cs
