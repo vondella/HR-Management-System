@@ -4,38 +4,334 @@
     ViewData["Title"] = "AttandenceReport";
     Layout = "~/Views/Shared/_AdminDashboardLayout.cshtml";
 }
-<head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Admin Dashboard</title>
-
-    <!-- Custom fonts for this template-->
-    <link href="~/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-
-    <!-- Custom styles for this template-->
-    <link href="~/css/sb-admin-2.min.css" rel="stylesheet">
-
-</head>
 <body>
 
+    <div class="col-sm-12">
+        <div class="wrap-fpanel">
+            <div class="panel panel-default" data-collapsed="0">
+                <div class="panel-heading">
+                    <div class="panel-title">
+                        <strong>Report</strong>
+                    </div>                
+                </div>
 
-    <h1>AttandenceReport</h1>
-    <script src="~/vendor/jquery/jquery.js"></script>
-    <script src="~/vendor/bootstrap/js/bootstrap.js"></script>
+                <div class="panel-body">
+                    <form id="attendance-form" role="form" enctype="multipart/form-data" action="http://localhost/HRMS-FRESH/admin/attendance/get_report" method="post" class="form-horizontal form-groups-bordered" novalidate="novalidate">                    
+                        <div class="form-group">
+                            <label for="field-1" class="col-sm-3 control-label">Department Name<span class="required" aria-required="true">*</span></label>
 
-    <!-- Core plugin JavaScript-->
-    <script src="~/vendor/jquery-easing/jquery.easing.js"></script>
+                            <div class="col-sm-5">
+                                <select name="department_id" class="form-control">
+                                    <option value="">Select Department...</option>                                  
+                                                                                <option value="1" selected="">
+                                                        sells                                            </option>
+                                                                                        <option value="2">
+                                                        Marketing                                            </option>
+                                             
+                                </select>                            
+                            </div>
+                        </div>   
+                        <div class="form-group">
+                            <label for="field-1" class="col-sm-3 control-label">Month &amp; Year <span class="required" aria-required="true">*</span></label>
+                            <div class="input-group col-sm-5">
+                                <input type="month" class="form-control monthyear" value="2019-7" name="date">
+                                <div class="input-group-addon">
+                                    <a href="#"><i class="entypo-calendar"></i></a>
+                                </div>
+                            </div>
+                        </div>                     
+                        <div class="form-group">
+                            <div class="col-sm-offset-3 col-sm-5 pull-right">
+                                <button type="submit" id="sbtn" class="btn btn-primary">Search</button>                            
+                            </div>
+                        </div>   
+                    </form>
+                </div>                        
+            </div>                        
+        </div>                
+    </div>   
+</div>
+<div id="EmpprintReport">
+    
+    <br>
+    <br>
+            <div class="std_heading" hidden="" style="background-color: rgb(224, 224, 224);margin-bottom: 5px;padding: 5px;">           
+            <table style="margin: 3px 10px 0px 24px; width:100%;">                    
+                <tbody><tr>
 
-    <!-- Custom scripts for all pages-->
-    <script src="~/js/sb-admin-2.min.js"></script>
-    <script src="~/js/site.js"></script>
+                    <td style="font-size: 15px"><strong>Department: </strong>sells</td>                    
+                    <td style="font-size: 15px"><strong>Date:</strong>July-2019</td>
+                </tr>                                      
+            </tbody></table>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 std_print"> 
+                <div class="wrap-fpanel">
+                    <div class="panel panel-default">
+                        <div class="panel-heading" style="margin-left:50px">
+                            <h4 class="panel-title"><strong>Attendance List </strong>
+                                <div class="pull-right hidden-print" style="margin-left:950px">
+                                    <a href="http://localhost/HRMS-FRESH/admin/attendance/create_pdf/1/2019-07" class="btn btn-primary btn-xs" data-toggle="tooltip" data-placement="top" title="" data-original-title="Pdf"><span>pdf</span></a>                                             
+                                    <a href="http://localhost/HRMS-FRESH/" class="btn btn-primary btn-xs" title="" data-toggle="tooltip" data-placement="top" onclick="printDiv(" printablearea")"="" data-original-title="Print">Print</a>                                                              
+                                </div>
+                            </h4>
+                        </div>                                                  
+                        <table id="" class="table table-bordered" style="margin-right:60px">
+                            
+                            <thead style="font-size:55%">
+                                <tr>
+                                    <th style="width: 100%" class="col-sm-1">Name</th>                
 
+                                                                    
+                                        <th class="std_p">1</th>
+                                                                    
+                                        <th class="std_p">2</th>
+                                                                    
+                                        <th class="std_p">3</th>
+                                                                    
+                                        <th class="std_p">4</th>
+                                                                    
+                                        <th class="std_p">5</th>
+                                                                    
+                                        <th class="std_p">6</th>
+                                                                    
+                                        <th class="std_p">7</th>
+                                                                    
+                                        <th class="std_p">8</th>
+                                                                    
+                                        <th class="std_p">9</th>
+                                                                    
+                                        <th class="std_p">10</th>
+                                                                    
+                                        <th class="std_p">11</th>
+                                                                    
+                                        <th class="std_p">12</th>
+                                                                    
+                                        <th class="std_p">13</th>
+                                                                    
+                                        <th class="std_p">14</th>
+                                                                    
+                                        <th class="std_p">15</th>
+                                                                    
+                                        <th class="std_p">16</th>
+                                                                    
+                                        <th class="std_p">17</th>
+                                                                    
+                                        <th class="std_p">18</th>
+                                                                    
+                                        <th class="std_p">19</th>
+                                                                    
+                                        <th class="std_p">20</th>
+                                                                    
+                                        <th class="std_p">21</th>
+                                                                    
+                                        <th class="std_p">22</th>
+                                                                    
+                                        <th class="std_p">23</th>
+                                                                    
+                                        <th class="std_p">24</th>
+                                                                    
+                                        <th class="std_p">25</th>
+                                                                    
+                                        <th class="std_p">26</th>
+                                                                    
+                                        <th class="std_p">27</th>
+                                                                    
+                                        <th class="std_p">28</th>
+                                                                    
+                                        <th class="std_p">29</th>
+                                                                    
+                                        <th class="std_p">30</th>
+                                                                    
+                                        <th class="std_p">31</th>
+                                                            
+
+                                </tr>  
+
+                            </thead>      
+
+                            <tbody style="font-size:65%">
+
+                                                                    <tr>  
+
+                                        <td style="width: 100%" class="col-sm-3">Al Amin</td>   
+                                                                                                                                    <td>
+                                                                                                    </td>
+                                               
+
+
+                                                                                                                                    <td>
+                                                                                                    </td>
+                                               
+
+
+                                                                                                                                    <td>
+                                                                                                    </td>
+                                               
+
+
+                                                                                                                                    <td>
+                                                                                                    </td>
+                                               
+
+
+                                                                                                                                    <td>
+                                                    <span  class="label label-info std_p">H</span>                                                </td>
+                                               
+
+
+                                                                                                                                    <td>
+                                                    <span  class="label label-info std_p">H</span>                                                </td>
+                                               
+
+
+                                                                                                                                    <td>
+                                                                                                    </td>
+                                               
+
+
+                                                                                                                                    <td>
+                                                                                                    </td>
+                                               
+
+
+                                                                                                                                    <td>
+                                                                                                    </td>
+                                               
+
+
+                                                                                                                                    <td>
+                                                                                                    </td>
+                                               
+
+
+                                                                                                                                    <td>
+                                                                                                    </td>
+                                               
+
+
+                                                                                                                                    <td>
+                                                    <span  class="label label-info std_p">H</span>                                                </td>
+                                               
+
+
+                                                                                                                                    <td>
+                                                    <span  class="label label-info std_p">H</span>                                                </td>
+                                               
+
+
+                                                                                                                                    <td>
+                                                                                                    </td>
+                                               
+
+
+                                                                                                                                    <td>
+                                                                                                    </td>
+                                               
+
+
+                                                                                                                                    <td>
+                                                                                                    </td>
+                                               
+
+
+                                                                                                                                    <td>
+                                                                                                    </td>
+                                               
+
+
+                                                                                                                                    <td>
+                                                                                                    </td>
+                                               
+
+
+                                                                                                                                    <td>
+                                                    <span  class="label label-info std_p">H</span>                                                </td>
+                                               
+
+
+                                                                                                                                    <td>
+                                                    <span  class="label label-info std_p">H</span>                                                </td>
+                                               
+
+
+                                                                                                                                    <td>
+                                                                                                    </td>
+                                               
+
+
+                                                                                                                                    <td>
+                                                                                                    </td>
+                                               
+
+
+                                                                                                                                    <td>
+                                                                                                    </td>
+                                               
+
+
+                                                                                                                                    <td>
+                                                                                                    </td>
+                                               
+
+
+                                                                                                                                    <td>
+                                                                                                    </td>
+                                               
+
+
+                                                                                                                                    <td>
+                                                    <span  class="label label-info std_p">H</span>                                                </td>
+                                               
+
+
+                                                                                                                                    <td>
+                                                    <span  class="label label-info std_p">H</span>                                                </td>
+                                               
+
+
+                                                                                                                                    <td>
+                                                                                                    </td>
+                                               
+
+
+                                                                                                                                    <td>
+                                                                                                    </td>
+                                               
+
+
+                                                                                                                                    <td>
+                                                                                                    </td>
+                                               
+
+
+                                                                                                                                    <td>
+                                                                                                    </td>
+                                               
+
+
+                                                
+                                    </tr>
+                                
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>    
+            </div>
+        </div>    
+    </div>
+
+<script type="text/javascript">
+    function printEmp_report(EmpprintReport) {
+        var printContents = document.getElementById(EmpprintReport).innerHTML;
+        var originalContents = document.body.innerHTML;
+        document.body.innerHTML = printContents;
+        window.print();
+        document.body.innerHTML = originalContents;
+    }
+</script>
+            </div>
 </body>
 
 

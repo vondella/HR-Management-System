@@ -51,7 +51,7 @@
             <li class="nav-item">
                 <a class="nav-link" asp-controller="Career" asp-action="Apply">
                     <i class="fa fa-bell"></i>
-                    <span>Apply For post</span>
+                    <span>Apply for Post</span>
                 </a>
             </li>
 
@@ -132,15 +132,6 @@
 
                 </nav>
                 <!-- End of Topbar -->
-                <!-- Begin Page Content -->
-                <div class="container-fluid">
-
-                    <!-- Page Heading -->
-                </div>
-
-
-
-                <!-- Footer -->
                 <!-- Scroll to Top Button-->
                 <a class="scroll-to-top rounded" href="#page-top">
                     <i class="fas fa-angle-up"></i>
@@ -164,30 +155,35 @@
                         </div>
                     </div>
                 </div>
-
-                <div>
-                    @RenderBody()
+                <div class="container-fluid">
+                    <partial name="_CookieConsentPartial" />
+                    <main role="main" class="pb-3">
+                        @RenderBody()
+                    </main>
                 </div>
+
             </div>
-            
 
-                        <footer class="border-top footer text-muted">
-                            <div class="container">
-                                &copy; 2019 PC LINK IT <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                            </div>
-                        </footer>
-                        
-                        <!-- Bootstrap core JavaScript-->
-                        <script src="~/vendor/jquery/jquery.min.js"></script>
-                        <script src="~/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        </div>
+    </div>
 
-                        <!-- Core plugin JavaScript-->
-                        <script src="~/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2019 PC LINK IT <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
 
-                        <!-- Custom scripts for all pages-->
-                        <script src="~/js/sb-admin-2.min.js"></script>
+    <!-- Bootstrap core JavaScript-->
+    <script src="~/vendor/jquery/jquery.min.js"></script>
+    <script src="~/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-                        <!-- Page level plugins -->
+    <!-- Core plugin JavaScript-->
+    <script src="~/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="~/js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
 
 
 </body>

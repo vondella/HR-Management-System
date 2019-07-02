@@ -9,6 +9,8 @@ namespace HR_Management_System.Pages
 {
     public class DashboardModel : PageModel
     {
+
+
         public void OnGet()
         {
 

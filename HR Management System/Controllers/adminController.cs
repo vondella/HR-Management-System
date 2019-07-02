@@ -6,12 +6,17 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace HR_Management_System.Controllers
 {
-    public class adminController : Controller
+    public class AdminController : Controller
     {
-        public IActionResult Index()
+
+        //when clicked on Admin Logo
+        //bujhsoooo ?
+        public IActionResult Dashboard()
         {
-            return View();
+            return RedirectToPage("/AdminDashboard");
         }
+
+
         public IActionResult adminDashboard()
         {
             return RedirectToPage("/AdminDashboard");
@@ -20,10 +25,6 @@ namespace HR_Management_System.Controllers
         public IActionResult SetWorkingDays()
         {
             return RedirectToPage("/Set_Working_Days");
-        }
-        public IActionResult Add_Employee()
-        {
-            return RedirectToPage("/Add_Employee");
         }
 
         public IActionResult logout()
@@ -80,10 +81,6 @@ namespace HR_Management_System.Controllers
         public IActionResult EmployeeSalaryList()
         {
             return RedirectToPage("/EmployeeSalaryList");
-        }
-        public IActionResult MakePayment()
-        {
-            return RedirectToPage("/MakePayment");
         }
 
         public IActionResult GeneratePayslip()

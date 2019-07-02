@@ -161,7 +161,6 @@ E:\Visual studio\HR-Management-System\HR Management System\obj\Debug\netcoreapp2
 E:\Visual studio\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\ManageAttendence.g.cshtml.cs
 E:\Visual studio\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\ManageSalaryDetails.g.cshtml.cs
 E:\Visual studio\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\EmployeeSalaryList.g.cshtml.cs
-E:\Visual studio\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\MakePayment.g.cshtml.cs
 E:\Visual studio\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\GeneratePayslip.g.cshtml.cs
 E:\Visual studio\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\Profile.g.cshtml.cs
 E:\Github\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\AddDepartment.g.cshtml.cs
@@ -189,3 +188,66 @@ E:\Github\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razo
 E:\Github\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\Set_Working_Days.g.cshtml.cs
 E:\Github\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\Update_cv.g.cshtml.cs
 E:\Github\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_CareerLayout.g.cshtml.cs
+C:\Users\SHAKIR\Desktop\HR Project\HR Management System\bin\Debug\netcoreapp2.2\HR Management System.deps.json
+C:\Users\SHAKIR\Desktop\HR Project\HR Management System\bin\Debug\netcoreapp2.2\HR Management System.runtimeconfig.json
+C:\Users\SHAKIR\Desktop\HR Project\HR Management System\bin\Debug\netcoreapp2.2\HR Management System.runtimeconfig.dev.json
+C:\Users\SHAKIR\Desktop\HR Project\HR Management System\bin\Debug\netcoreapp2.2\HR Management System.dll
+C:\Users\SHAKIR\Desktop\HR Project\HR Management System\bin\Debug\netcoreapp2.2\HR Management System.pdb
+C:\Users\SHAKIR\Desktop\HR Project\HR Management System\bin\Debug\netcoreapp2.2\HR Management System.Views.dll
+C:\Users\SHAKIR\Desktop\HR Project\HR Management System\bin\Debug\netcoreapp2.2\HR Management System.Views.pdb
+C:\Users\SHAKIR\Desktop\HR Project\HR Management System\obj\Debug\netcoreapp2.2\HR Management System.csprojAssemblyReference.cache
+C:\Users\SHAKIR\Desktop\HR Project\HR Management System\obj\Debug\netcoreapp2.2\HR Management System.csproj.CoreCompileInputs.cache
+C:\Users\SHAKIR\Desktop\HR Project\HR Management System\obj\Debug\netcoreapp2.2\HR Management System.RazorAssemblyInfo.cache
+C:\Users\SHAKIR\Desktop\HR Project\HR Management System\obj\Debug\netcoreapp2.2\HR Management System.RazorAssemblyInfo.cs
+C:\Users\SHAKIR\Desktop\HR Project\HR Management System\obj\Debug\netcoreapp2.2\HR Management System.AssemblyInfoInputs.cache
+C:\Users\SHAKIR\Desktop\HR Project\HR Management System\obj\Debug\netcoreapp2.2\HR Management System.AssemblyInfo.cs
+C:\Users\SHAKIR\Desktop\HR Project\HR Management System\obj\Debug\netcoreapp2.2\HR Management System.TagHelpers.input.cache
+C:\Users\SHAKIR\Desktop\HR Project\HR Management System\obj\Debug\netcoreapp2.2\HR Management System.TagHelpers.output.cache
+C:\Users\SHAKIR\Desktop\HR Project\HR Management System\obj\Debug\netcoreapp2.2\HR Management System.RazorCoreGenerate.cache
+C:\Users\SHAKIR\Desktop\HR Project\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\AddDepartment.g.cshtml.cs
+C:\Users\SHAKIR\Desktop\HR Project\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\AddEmployee.g.cshtml.cs
+C:\Users\SHAKIR\Desktop\HR Project\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\AddNotice.g.cshtml.cs
+C:\Users\SHAKIR\Desktop\HR Project\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\AddRecruitementNotice.g.cshtml.cs
+C:\Users\SHAKIR\Desktop\HR Project\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\AdminDashboard.g.cshtml.cs
+C:\Users\SHAKIR\Desktop\HR Project\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\Apply.g.cshtml.cs
+C:\Users\SHAKIR\Desktop\HR Project\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\AttandenceReport.g.cshtml.cs
+C:\Users\SHAKIR\Desktop\HR Project\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\Career_Dashboard.g.cshtml.cs
+C:\Users\SHAKIR\Desktop\HR Project\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\Career_Login.g.cshtml.cs
+C:\Users\SHAKIR\Desktop\HR Project\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\Departmentlist.g.cshtml.cs
+C:\Users\SHAKIR\Desktop\HR Project\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\EmployeeList.g.cshtml.cs
+C:\Users\SHAKIR\Desktop\HR Project\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\EmployeeSalaryList.g.cshtml.cs
+C:\Users\SHAKIR\Desktop\HR Project\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\Employee_Dashboard.g.cshtml.cs
+C:\Users\SHAKIR\Desktop\HR Project\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\GeneratePayslip.g.cshtml.cs
+C:\Users\SHAKIR\Desktop\HR Project\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\HolidayList.g.cshtml.cs
+C:\Users\SHAKIR\Desktop\HR Project\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\LeaveApplicationList.g.cshtml.cs
+C:\Users\SHAKIR\Desktop\HR Project\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\LeaveCategory.g.cshtml.cs
+C:\Users\SHAKIR\Desktop\HR Project\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\LoginPage.g.cshtml.cs
+C:\Users\SHAKIR\Desktop\HR Project\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\MakePayment.g.cshtml.cs
+C:\Users\SHAKIR\Desktop\HR Project\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\Make_a_cv.g.cshtml.cs
+C:\Users\SHAKIR\Desktop\HR Project\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\ManageAttendence.g.cshtml.cs
+C:\Users\SHAKIR\Desktop\HR Project\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\ManageNotice.g.cshtml.cs
+C:\Users\SHAKIR\Desktop\HR Project\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\ManageRecruitmentNotice.g.cshtml.cs
+C:\Users\SHAKIR\Desktop\HR Project\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\ManageSalaryDetails.g.cshtml.cs
+C:\Users\SHAKIR\Desktop\HR Project\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\Profile.g.cshtml.cs
+C:\Users\SHAKIR\Desktop\HR Project\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\Recruitment_Applicant_List.g.cshtml.cs
+C:\Users\SHAKIR\Desktop\HR Project\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\Selected_Applicant_List.g.cshtml.cs
+C:\Users\SHAKIR\Desktop\HR Project\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\Set_Working_Days.g.cshtml.cs
+C:\Users\SHAKIR\Desktop\HR Project\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\Update_cv.g.cshtml.cs
+C:\Users\SHAKIR\Desktop\HR Project\HR Management System\obj\Debug\netcoreapp2.2\Razor\Views\Home\Index.g.cshtml.cs
+C:\Users\SHAKIR\Desktop\HR Project\HR Management System\obj\Debug\netcoreapp2.2\Razor\Views\Home\Login.g.cshtml.cs
+C:\Users\SHAKIR\Desktop\HR Project\HR Management System\obj\Debug\netcoreapp2.2\Razor\Views\Home\Privacy.g.cshtml.cs
+C:\Users\SHAKIR\Desktop\HR Project\HR Management System\obj\Debug\netcoreapp2.2\Razor\Views\Shared\Error.g.cshtml.cs
+C:\Users\SHAKIR\Desktop\HR Project\HR Management System\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_AdminDashboardLayout.g.cshtml.cs
+C:\Users\SHAKIR\Desktop\HR Project\HR Management System\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_CareerLayout.g.cshtml.cs
+C:\Users\SHAKIR\Desktop\HR Project\HR Management System\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_CookieConsentPartial.g.cshtml.cs
+C:\Users\SHAKIR\Desktop\HR Project\HR Management System\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_Layout.g.cshtml.cs
+C:\Users\SHAKIR\Desktop\HR Project\HR Management System\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_LoginPartial.g.cshtml.cs
+C:\Users\SHAKIR\Desktop\HR Project\HR Management System\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_ValidationScriptsPartial.g.cshtml.cs
+C:\Users\SHAKIR\Desktop\HR Project\HR Management System\obj\Debug\netcoreapp2.2\Razor\Views\_ViewImports.g.cshtml.cs
+C:\Users\SHAKIR\Desktop\HR Project\HR Management System\obj\Debug\netcoreapp2.2\Razor\Views\_ViewStart.g.cshtml.cs
+C:\Users\SHAKIR\Desktop\HR Project\HR Management System\obj\Debug\netcoreapp2.2\HR Management System.RazorTargetAssemblyInfo.cache
+C:\Users\SHAKIR\Desktop\HR Project\HR Management System\obj\Debug\netcoreapp2.2\HR Management System.RazorTargetAssemblyInfo.cs
+C:\Users\SHAKIR\Desktop\HR Project\HR Management System\obj\Debug\netcoreapp2.2\HR Management System.Views.pdb
+C:\Users\SHAKIR\Desktop\HR Project\HR Management System\obj\Debug\netcoreapp2.2\HR Management System.dll
+C:\Users\SHAKIR\Desktop\HR Project\HR Management System\obj\Debug\netcoreapp2.2\HR Management System.pdb
+C:\Users\SHAKIR\Desktop\HR Project\HR Management System\obj\Debug\netcoreapp2.2\HR Management System.csproj.CopyComplete
