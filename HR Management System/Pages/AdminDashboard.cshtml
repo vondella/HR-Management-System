@@ -2,7 +2,11 @@
 @model HR_Management_System.Pages.DashboardModel
 @{
     ViewData["Title"] = "Dashboard";
-    ViewData["User_Name"] = "Shakir";
+    if(Model.User != null)
+    { 
+        ViewData["User_Name"] = Model.User.Name;
+    }
+    
     Layout = "~/Views/Shared/_AdminDashboardLayout.cshtml";
 
 }

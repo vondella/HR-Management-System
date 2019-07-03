@@ -12939,11 +12939,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\SHAKIR\\Desktop\\HR Project\\HR Management System\\HR Management System.csproj",
+      "projectUniqueName": "E:\\Github\\HR-Management-System\\HR Management System\\HR Management System.csproj",
       "projectName": "HR Management System",
-      "projectPath": "C:\\Users\\SHAKIR\\Desktop\\HR Project\\HR Management System\\HR Management System.csproj",
+      "projectPath": "E:\\Github\\HR-Management-System\\HR Management System\\HR Management System.csproj",
       "packagesPath": "C:\\Users\\SHAKIR\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\SHAKIR\\Desktop\\HR Project\\HR Management System\\obj\\",
+      "outputPath": "E:\\Github\\HR-Management-System\\HR Management System\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

@@ -61,9 +61,9 @@ namespace HR_Management_System.Pages
 
             if(Password == _user.Password)
             {
-                var acc = new AccountManageModel(_user);
-                ViewData.Add("User_Name", (string)_user.Name);
-                return RedirectToPage("/AdminDashboard");
+                //var acc = new AccountManageModel(_user);
+                //ViewData.Add("User_Name", (string)_user.Name);
+                return RedirectToPage("/AdminDashboard", _user);
             }
             else
             {
