@@ -59,11 +59,17 @@ namespace HR_Management_System.Pages
                 return Page();
             }
 
-            if(Password == _user.Password)
+            if(Password == _user.Password && _user.UserType == "1")
             {
                 var acc = new AccountManageModel(_user);
                 ViewData.Add("User_Name", (string)_user.Name);
-                return RedirectToPage("/AdminDashboard");
+                return RedirectToPage("/AdminPages/AdminDashboard");
+            }
+            if (Password == _user.Password && _user.UserType == "2")
+            {
+                var acc = new AccountManageModel(_user);
+                ViewData.Add("User_Name", (string)_user.Name);
+                return RedirectToPage("/EmployeePages/Employee_Dashboard");
             }
             else
             {

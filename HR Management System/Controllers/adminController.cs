@@ -13,18 +13,18 @@ namespace HR_Management_System.Controllers
         //bujhsoooo ?
         public IActionResult Dashboard()
         {
-            return RedirectToPage("/AdminDashboard");
+            return RedirectToPage("/AdminPages/AdminDashboard");
         }
 
 
         public IActionResult adminDashboard()
         {
-            return RedirectToPage("/AdminDashboard");
+            return RedirectToPage("/AdminPages/AdminDashboard");
         }
 
         public IActionResult SetWorkingDays()
         {
-            return RedirectToPage("/Set_Working_Days");
+            return RedirectToPage("/AdminPages/Settings/Set_Working_Days");
         }
 
         public IActionResult logout()
@@ -35,88 +35,88 @@ namespace HR_Management_System.Controllers
 
         public IActionResult LeaveCategory()
         {
-            return RedirectToPage("/LeaveCategory");
+            return RedirectToPage("/AdminPages/Settings/LeaveCategory");
         }
         public IActionResult HolidayList()
         {
-            return RedirectToPage("/HolidayList");
+            return RedirectToPage("/AdminPages/Settings/HolidayList");
         }
         public IActionResult AddDepartment()
         {
-            return RedirectToPage("/AddDepartment");
+            return RedirectToPage("/AdminPages/Department/AddDepartment");
         }
         public IActionResult Departmentlist()
         {
-            return RedirectToPage("/Departmentlist");
+            return RedirectToPage("/AdminPages/Department/Departmentlist");
         }
         public IActionResult AddEmployee()
         {
-            return RedirectToPage("/AddEmployee");
+            return RedirectToPage("/AdminPages/Employee/AddEmployee");
         }
 
         public IActionResult EmployeeList()
         {
-            return RedirectToPage("/EmployeeList");
+            return RedirectToPage("/AdminPages/Employee/EmployeeList");
         }
 
         public IActionResult ManageAttendence()
         {
-            return RedirectToPage("/ManageAttendence");
+            return RedirectToPage("/AdminPages/Attendence/ManageAttendence");
         }
 
         public IActionResult AttandenceReport()
         {
-            return RedirectToPage("/AttandenceReport");
+            return RedirectToPage("/AdminPages/Attendence/AttandenceReport");
         }
 
         public IActionResult LeaveApplicationList()
         {
-            return RedirectToPage("/LeaveApplicationList");
+            return RedirectToPage("/AdminPages/LeaveApplication/LeaveApplicationList");
         }
 
         public IActionResult ManageSalaryDetails()
         {
-            return RedirectToPage("/ManageSalaryDetails");
+            return RedirectToPage("/AdminPages/Payroll/ManageSalaryDetails");
         }
         public IActionResult EmployeeSalaryList()
         {
-            return RedirectToPage("/EmployeeSalaryList");
+            return RedirectToPage("/AdminPages/Payroll/EmployeeSalaryList");
         }
 
         public IActionResult GeneratePayslip()
         {
-            return RedirectToPage("/GeneratePayslip");
+            return RedirectToPage("/AdminPages/Payroll/GeneratePayslip");
         }
 
         public IActionResult AddNotice()
         {
-            return RedirectToPage("/AddNotice");
+            return RedirectToPage("/AdminPages/Notice/AddNotice");
         }
         
 
         public IActionResult ManageNotice()
         {
-            return RedirectToPage("/ManageNotice");
+            return RedirectToPage("/AdminPages/Notice/ManageNotice");
         }
 
         public IActionResult ManageRecruitmentNotice()
         {
-            return RedirectToPage("/ManageRecruitmentNotice");
+            return RedirectToPage("/AdminPages/Recruitment/ManageRecruitmentNotice");
         }
 
         public IActionResult AddRecruitmentNotice()
         {
-            return RedirectToPage("/AddRecruitementNotice");
+            return RedirectToPage("/AdminPages/Recruitment/AddRecruitementNotice");
         }
 
         public IActionResult Recruitment_Applicant_List()
         {
-            return RedirectToPage("/Recruitment_Applicant_List");
+            return RedirectToPage("/AdminPages/Recruitment/Recruitment_Applicant_List");
         }
 
         public IActionResult Selected_Applicant_List()
         {
-            return RedirectToPage("/Selected_Applicant_List");
+            return RedirectToPage("/AdminPages/Recruitment/Selected_Applicant_List");
         }
 
         public IActionResult Profile()

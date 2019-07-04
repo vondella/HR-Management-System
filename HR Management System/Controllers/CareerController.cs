@@ -14,23 +14,23 @@ namespace HR_Management_System.Controllers
         }
         public IActionResult Make_a_cv()
         {
-            return RedirectToPage("/Make_a_cv");
+            return RedirectToPage("/CareerPages/Make_a_cv");
         }
         public IActionResult Update_cv()
         {
-            return RedirectToPage("/Update_cv");
+            return RedirectToPage("/CareerPages/Update_cv");
         }
         public IActionResult Apply()
         {
-            return RedirectToPage("/Apply");
+            return RedirectToPage("/CareerPages/Apply");
         }
         public IActionResult CareerDashboard()
         {
-            return RedirectToPage("/Career_Dashboard");
+            return RedirectToPage("/CareerPages/Career_Dashboard");
         }
         public IActionResult logout()
         {
-            return RedirectToPage("/Career_Login");
+            return RedirectToPage("/CareerPages/Career_Login");
         }
     }
 }

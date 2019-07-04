@@ -29,10 +29,21 @@ namespace HR_Management_System.Models
                        Name = "Admin",
                        Password = "admin",
                        RememberMe = true,
-                       UserName = "admin"
+                       UserName = "admin",
+                       UserType = "1"
                    }
                    );
-
+                    context.Users.AddRange(
+                  new UserModel
+                  {
+                      Email = "employee@gmail.com",
+                      Name = "Employee",
+                      Password = "1234",
+                      RememberMe = true,
+                      UserName = "employee",
+                      UserType = "2"
+                  }
+                  );
                     context.SaveChanges();
                 }
 
@@ -42,11 +53,11 @@ namespace HR_Management_System.Models
                     context.CareerUsers.AddRange(
                     new CareerUser
                     {
-                        Email = "shakir@gmail.com",
-                        FirstName = "Shakir",
-                        LastName = "Ahmed",
-                        Password = "12345",
-                        Username = "shakir12345"
+                        Email = "career@gmail.com",
+                        FirstName = "Career",
+                        LastName = "",
+                        Password = "1234",
+                        Username = "career"
                     });
                     context.SaveChanges();
                 }
