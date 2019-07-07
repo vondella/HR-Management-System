@@ -24,7 +24,7 @@
             <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
                 <!-- Sidebar - Brand -->
-                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                <a class="sidebar-brand d-flex align-items-center justify-content-center" asp-action="Dashboard" asp-controller="Emp">
                     <div class="sidebar-brand-icon rotate-n-15">
                         <i class="fas fa-user"></i>
                     </div>
@@ -35,7 +35,7 @@
 
                 <!-- Nav Item - Dashboard -->
                 <li class="nav-item active">
-                    <a class="nav-link" href="Emoloyee_Dashboard.html">
+                    <a class="nav-link" asp-action="Dashboard" asp-controller="Emp">
                         <i class="fas fa-fw fa-tachometer-alt"></i>
                         <span>Dashboard</span>
                     </a>
@@ -48,27 +48,21 @@
                 <!-- Nav Item - Pages Collapse Menu -->
                 <!-- Nav Item - Charts -->
                 <li class="nav-item">
-                    <a class="nav-link" href="Leave_Application.html">
+                    <a class="nav-link" asp-action="Leave_Application" asp-controller="Emp">
                         <i class="fa fa-rocket"></i>
                         <span>Leave Application</span>
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="Employee_Notice.html">
+                    <a class="nav-link" asp-action="Notice" asp-controller="Emp">
                         <i class="fa fa-flag"></i>
-                        <span>Employee Notice</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="Events.html">
-                        <i class="fa fa-bell"></i>
-                        <span>Events</span>
+                        <span>Notice</span>
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="Payment_info.html">
+                    <a class="nav-link" asp-action="payment_info" asp-controller="Emp">
                         <i class="fa fa-dollar-sign"></i>
                         <span>Payment Info</span>
                     </a>
@@ -124,8 +118,7 @@
 
 
 
-                            <div class="topbar-divider d-none d-sm-block"></div>
-
+                            
                             <!-- Nav Item - User Information -->
                             <li class="nav-item dropdown no-arrow">
                                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -134,7 +127,7 @@
                                 </a>
                                 <!-- Dropdown - User Information -->
                                 <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" asp-action="Profile" asp-controller="Emp">
                                         <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                         Profile
                                     </a>
@@ -149,38 +142,6 @@
                         </ul>
 
                     </nav>
-                    <!-- End of Topbar -->
-                    <!-- Begin Page Content -->
-                    <div class="container-fluid">
-
-                        <!-- Page Heading -->
-                        <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                            <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-                        </div>
-
-                        <!-- Content Row -->
-                        <div class="row">
-
-                            <!-- Earnings (Monthly) Card Example -->
-                            @*<div class="col-xl-3 col-md-6 mb-4">
-                                <div class="card border-left-primary shadow h-100 py-2">
-                                    <div class="card-body">
-                                        <div class="row no-gutters align-items-center">
-                                            <div class="col mr-2">
-                                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Employee</div>
-                                                <div class="h5 mb-0 font-weight-bold text-gray-800">10</div>
-                                            </div>
-                                            <div class="col-auto">
-                                                <i class="fa fa-users fa-2x text-gray-300"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>*@
-
-
-                            <!-- Footer -->
-                            <!-- Scroll to Top Button-->
                             <a class="scroll-to-top rounded" href="#page-top">
                                 <i class="fas fa-angle-up"></i>
                             </a>
@@ -198,7 +159,7 @@
                                         <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                                         <div class="modal-footer">
                                             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                                            <a class="btn btn-primary" href="login.html">Logout</a>
+                                            <a class="btn btn-primary" asp-action="logout" asp-controller="Emp">Logout</a>
                                         </div>
                                     </div>
                                 </div>
@@ -212,8 +173,8 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
+           
+        
 
         <footer class="border-top footer text-muted">
             <div class="container">

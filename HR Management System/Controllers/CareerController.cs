@@ -32,5 +32,10 @@ namespace HR_Management_System.Controllers
         {
             return RedirectToPage("/CareerPages/Career_Login");
         }
+
+        public IActionResult Profile()
+        {
+            return RedirectToPage("/CareerPages/Profile");
+        }
     }
 }
