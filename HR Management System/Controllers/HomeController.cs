@@ -28,7 +28,7 @@ namespace HR_Management_System.Controllers
 
         public IActionResult CareerLogin()
         {
-            return RedirectToPage("/Career_Login");
+            return RedirectToPage("/CareerPages/Career_Login");
         }
 
 

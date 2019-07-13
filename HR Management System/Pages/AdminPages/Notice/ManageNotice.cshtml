@@ -1,0 +1,55 @@
+﻿@page
+@model HR_Management_System.Pages.ManageNoticeModel
+@{
+    ViewData["Title"] = "ManageNotice";
+    Layout = "~/Views/Shared/_AdminDashboardLayout.cshtml";
+}
+<body>
+    <div class="container-fluid">
+
+
+        <div class="wrap-fpanel">
+
+            <div class="row">
+                <div class="col-sm-12" data-offset="0">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <div class="panel-title">
+                                <strong>List of All Notice</strong>
+                            </div>
+                        </div>
+                        <!-- Table -->
+
+                        <div id="dataTables-example_wrapper" class="dataTables_wrapper form-inline" role="grid">
+                            <div class="row"><div class="col-sm-6"><div class="dataTables_length" id="dataTables-example_length"><label><select name="dataTables-example_length" aria-controls="dataTables-example" class="form-control input-sm"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> <b>Records per page</b></label></div></div><div class="col-sm-6"><div id="dataTables-example_filter" class="dataTables_filter"><label>Search:<input type="search" style="margin:0px 10px;" class="form-control input-sm" aria-controls="dataTables-example"></label></div></div></div><table class="table table-bordered table-hover dataTable no-footer" id="dataTables-example" aria-describedby="dataTables-example_info">
+                                <thead>
+                                    <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="SL: activate to sort column ascending" style="width: 62px;">SL</th><th class="col-sm-1 sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Created Date: activate to sort column ascending" style="width: 73px;">Created Date</th><th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Title: activate to sort column ascending" style="width: 84px;">Title</th><th class="col-sm-5 sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Short Description: activate to sort column ascending" style="width: 438px;">Description</th><th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Status: activate to sort column ascending" style="width: 167px;">Status</th><th class="col-sm-2 sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Action: activate to sort column ascending" style="width: 164px;">Action</th></tr>
+                                </thead>
+                                <tbody>
+
+                                    <tr class="odd">
+                                        <td class="sorting_1">1</td>
+                                        <td class=" ">09-Jun-2019</td>
+                                        <td class=" ">EID</td>
+                                        <td class=" ">HOLIDAY FOR EID&nbsp;</td>
+                                        <td class=" ">
+
+                                            <span class="label label-success">Published</span>
+                                        </td>
+                                        <td class=" ">
+                                            <a href="http://localhost/HRMS-FRESH/admin/notice/notice_details/1" class="btn btn-info btn-xs" data-toggle="tooltip" data-placement="top" title="" data-original-title="View">View</a>
+                                            <a href="http://localhost/HRMS-FRESH/admin/notice/add_notice/1" class="btn btn-primary btn-xs" title="" data-toggle="tooltip" data-placement="top" data-original-title="Edit"> Edit</a>
+                                            <a href="http://localhost/HRMS-FRESH/admin/notice/delete_notice/1" class="btn btn-danger btn-xs" title="" data-toggle="tooltip" data-placement="top" onclick="return confirm('You are about to delete a record. This cannot be undone. Are you sure?');" data-original-title="Delete"> Delete</a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table><div class="row"><div class="col-sm-6"><div class="dataTables_info" id="dataTables-example_info" role="alert" aria-live="polite" aria-relevant="all">Showing 1 to 1 of 1 entries</div></div><div class="col-sm-6"><div class="dataTables_paginate paging_simple_numbers" id="dataTables-example_paginate"><ul class="pagination"><li class="paginate_button previous disabled" aria-controls="dataTables-example" tabindex="0" id="dataTables-example_previous"><a href="#">Previous</a></li><li class="paginate_button active" aria-controls="dataTables-example" tabindex="0"><a href="#">1</a></li><li class="paginate_button next disabled" aria-controls="dataTables-example" tabindex="0" id="dataTables-example_next"><a href="#">Next</a></li></ul></div></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
