@@ -6,6 +6,7 @@ using HR_Management_System.Data;
 using HR_Management_System.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 
 namespace HR_Management_System.Pages
 {
@@ -23,31 +24,45 @@ namespace HR_Management_System.Pages
 
 
 
-        public async Task<IActionResult> OnGetDeleteDepartmentAsync(long? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
+        //public async Task<IActionResult> OnGetDeleteDepartmentAsync(long? id)
+        //{
+        //    //if (id == null)
+        //    //{
+        //    //    return NotFound();
+        //    //}
 
-            var department = await _db.Departments.FindAsync(id);
-            if(department == null)
-            {
-                return NotFound();
-            }
+        //    //var department = await _db.Departments.FindAsync(id);
+        //    //if(department == null)
+        //    //{
+        //    //    return NotFound();
+        //    //}
 
-            var designations = department.Designation;
+        //    //var designations = _db.Designations.Where(des => des == department.Id)
 
-            department.Designation
-            _db.Departments.Remove(department);
-            
+        //    //var gg =  department.Designation;
+        //    ////var designations = department.Designation;
+        //    ////if (department.Designation != null)
+        //    ////{
+        //    ////    if (department.Designation.Count > 0)
+        //    ////    {
+        //    ////        foreach (var designationItem in department.Designation)
+        //    ////        {
+        //    ////            _db.Designations.Remove(designationItem);
+        //    ////        }
+        //    ////    }
+        //    ////}
 
+        //    ////_db.Departments.Remove(department);
 
-            await _db.SaveChangesAsync();
+           
 
-            return Page();
+         
 
-        }
+        //    ////await _db.SaveChangesAsync();
+
+        //    //return RedirectToPage();
+
+        //}
 
 
 
