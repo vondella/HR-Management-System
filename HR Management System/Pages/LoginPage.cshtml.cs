@@ -47,7 +47,7 @@ namespace HR_Management_System.Pages
 
         public void OnGet()
         {
-            var yes = _db.Users.Any();
+            //var yes = _db.Users.Any();
         }
 
         public IActionResult OnPostAsync()
@@ -59,22 +59,23 @@ namespace HR_Management_System.Pages
                 return Page();
             }
 
-            if(Password == _user.Password && _user.UserType == "1")
+
+            if(Password == _user.Password)
             {
-                var acc = new AccountManageModel(_user);
                 ViewData.Add("User_Name", (string)_user.Name);
-                return RedirectToPage("/AdminPages/AdminDashboard");
+
+                if (_user.UserType == UserType.Admin)
+                {    
+                    return RedirectToPage("/AdminPages/AdminDashboard");
+                }
+                if (_user.UserType ==  UserType.Employee)
+                {
+                    return RedirectToPage("/EmployeePages/Employee_Dashboard");
+                }
             }
-            if (Password == _user.Password && _user.UserType == "2")
-            {
-                var acc = new AccountManageModel(_user);
-                ViewData.Add("User_Name", (string)_user.Name);
-                return RedirectToPage("/EmployeePages/Employee_Dashboard");
-            }
-            else
-            {
-                return Page();
-            }
+
+            ViewData["Login_Error_Msg"] = "Wrong Password";
+            return Page();
         }
     }
 }

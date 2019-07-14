@@ -4,58 +4,66 @@
     ViewData["Title"] = "Departmentlist";
     Layout = "~/Views/Shared/_AdminDashboardLayout.cshtml";
 }
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 
 
-<body>
-    <div class="container-fluid">
+<div class="container-fluid">
 
-        <div class="row">
-            <div class="col-sm-12" data-offset="0">
-                <div class="panel panel-default">
-                    <!-- Default panel contents -->
-                    <div class="panel-heading" style="background: #466472;color: #FFFFFF;">
-                        <div class="panel-title">
-                            <strong>Department List</strong>
-                        </div>
+    <div class="row">
+        <div class="col-sm-12" data-offset="0">
+            <div class="panel panel-default">
+                <!-- Default panel contents -->
+                <div class="panel-heading">
+                    <div class="panel-title">
+                        <h3 class="text-gray-800">Department List</h3>
                     </div>
+                </div>
 
-
+                @foreach (var departmentItem in Model.Departments)
+                {
                     <div class="panel-heading">
                         <div class="panel-title">
-                            <strong>
-                                sells                                    <div class="pull-right">
-                                    <a href="http://localhost/HRMS-FRESH/admin/department/add_department/1" class="btn btn-primary btn-xs" title="" data-toggle="tooltip" data-placement="top" data-original-title="Edit"><i class="fa fa-pencil-square-o"></i> Edit</a>
-                                    <a data-original-title="Delete" href="http://localhost/HRMS-FRESH/admin/department/delete_department/1" class="btn btn-danger btn-xs" title="" data-toggle="tooltip" data-placement="top" onclick="return confirm('You are about to delete This Department. All Designation Under This Department Will Be Deleted. Are you sure?');"><i class="fa fa-trash-o"></i> Delete</a>
-                                </div>
-                            </strong>
+                            <strong>@departmentItem.Name</strong>
+
+                            <div class="pull-right" style="margin-left:850px" >
+                                <a href="#" class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o"></i> Edit</a>
+                                <a href="#" class="btn btn-danger btn-xs" onclick="return confirm('You are about to delete This Department. All Designation Under This Department Will Be Deleted. Are you sure?');"><i class="fa fa-trash-o"></i> Delete</a>
+                            </div>
                         </div>
                     </div>
-                    <!-- Table -->
+
+
+
                     <table class="table table-bordered table-hover">
                         <thead>
                             <tr>
-                                <th class="col-sm-1">SL</th>
-                                <th>Designations</th>
+                                <th>SL</th>
+                                <th class="col-sm-2" >Designations</th>
                             </tr>
                         </thead>
                         <tbody>
 
-                            <tr>
-                                <td>1</td>
-                                <td>manager</td>
+                            @if (departmentItem.Designation != null)
+                            {
+                                if (departmentItem.Designation.Count > 0)
+                                {
+                                    for (var i = 0; i < departmentItem.Designation.Count; i++)
+                                    {
+                                        <tr>
+                                            <td>@(i + 1)</td>
+                                            <td>@departmentItem.Designation[i].Name</td>
 
-                            </tr>
-
+                                        </tr>
+                                    }
+                                }
+                            }
                         </tbody>
                     </table>
+                }
 
-
-                    
             </div>
         </div>
     </div>
-        </div>
-    
+</div>
 
-</body>
 

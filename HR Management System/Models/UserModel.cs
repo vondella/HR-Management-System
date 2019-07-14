@@ -26,7 +26,7 @@ namespace HR_Management_System.Models
         public string Password { get; set; }
 
         [Required]
-        public string UserType { get; set; }
+        public UserType UserType { get; set; }
 
 
         [Display(Name = "Remember me?")]

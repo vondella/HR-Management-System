@@ -41,6 +41,6 @@ namespace HR_Management_System.Controllers
         {
             return RedirectToPage("/EmployeePages/New_leave");
         }
-        
+
     }
 }

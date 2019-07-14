@@ -30,7 +30,7 @@ namespace HR_Management_System.Models
                        Password = "admin",
                        RememberMe = true,
                        UserName = "admin",
-                       UserType = "1"
+                       UserType = UserType.Admin
                    }
                    );
                     context.Users.AddRange(
@@ -41,7 +41,7 @@ namespace HR_Management_System.Models
                       Password = "1234",
                       RememberMe = true,
                       UserName = "employee",
-                      UserType = "2"
+                      UserType =  UserType.Employee
                   }
                   );
                     context.SaveChanges();
