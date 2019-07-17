@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HR_Management_System.Migrations
 {
     [DbContext(typeof(HRMS_DB_Context))]
-    [Migration("20190713063729_DepartmentReconsider")]
-    partial class DepartmentReconsider
+    [Migration("20190714191836_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -74,7 +74,7 @@ namespace HR_Management_System.Migrations
 
                     b.HasIndex("DepartmentModelId");
 
-                    b.ToTable("DesignationModel");
+                    b.ToTable("Designations");
                 });
 
             modelBuilder.Entity("HR_Management_System.Models.UserModel", b =>
