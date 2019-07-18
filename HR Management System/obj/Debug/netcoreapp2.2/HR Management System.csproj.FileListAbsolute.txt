@@ -315,3 +315,4 @@ C:\Users\SHAKIR\Desktop\alamin_temp\HR Management System\obj\Debug\netcoreapp2.2
 C:\Users\SHAKIR\Desktop\alamin_temp\HR Management System\obj\Debug\netcoreapp2.2\HR Management System.pdb
 C:\Users\SHAKIR\Desktop\alamin_temp\HR Management System\obj\Debug\netcoreapp2.2\HR Management System.csproj.CopyComplete
 C:\Users\SHAKIR\Desktop\alamin_temp\HR Management System\obj\Debug\netcoreapp2.2\HR Management System.csprojAssemblyReference.cache
+E:\Github\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\AdminPages\Department\EditDepartment.g.cshtml.cs

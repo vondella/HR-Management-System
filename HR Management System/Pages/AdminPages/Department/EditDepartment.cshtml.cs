@@ -35,6 +35,13 @@ namespace HR_Management_System.Pages.AdminPages.Department
         }
 
 
+
+        public string GetDesignationID(int k)
+        {
+            return "hahah";
+        }
+
+
         public async Task<IActionResult> OnGetAsync(long? id)
         {
             if(id == null)
@@ -51,8 +58,29 @@ namespace HR_Management_System.Pages.AdminPages.Department
 
 
             DepartmentName = Department.Name;
+            Designations = new List<DesignationModel>();
+            if(Department.Designation != null)
+            {
+                if(Department.Designation.Count > 0)
+                {
+                    foreach(var item in Department.Designation)
+                    {
+                        Designations.Add(new DesignationModel()
+                        {
+                            Id = item.Id,
+                            Name = item.Name
+                        });
+                    }
+                    
+                }
+            }
+            
+            return Page();
+        }
 
 
+        public IActionResult OnPost()
+        {
             return Page();
         }
     }

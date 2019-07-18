@@ -27,7 +27,7 @@
                                 <strong>@departmentItem.Name</strong>
 
                                 <div class="pull-right">
-                                    <a href="#" class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o"></i> Edit</a>
+                                    <a asp-page-handler="EditDepartment" asp-route-id="@departmentItem.Id" class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o"></i> Edit</a>
                                     <a asp-page-handler="DeleteDepartment" asp-route-id="@departmentItem.Id" class="btn btn-danger btn-xs" onclick="return confirm('You are about to delete This Department. All Designation Under This Department Will Be Deleted. Are you sure?');"><i class="fa fa-trash-o"></i> Delete</a>
                                 </div>
                             </div>

@@ -45,6 +45,11 @@ namespace HR_Management_System.Pages
         }
 
 
+        public IActionResult OnGetEditDepartment(long? id)
+        {
+            return RedirectToPage("/AdminPages/Department/EditDepartment", new { id = id });
+        }
+
 
         public void OnGet()
         {
