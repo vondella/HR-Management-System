@@ -112,3 +112,16 @@ function RemoveDesignationFromForm(child_id)
         container.removeChild(child);
     }
 }
+
+
+
+function RemoveDesignationFromForm(id, containerId) {
+
+}
+
+
+
+
+function AddMoreDesignationFieldInEditdepartment(DesignationContainerInEditDepartment) {
+
+}

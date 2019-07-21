@@ -4,6 +4,8 @@
     ViewData["Title"] = "ManageAttendence";
     Layout = "~/Views/Shared/_AdminDashboardLayout.cshtml";
 }
+<center><h1>Set Attendence</h1></center>
+
 
 <body>
 
@@ -145,7 +147,9 @@
             ;
 
 
-        </script><div class="row">
+        </script>
+
+        <div class="row">
             <div class="col-sm-12">
 
                 <div class="row">
@@ -153,9 +157,9 @@
                         <div class="wrap-fpanel">
                             <div class="panel panel-default" data-collapsed="0">
                                 <div class="panel-heading">
-                                    <div class="panel-title">
-                                        <strong>Set Attendance</strong>
-                                    </div>
+                                    @*<div class="panel-title">
+                                        <center><strong>Set Attendance</strong></center>
+                                    </div>*@
                                 </div>
                                 <div class="panel-body">
                                     <form id="form" action="http://localhost/HRMS-FRESH/admin/attendance/manage_attendance" method="post" enctype="multipart/form-data" class="form-horizontal" novalidate="novalidate">
@@ -178,7 +182,7 @@
                                                 <div class="col-sm-5">
                                                     <select name="department_id" id="department" class="form-control">
                                                         <option value="">Select Department</option>
-                                                        
+
 
                                                     </select>
                                                 </div>
@@ -193,43 +197,43 @@
                                 </div>
                             </div>
                             <table class="table table-bordered">
-                                    <thead>
-                                        <tr>
-                                            <th>Employee Name</th>
-                                            <th>Designation</th>
-                                            <th> Attend</th>
-                                            <th> Absent</th>
-                                            <th> Leave Category</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
+                                <thead>
+                                    <tr>
+                                        <th>Employee Name</th>
+                                        <th>Designation</th>
+                                        <th> Attend</th>
+                                        <th> Absent</th>
+                                        <th> Leave Category</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
 
-                                        <tr>
-                                            <td>
-                                                <input type="hidden" name="date" value="2019-07-02">
+                                    <tr>
+                                        <td>
+                                            <input type="hidden" name="date" value="2019-07-02">
 
-                                                <input type="hidden" name="employee_id[]" value="2"> Al Amin
-                                            </td>
-                                            <td>manager</td>
-                                            <td><input name="attendance[]" id="2" value="2" type="checkbox" class="child_present"> </td>
-                                            <td><input name="attendance[]" id="2" value="2" type="checkbox" class="child_present"> </td>
+                                            <input type="hidden" name="employee_id[]" value="2"> Al Amin
+                                        </td>
+                                        <td>manager</td>
+                                        <td><input name="attendance[]" id="2" value="2" type="checkbox" class="child_present"> </td>
+                                        <td><input name="attendance[]" id="2" value="2" type="checkbox" class="child_present"> </td>
 
-                                            <td style="width: 35%">
-                                                <input id="2" type="checkbox" value="2" class="child_absent">
-                                                <div id="l_category" class="col-sm-9">
-                                                    <select name="leave_category_id[]" class="form-control">
-                                                        <option value="">Select Leave Category</option>
-                                                        <option value="1">
-                                                            eid
-                                                        </option>;
-                                                    </select>
-                                                </div>
-                                            </td>
-                                        </tr>
+                                        <td style="width: 35%">
+                                            <input id="2" type="checkbox" value="2" class="child_absent">
+                                            <div id="l_category" class="col-sm-9">
+                                                <select name="leave_category_id[]" class="form-control">
+                                                    <option value="">Select Leave Category</option>
+                                                    <option value="1">
+                                                        eid
+                                                    </option>;
+                                                </select>
+                                            </div>
+                                        </td>
+                                    </tr>
 
-                                    </tbody>
-                                </table>
-                            </form>
+                                </tbody>
+                            </table>
+                            
                         </div>
                         <div class="form-group">
                             <div class="col-sm-offset-11">

@@ -24,56 +24,47 @@ namespace HR_Management_System.Pages
 
 
 
-        //public async Task<IActionResult> OnGetDeleteDepartmentAsync(long? id)
-        //{
-        //    //if (id == null)
-        //    //{
-        //    //    return NotFound();
-        //    //}
+        public async Task<IActionResult> OnGetDeleteDepartmentAsync(long? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
 
-        //    //var department = await _db.Departments.FindAsync(id);
-        //    //if(department == null)
-        //    //{
-        //    //    return NotFound();
-        //    //}
+            var department = await _db.Departments.Include(a=>a.Designation).AsNoTracking().FirstOrDefaultAsync(m => m.Id == id);
+            if (department == null)
+            {
+                return NotFound();
+            }
 
-        //    //var designations = _db.Designations.Where(des => des == department.Id)
+            _db.Departments.Remove(department);
+            await _db.SaveChangesAsync();
 
-        //    //var gg =  department.Designation;
-        //    ////var designations = department.Designation;
-        //    ////if (department.Designation != null)
-        //    ////{
-        //    ////    if (department.Designation.Count > 0)
-        //    ////    {
-        //    ////        foreach (var designationItem in department.Designation)
-        //    ////        {
-        //    ////            _db.Designations.Remove(designationItem);
-        //    ////        }
-        //    ////    }
-        //    ////}
+            return RedirectToPage();
 
-        //    ////_db.Departments.Remove(department);
+        }
 
-           
 
-         
-
-        //    ////await _db.SaveChangesAsync();
-
-        //    //return RedirectToPage();
-
-        //}
-
+        public IActionResult OnGetEditDepartment(long? id)
+        {
+            return RedirectToPage("/AdminPages/Department/EditDepartment", new { id = id });
+        }
 
 
         public void OnGet()
         {
-            Departments = _db.Departments.Select(d => new DepartmentModel
+            if(_db.Departments.Any())
             {
-                Id = d.Id,
-                Name = d.Name,
-                Designation = d.Designation
-            }).ToList() ;
+                Departments = _db.Departments.Include(d => d.Designation).AsNoTracking().ToList();
+            }
+
+
+            //Departments = _db.Departments.Select(d => new DepartmentModel
+            //{
+            //    Id = d.Id,
+            //    Name = d.Name,
+            //    Designation = d.Designation
+            //}).ToList() ;
         }
     }
 }

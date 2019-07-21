@@ -92,7 +92,7 @@ namespace HR_Management_System.Controllers
         {
             return RedirectToPage("/AdminPages/Notice/AddNotice");
         }
-
+        
 
         public IActionResult ManageNotice()
         {
@@ -121,7 +121,7 @@ namespace HR_Management_System.Controllers
 
         public IActionResult Profile()
         {
-            return RedirectToPage("/AdminPages/Profile");
+            return RedirectToPage("/Profile");
         }
     }
 }

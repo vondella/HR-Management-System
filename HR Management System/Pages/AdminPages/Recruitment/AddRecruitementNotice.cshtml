@@ -4,6 +4,8 @@
     ViewData["Title"] = "AddRecruitementNotice";
     Layout = "~/Views/Shared/_AdminDashboardLayout.cshtml";
 }
+<center><h1>Create Recruitment Notice</h1></center>
+
 <body>
 
     <div class="container-fluid">
@@ -14,9 +16,9 @@
                 <div class="wrap-fpanel">
                     <div class="panel panel-default" data-collapsed="0">
                         <div class="panel-heading">
-                            <div class="panel-title">
-                                <strong>Create Notice</strong>
-                            </div>
+                            @*<div class="panel-title">
+                                <strong>Create Recruitment Notice</strong>
+                            </div>*@
                         </div>
                         <div class="panel-body">
 
@@ -43,12 +45,18 @@
                                     <div class="col-sm-5">
                                         <select name="department_id" id="department" class="form-control">
                                             <option value="">Select Department</option>
-
-
                                         </select>
                                     </div>
                                 </div>
+                                <div class="form-group">
+                                    <label for="field-1" class="col-sm-3 control-label">Designation <span class="required" aria-required="true">*</span></label>
 
+                                    <div class="col-sm-5">
+                                        <select name="department_id" id="department" class="form-control">
+                                            <option value="">Select Designation</option>
+                                        </select>
+                                    </div>
+                                </div>
 
                                 <div class="form-group">
                                     <label for="field-1" class="col-sm-3 control-label">Number of Vacancy<span class="required" aria-required="true">*</span></label>
@@ -91,7 +99,7 @@
                 </div>
             </div>
         </div>
-        </div>
+    </div>
 
 </body>
 

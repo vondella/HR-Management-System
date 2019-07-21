@@ -6,6 +6,7 @@
 }
 
 
+<center><h1>Holiday List</h1></center>
 
 <body>
     <div class="container-fluid">
@@ -18,11 +19,11 @@
             <div class="panel-body">
                 <form id="attendance-form" role="form" enctype="multipart/form-data" action="http://localhost/HRMS-FRESH/admin/attendance/get_report" method="post" class="form-horizontal form-groups-bordered" novalidate="novalidate">
                     <div class="form-group">
-                        <label for="field-1" class="col-sm-3 control-label">Holiday List</label>
+                        @*<label for="field-1" class="col-sm-3 control-label">Holiday List</label>*@
 
 
                         <div class="form-group">
-                            <label for="field-1" class="col-sm-3 control-label">Month &amp; Year <span class="required" aria-required="true">*</span></label>
+                            <label for="field-1" class="col-sm-3 control-label"> Select Month &amp; Year <span class="required" aria-required="true">*</span></label>
                             <div class="input-group col-sm-5">
                                 <input type="month" class="form-control monthyear" value="" name="date">
                                 <div class="input-group-addon">
@@ -35,7 +36,8 @@
                                 <button type="submit" id="sbtn" class="btn btn-primary">Search</button>
                             </div>
                         </div>
-</form>
+                    </div>
+                </form>
             </div>
         </div>
         <div>
@@ -58,6 +60,7 @@
                 </tbody>
             </table>
         </div>
-        
+
     </div>
+
 </body>

@@ -9,6 +9,7 @@
 
 
 
+<center><h1>Add Department</h1></center>
 
 <div class="container-fluid">
 
@@ -18,16 +19,16 @@
             <div class="wrap-fpanel">
                 <div class="panel panel-default" data-collapsed="0">
                     <div class="panel-heading">
-                        <div class="panel-title">
+                        @*<div class="panel-title">
                             <strong>Add Department</strong>
-                        </div>
+                        </div>*@
                     </div>
                     <div class="panel-body">
 
                         <form id="form_validation" method="post" class="form-horizontal form-groups-bordered" novalidate="novalidate">
                             <div asp-validation-summary="All" class="text-danger"></div>
                             <div class="form-group">
-                                <label asp-for="department_name" class="col-sm-3 control-label"><span class="required" aria-required="true">Department Name</span></label>
+                                <label asp-for="department_name" class="col-sm-3 control-label"><span class="required" aria-required="true"> Department Name</span></label>
 
                                 <div class="col-sm-5">
                                     <input type="text" asp-for="department_name" name="department_name" class="form-control" placeholder="Enter Your Department Name" required="" aria-required="true">
@@ -39,24 +40,24 @@
                                     <label for="field-1" class="col-sm-3 control-label">Add Designations <span class="required" aria-required="true"> *</span></label>
 
                                     <div class="col-sm-5">
-                                        <input type="text" name="designations[]"  value="" class="form-control" placeholder="Enter Your Designations">
+                                        <input type="text" name="designations[]" value="" class="form-control" placeholder="Enter Your Designations">
                                     </div>
                                     <div class="col-sm-2">
                                         <strong><a href="javascript:void(0);" id="add_more" onclick="addMoreDesignationField()" class="addCF "><i class="fa fa-plus"></i>&nbsp;Add More</a></strong>
                                     </div>
                                 </div>
 
-                                <div id="DesignationContainer" >
+                                <div id="DesignationContainer">
                                     @*<div class="form-group" id="designation2">
-                                        <label class="col-sm-3 control-label">Add Designations <span class="required" aria-required="true"> *</span></label>
+                                            <label class="col-sm-3 control-label">Add Designations <span class="required" aria-required="true"> *</span></label>
 
-                                        <div class="col-sm-5">
-                                            <input type="text" name="designations[]"  class="form-control" placeholder="Enter Your Designations">
-                                        </div>
-                                        <div class="col-sm-2">
-                                               <strong><a href="javascript:void(0);" onclick="RemoveDesignationFromForm(designation2)" class="remCF"><i class="fa fa-times"></i>&nbsp;Remove</a></strong>
-                                        </div>
-                                    </div>*@
+                                            <div class="col-sm-5">
+                                                <input type="text" name="designations[]"  class="form-control" placeholder="Enter Your Designations">
+                                            </div>
+                                            <div class="col-sm-2">
+                                                   <strong><a href="javascript:void(0);" onclick="RemoveDesignationFromForm(designation2)" class="remCF"><i class="fa fa-times"></i>&nbsp;Remove</a></strong>
+                                            </div>
+                                        </div>*@
                                 </div>
                             </div>
                             <div class="form-group margin">
