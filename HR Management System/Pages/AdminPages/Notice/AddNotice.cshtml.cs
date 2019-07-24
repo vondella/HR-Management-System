@@ -13,5 +13,15 @@ namespace HR_Management_System.Pages
         {
 
         }
+
+        [BindProperty]
+        public bool Published { get; set; }
+
+
+        public IActionResult OnPost( string title, string long_description, bool published)
+        {
+            var gfg = Published;
+            return Page();
+        }
     }
 }

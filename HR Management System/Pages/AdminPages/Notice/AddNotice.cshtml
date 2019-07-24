@@ -4,6 +4,8 @@
     ViewData["Title"] = "AddNotice";
     Layout = "~/Views/Shared/_AdminDashboardLayout.cshtml";
 }
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
 <center><h1>Create Notice</h1></center>
 
 
@@ -18,17 +20,17 @@
                     <div class="panel panel-default" data-collapsed="0">
                         <div class="panel-heading">
                             @*<div class="panel-title">
-                                <strong>Create Notice</strong>
-                            </div>*@
+                                    <strong>Create Notice</strong>
+                                </div>*@
                         </div>
                         <div class="panel-body">
 
-                            <form role="form" id="form" action="http://localhost/HRMS-FRESH/admin/notice/save_notice/" method="post" class="form-horizontal form-groups-bordered" novalidate="novalidate">
+                            <form role="form" id="form" method="post" class="form-horizontal form-groups-bordered" novalidate="novalidate">
                                 <div class="form-group">
                                     <label for="field-1" class="col-sm-3 control-label">Publication Status <span class="required" aria-required="true">*</span></label>
 
-                                    <div class="col-sm-2"><input type="checkbox" class="select_one" name="flag" value="1"> Published</div>
-                                    <div class="col-sm-2"><input type="checkbox" class="select_one" name="flag" value="0" checked=""> UnPublished</div>
+                                    <div class="col-sm-2"><input type="checkbox" class="select_one" name="published" asp-for="Published" > Published</div>
+                                    @*<div class="col-sm-2"><input type="checkbox" class="select_one" name="flag" value="0" checked=""> UnPublished</div>*@
 
                                 </div>
 

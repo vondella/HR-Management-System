@@ -132,7 +132,6 @@ E:\Github\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razo
 E:\Github\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_AdminDashboardLayout.g.cshtml.cs
 E:\Visual studio\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_AdminDashboardLayout.g.cshtml.cs
 E:\Visual studio\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_CareerLayout.g.cshtml.cs
-E:\Github\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\Profile.g.cshtml.cs
 E:\Github\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_CareerLayout.g.cshtml.cs
 C:\Users\SHAKIR\Desktop\HR Project\HR Management System\bin\Debug\netcoreapp2.2\HR Management System.deps.json
 C:\Users\SHAKIR\Desktop\HR Project\HR Management System\bin\Debug\netcoreapp2.2\HR Management System.runtimeconfig.json
@@ -397,3 +396,12 @@ C:\Users\AL-AMIN\Desktop\shakir\HR Management System\obj\Debug\netcoreapp2.2\HR 
 C:\Users\AL-AMIN\Desktop\shakir\HR Management System\obj\Debug\netcoreapp2.2\HR Management System.pdb
 C:\Users\AL-AMIN\Desktop\shakir\HR Management System\obj\Debug\netcoreapp2.2\HR Management System.csproj.CopyComplete
 E:\Visual studio\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\AdminPages\Profile.g.cshtml.cs
+E:\Github\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\AdminPages\Profile.g.cshtml.cs
+E:\Github\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\AdminPages\Settings\AddHoliday.g.cshtml.cs
+E:\Github\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\CareerPages\Profile.g.cshtml.cs
+E:\Github\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\EmployeePages\Leave_Application.g.cshtml.cs
+E:\Github\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\EmployeePages\New_leave.g.cshtml.cs
+E:\Github\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\EmployeePages\Notice.g.cshtml.cs
+E:\Github\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\EmployeePages\Notice_details.g.cshtml.cs
+E:\Github\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\EmployeePages\payment_info.g.cshtml.cs
+E:\Github\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\EmployeePages\profile.g.cshtml.cs
