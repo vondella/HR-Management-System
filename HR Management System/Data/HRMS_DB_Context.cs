@@ -21,5 +21,7 @@ namespace HR_Management_System.Data
         public DbSet<DepartmentModel> Departments { get; set; }
 
         public DbSet<DesignationModel> Designations { get; set; }
+
+        public DbSet<Notice> Notices { get; set; }
     }
 }
