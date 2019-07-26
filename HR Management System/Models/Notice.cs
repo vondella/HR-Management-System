@@ -16,5 +16,9 @@ namespace HR_Management_System.Models
         public string Title { get; set; }
         [Required]
         public string Description { get; set; }
+
+        [Required]
+        [DataType(DataType.DateTime)]
+        public DateTime CreatedDate { get; set; }
     }
 }

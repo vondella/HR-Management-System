@@ -1,9 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace HR_Management_System.Migrations
 {
-    public partial class Initial : Migration
+    public partial class created : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -35,6 +36,22 @@ namespace HR_Management_System.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Departments", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Notices",
+                columns: table => new
+                {
+                    Id = table.Column<long>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Published = table.Column<bool>(nullable: false),
+                    Title = table.Column<string>(nullable: false),
+                    Description = table.Column<string>(nullable: false),
+                    CreatedDate = table.Column<DateTime>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Notices", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -88,6 +105,9 @@ namespace HR_Management_System.Migrations
 
             migrationBuilder.DropTable(
                 name: "Designations");
+
+            migrationBuilder.DropTable(
+                name: "Notices");
 
             migrationBuilder.DropTable(
                 name: "Users");

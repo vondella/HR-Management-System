@@ -81,6 +81,8 @@ namespace HR_Management_System.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<DateTime>("CreatedDate");
+
                     b.Property<string>("Description")
                         .IsRequired();
 

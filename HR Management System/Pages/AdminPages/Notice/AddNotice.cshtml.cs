@@ -35,6 +35,7 @@ namespace HR_Management_System.Pages
                 new_notice.Published = published;
                 new_notice.Title = title;
                 new_notice.Description = long_description;
+                new_notice.CreatedDate = DateTime.Now;
 
                 _db.Notices.Add(new_notice);
                 _db.SaveChanges();

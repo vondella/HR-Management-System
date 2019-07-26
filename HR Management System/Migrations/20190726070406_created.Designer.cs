@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HR_Management_System.Migrations
 {
     [DbContext(typeof(HRMS_DB_Context))]
-    [Migration("20190724182406_Notices")]
-    partial class Notices
+    [Migration("20190726070406_created")]
+    partial class created
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -82,6 +82,8 @@ namespace HR_Management_System.Migrations
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("CreatedDate");
 
                     b.Property<string>("Description")
                         .IsRequired();
