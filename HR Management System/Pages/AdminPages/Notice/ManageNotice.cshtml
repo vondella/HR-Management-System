@@ -25,7 +25,11 @@
                         <div id="dataTables-example_wrapper" class="dataTables_wrapper form-inline" role="grid">
                             <div class="row"><div class="col-sm-6"><div class="dataTables_length" id="dataTables-example_length"><label><select name="dataTables-example_length" aria-controls="dataTables-example" class="form-control input-sm"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> <b>Records per page</b></label></div></div><div class="col-sm-6"><div id="dataTables-example_filter" class="dataTables_filter"><label>Search:<input type="search" style="margin:0px 10px;" class="form-control input-sm" aria-controls="dataTables-example"></label></div></div></div><table class="table table-bordered table-hover dataTable no-footer" id="dataTables-example" aria-describedby="dataTables-example_info">
                                 <thead>
-                                    <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="SL: activate to sort column ascending" style="width: 62px;">SL</th><th class="col-sm-1 sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Created Date: activate to sort column ascending" style="width: 73px;">Created Date</th><th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Title: activate to sort column ascending" style="width: 84px;">Title</th><th class="col-sm-5 sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Short Description: activate to sort column ascending" style="width: 438px;">Description</th><th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Status: activate to sort column ascending" style="width: 167px;">Status</th><th class="col-sm-2 sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Action: activate to sort column ascending" style="width: 164px;">Action</th></tr>
+                                    <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="SL: activate to sort column ascending" style="width: 15px;">SL</th>
+                                    <th class="col-sm-1 sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Created Date: activate to sort column ascending" style="width: 73px;">Created Date</th>
+                                    <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Title: activate to sort column ascending" style="width: 200px;">Title</th>>
+                                    <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Status: activate to sort column ascending" style="width: 40px;">Status</th>
+                                    <th class="col-sm-2 sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Action: activate to sort column ascending" style="width: 150px;">Action</th></tr>
                                 </thead>
                                 <tbody>
                                     @if (Model.Notices != null)
@@ -38,7 +42,6 @@
                                                     <td class="sorting_1">@(i + 1)</td>
                                                     <td class=" ">@Model.Notices[i].CreatedDate</td>
                                                     <td class=" ">@Model.Notices[i].Title</td>
-                                                    <td class="text-truncate" >@Model.Notices[i].Description</td>
                                                     <td class=" ">
                                                         <span class="label label-success">@Model.IsPublished(Model.Notices[i].Published)</span>
                                                     </td>
