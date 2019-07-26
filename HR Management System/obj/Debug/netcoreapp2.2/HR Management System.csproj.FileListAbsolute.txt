@@ -400,7 +400,6 @@ E:\Github\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razo
 E:\Github\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\EmployeePages\Leave_Application.g.cshtml.cs
 E:\Github\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\EmployeePages\New_leave.g.cshtml.cs
 E:\Github\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\EmployeePages\Notice.g.cshtml.cs
-E:\Github\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\EmployeePages\Notice_details.g.cshtml.cs
 E:\Github\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\EmployeePages\payment_info.g.cshtml.cs
 E:\Github\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\EmployeePages\profile.g.cshtml.cs
 E:\Visual studio\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\AdminPages\Notice\ad_Notice_details.g.cshtml.cs
@@ -450,3 +449,7 @@ D:\GitHub\ASPNETCORE\HR Management System\HR-Management-System\HR Management Sys
 D:\GitHub\ASPNETCORE\HR Management System\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_CareerLayout.g.cshtml.cs
 D:\GitHub\ASPNETCORE\HR Management System\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_EmployeeLayout.g.cshtml.cs
 D:\GitHub\ASPNETCORE\HR Management System\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\AdminPages\Notice\ViewNoticeDetails.g.cshtml.cs
+E:\Github\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\AdminPages\Notice\ViewNoticeDetails.g.cshtml.cs
+E:\Github\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\AdminPages\Recruitment\R_notice_details.g.cshtml.cs
+E:\Github\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\CareerPages\c_notice_details.g.cshtml.cs
+E:\Github\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\EmployeePages\emp_notice_details.g.cshtml.cs
