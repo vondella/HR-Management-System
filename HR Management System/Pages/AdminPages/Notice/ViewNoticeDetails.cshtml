@@ -1,9 +1,12 @@
 ﻿@page
-@model HR_Management_System.Pages.EmployeePages.Notice_detailsModel
+@model HR_Management_System.Pages.AdminPages.Notice.ViewNoticeDetailsModel
 @{
-    ViewData["Title"] = "Notice_details";
-    Layout = "~/Views/Shared/_EmployeeLayout.cshtml";
+    ViewData["Title"] = "ViewNoticeDetails";
+    Layout = "~/Views/Shared/_AdminDashboardLayout.cshtml";
 }
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+
 
 <div class="col-md-12">
 
@@ -24,7 +27,7 @@
                     <label class="control-label"><strong>Title:</strong></label>
                 </div>
                 <div class="col-sm-8">
-                    <p class="form-control-static">EID</p>
+                    <p class="form-control-static">@Model.Notice.Title</p>
                 </div>
             </div>
             <div class="col-md-12 notice-details-margin">
@@ -32,7 +35,7 @@
                     <label class="control-label"><strong>Description:</strong></label>
                 </div>
                 <div class="col-sm-8">
-                    <p class="form-control-static text-justify">this is the details of eid</p>
+                    <p class="form-control-static text-justify">@Model.Notice.Description</p>
                 </div>
             </div>
             <div class="col-md-12 notice-details-margin">
@@ -40,12 +43,12 @@
                     <label class="control-label"><strong>Published Date:</strong></label>
                 </div>
                 <div class="col-sm-8">
-                    <p class="form-control-static"><span class="text-danger">09 Jun 2019</span></p>
+                    <p class="form-control-static"><span class="text-danger">@Model.Notice.CreatedDate.ToShortDateString()</span></p>
                 </div>
             </div>
-
         </div>
-
     </div>
 </div>
-<td class=" "><a href="#" class="btn btn-info btn-xs" data-toggle="tooltip" data-placement="top" title="" data-original-title="View">Go Back</a></td>
+<td class=" "><a href='javascript:history.go(-1)' class="btn btn-info btn-xs" data-toggle="tooltip" data-placement="top" title="" data-original-title="View">Go Back</a></td>
+
+

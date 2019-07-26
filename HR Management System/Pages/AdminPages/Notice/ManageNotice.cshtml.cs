@@ -37,6 +37,28 @@ namespace HR_Management_System.Pages
 
 
 
+        public async Task<IActionResult> OnGetViewNoticeAsync(long id)
+        {
+            var notice = await _db.Notices.FindAsync(id);
+            if (notice != null)
+                return RedirectToPage("/AdminPages/Notice/ViewNoticeDetails", notice);
+            return Page();
+
+        }
+
+
+
+
+        public async Task<IActionResult> OnGetDeleteAsync(long id)
+        {
+            var notice = await _db.Notices.FindAsync(id);
+            _db.Notices.Remove(notice);
+            await _db.SaveChangesAsync();
+            return Page();
+        }
+
+
+
         public string IsPublished(bool val)
         {
             if(val == true)
