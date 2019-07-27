@@ -402,7 +402,6 @@ E:\Github\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razo
 E:\Github\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\EmployeePages\Notice.g.cshtml.cs
 E:\Github\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\EmployeePages\payment_info.g.cshtml.cs
 E:\Github\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\EmployeePages\profile.g.cshtml.cs
-E:\Visual studio\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\AdminPages\Notice\ad_Notice_details.g.cshtml.cs
 E:\Visual studio\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\AdminPages\Recruitment\R_notice_details.g.cshtml.cs
 E:\Visual studio\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\CareerPages\c_notice_details.g.cshtml.cs
 E:\Visual studio\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\EmployeePages\emp_notice_details.g.cshtml.cs
@@ -453,3 +452,4 @@ E:\Github\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razo
 E:\Github\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\AdminPages\Recruitment\R_notice_details.g.cshtml.cs
 E:\Github\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\CareerPages\c_notice_details.g.cshtml.cs
 E:\Github\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\EmployeePages\emp_notice_details.g.cshtml.cs
+E:\Visual studio\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\AdminPages\Notice\ViewNoticeDetails.g.cshtml.cs

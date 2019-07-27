@@ -1,4 +1,5 @@
-﻿@page
+﻿
+@page
 @model HR_Management_System.Pages.AddNoticeModel
 @{
     ViewData["Title"] = "AddNotice";
@@ -44,14 +45,21 @@
                                 <div class="form-group">
                                     <label for="field-1" class="col-sm-3 control-label">Description <span class="required" aria-required="true">*</span></label>
                                     <div class="col-sm-8">
-                                        <textarea class="form-control " name="long_description" id="ck_editor" style="visibility: hidden; display: none;"></textarea><div id="cke_ck_editor" class="cke_1 cke cke_reset cke_chrome cke_editor_ck_editor cke_ltr cke_browser_webkit" dir="ltr" lang="en" role="application" aria-labelledby="cke_ck_editor_arialbl" style="width: 100%;"><span id="cke_ck_editor_arialbl" class="cke_voice_label">Rich Text Editor, ck_editor</span><div class="cke_inner cke_reset" role="presentation"><span id="cke_1_top" class="cke_top cke_reset_all" role="presentation" style="height: auto; user-select: none;"><span id="cke_7" class="cke_voice_label">Editor toolbars</span><span id="cke_1_toolbox" class="cke_toolbox" role="group" aria-labelledby="cke_7" onmousedown="return false;"></span></span></div></div>
+                                        <textarea class="form-control " name="long_description"  style=" width: 100%; height: 500px"></textarea>
+                                        @*<div id="cke_ck_editor" class="cke_1 cke cke_reset cke_chrome cke_editor_ck_editor cke_ltr cke_browser_webkit" dir="ltr" lang="en" role="application" aria-labelledby="cke_ck_editor_arialbl" style="width: 100%;">
+                                        <span id="cke_ck_editor_arialbl" class="cke_voice_label">Rich Text Editor, ck_editor</span>
+                                        <div class="cke_inner cke_reset" role="presentation">
+                                            <span id="cke_1_top" class="cke_top cke_reset_all" role="presentation" style="height: auto; user-select: none;"></span>
+                                            <span id="cke_7" class="cke_voice_label">Editor toolbars</span>
+                                            <span id="cke_1_toolbox" class="cke_toolbox" role="group" aria-labelledby="cke_7" onmousedown="return false;"></span>
+                                                </div></div>*@
 
 
 
-                                        <script type="text/javascript" src="~/js/ckeditor/ckeditor.js"></script>
+                                        @*<script type="text/javascript" src="~/js/ckeditor/ckeditor.js"></script>
                                         <script type="text/javascript">CKEDITOR_BASEPATH = '~/js/ckeditor/';</script>
                                         <script type="text/javascript">
-                                            CKEDITOR.replace('ck_editor', { toolbar: 'Full', width: '100%', height: '200px' });</script>
+                                            CKEDITOR.replace('ck_editor', { toolbar: 'Full', width: '100%', height: '200px' });</script>*@
 
                                         <!--hidden input values -->
                                     </div>
