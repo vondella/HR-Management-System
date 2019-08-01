@@ -36,6 +36,10 @@ namespace HR_Management_System.Controllers
         {
             return RedirectToPage("/CareerPages/Profile");
         }
+        public IActionResult view_cv()
+        {
+            return RedirectToPage("/CareerPages/ViewCV");
+        }
 
     }
 }
