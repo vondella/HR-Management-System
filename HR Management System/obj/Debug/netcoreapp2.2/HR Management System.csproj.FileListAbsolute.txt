@@ -457,3 +457,7 @@ E:\Visual studio\HR-Management-System\HR Management System\obj\Debug\netcoreapp2
 E:\Visual studio\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\CareerPages\ViewCV.g.cshtml.cs
 E:\Visual studio\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\AdminPages\Recruitment\Applicant_details.g.cshtml.cs
 E:\Visual studio\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\AdminPages\Payroll\Salary_details.g.cshtml.cs
+E:\Github\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\AdminPages\Employee\ViewEmployeeDetails.g.cshtml.cs
+E:\Github\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\AdminPages\Payroll\Salary_details.g.cshtml.cs
+E:\Github\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\AdminPages\Recruitment\Applicant_details.g.cshtml.cs
+E:\Github\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\CareerPages\ViewCV.g.cshtml.cs

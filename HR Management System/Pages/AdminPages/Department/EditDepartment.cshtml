@@ -28,8 +28,9 @@
 
                         <form id="form_validation" method="post" class="form-horizontal form-groups-bordered" novalidate="novalidate">
                             <div asp-validation-summary="All" class="text-danger"></div>
+                            <input type="text" asp-route-id="@Model.Department.Id" hidden />
                             <div class="form-group">
-                                <label asp-for="DepartmentName" class="col-sm-3 control-label"><span class="required" aria-required="true"> *</span></label>
+                                <label asp-for="DepartmentName" class="col-sm-3 control-label"><span class="required" aria-required="true"> Department*</span></label>
 
                                 <div class="col-sm-5">
                                     <input type="text" asp-for="DepartmentName" name="department_name" class="form-control" placeholder="Enter Your Department Name" required="" aria-required="true">
@@ -47,7 +48,7 @@
                                                     <input type="text" name="designations[]" value="@Model.Designations[0].Name" class="form-control" placeholder="Enter Your Designations" />
                                                 </div>
                                                 <div class="col-sm-2">
-                                                    <strong><a href="javascript:void(0);" id="add_more_desig_field" onclick="AddMoreDesignationFieldInEditdepartment(DesignationContainerInEditDepartment)" class="addCF "><i class="fa fa-plus"></i>&nbsp;Add More</a></strong>
+                                                    <strong><a href="javascript:void(0);" id="add_more_desig_field" onclick="AddMoreDesignationFieldInEditdepartment('DesignationContainerInEditDepartment')" class="addCF "><i class="fa fa-plus"></i>&nbsp;Add More</a></strong>
                                                 </div>
                                             </div>
 
@@ -55,14 +56,14 @@
                                                 @for (int i = 1; i < Model.Designations.Count; i++)
                                                 {
 
-                                                    <div class="form-group" id="DesignationFormControl{i}inEditPage">
+                                                    <div class="form-group">
                                                         <label for="field-1" class="col-sm-3 control-label">Add Designations <span class="required" aria-required="true"> *</span></label>
 
                                                         <div class="col-sm-5">
                                                             <input type="text" name="designations[]" value="@Model.Designations[i].Name" class="form-control" placeholder="Enter Your Designations" />
                                                         </div>
                                                         <div class="col-sm-2">
-                                                            <strong><a href="javascript:void(0);" onclick='RemoveDesignationFromForm(`DesignationFormControl${i}inEditPage`, DesignationContainerInEditDepartment)' class="remCF"><i class="fa fa-times"></i>&nbsp;Remove</a></strong>
+                                                            <strong><a href="javascript:void(0);" onclick='RemoveDsgFromContainer(this, "DesignationContainerInEditDepartment")' class="remCF"><i class="fa fa-times"></i>&nbsp;Remove</a></strong>
                                                         </div>
 
                                                     </div>
