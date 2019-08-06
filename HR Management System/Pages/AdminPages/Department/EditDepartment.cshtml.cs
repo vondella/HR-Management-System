@@ -16,7 +16,7 @@ namespace HR_Management_System.Pages.AdminPages.Department
         private readonly HRMS_DB_Context _db;
 
 
-
+        [BindProperty]
         public DepartmentModel Department { get; set; }
 
         [Display(Name = "Department Name")]
@@ -36,11 +36,6 @@ namespace HR_Management_System.Pages.AdminPages.Department
 
 
 
-        public string GetDesignationID(int k)
-        {
-            return "hahah";
-        }
-
 
         public async Task<IActionResult> OnGetAsync(long? id)
         {
@@ -48,6 +43,7 @@ namespace HR_Management_System.Pages.AdminPages.Department
             {
                 return NotFound();
             }
+
 
             Department = await _db.Departments.Include(d=> d.Designation).FirstOrDefaultAsync(d=>d.Id == id);
 
@@ -79,8 +75,42 @@ namespace HR_Management_System.Pages.AdminPages.Department
         }
 
 
-        public IActionResult OnPost()
+        public async Task<IActionResult> OnPostAsync(List<string> designations, string department_name, long? id)
         {
+            var _id = (long)id;
+            if(designations.Count > 0 && department_name != "" && department_name != null)
+            {
+                var _department = await _db.Departments.FindAsync(_id);
+                if(_department == null)
+                {
+                    return NotFound();
+                }
+                _db.Departments.Remove(_department);
+                await _db.SaveChangesAsync();
+
+                var d = new DepartmentModel();
+                d.Name = department_name;
+
+                d.Designation = new List<DesignationModel>();
+                foreach(var desig_name in designations)
+                {
+                    if(desig_name != "" && desig_name != null)
+                    {
+                        var de = new DesignationModel();
+                        de.Name = desig_name;
+                        d.Designation.Add(de);
+                    }
+                }
+
+                if(d.Designation.Count == 0)
+                {
+                    return Page();
+                }
+
+                _db.Departments.Add(d);
+                await _db.SaveChangesAsync();
+                return RedirectToPage("/AdminPages/Department/Departmentlist");
+            }
             return Page();
         }
     }

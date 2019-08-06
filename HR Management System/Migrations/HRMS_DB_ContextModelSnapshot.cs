@@ -75,6 +75,27 @@ namespace HR_Management_System.Migrations
                     b.ToTable("Designations");
                 });
 
+            modelBuilder.Entity("HR_Management_System.Models.Notice", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("CreatedDate");
+
+                    b.Property<string>("Description")
+                        .IsRequired();
+
+                    b.Property<bool>("Published");
+
+                    b.Property<string>("Title")
+                        .IsRequired();
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Notices");
+                });
+
             modelBuilder.Entity("HR_Management_System.Models.UserModel", b =>
                 {
                     b.Property<long>("Id")

@@ -1,0 +1,106 @@
+﻿@page
+@model HR_Management_System.Pages.EmployeePages.payment_infoModel
+@{
+    ViewData["Title"] = "payment_info";
+    Layout = "~/Views/Shared/_EmployeeLayout.cshtml";
+}
+
+<center><h1>Salary Info</h1></center>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="wrap-fpanel">
+                    <div class="panel panel-default" data-collapsed="0">
+                        <div class="panel-heading">
+                            
+                        </div>
+                        <form id="form" role="form" enctype="multipart/form-data" action="http://localhost/HRMS-FRESH/admin/payroll/generate_payslip" method="post" class="form-horizontal form-groups-bordered" novalidate="novalidate">
+                            <div class="panel-body">
+                                <div class="row">
+                                    <br>
+                                    <div class="col-sm-12 form-groups-bordered">
+
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">Select Month  <span class="required" aria-required="true"> *</span></label>
+                                            <div class="input-group col-sm-5">
+                                                <input type="month" value="2019-05" class="form-control monthyear" name="payment_date" data-format="yyyy/mm/dd">
+
+                                                <div class="input-group-addon">
+                                                    <a href="#"><i class="entypo-calendar"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group" id="border-none">
+                                            <label for="field-1" class="col-sm-3 control-label"></label>
+                                            <div class="col-sm-5">
+                                                <button id="submit" type="submit" name="sbtn" value="1" class="btn btn-primary btn-block">GO</button>
+                                            </div>
+                                        </div>
+                                    </div><br>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12" data-offset="0">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="panel-title">
+                            <span>
+                                <strong>Salary Info<span class="text-danger">May 2019</span></strong>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- Table -->
+
+                    <div id="dataTables-example_wrapper" class="dataTables_wrapper form-inline" role="grid">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="dataTables_length" id="dataTables-example_length">
+                                    <label>
+                                        <select name="dataTables-example_length" aria-controls="dataTables-example" class="form-control input-sm">
+                                            <option value="10">10</option>
+                                            <option value="25">25</option>
+                                            <option value="50">50</option>
+                                            <option value="100">100</option>
+                                        </select> <b>Records per page</b>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-sm-6"><div id="dataTables-example_filter" class="dataTables_filter"><label>Search:<input type="search" style="margin:0px 10px;" class="form-control input-sm" aria-controls="dataTables-example"></label></div></div>
+                        </div>
+                        <table class="table table-bordered table-hover dataTable no-footer" id="dataTables-example" aria-describedby="dataTables-example_info">
+                            <thead>
+                                <tr role="row">
+                                    <th class="col-sm-1 sorting_asc" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="ID: activate to sort column ascending" style="width: 73px;">ID</th>
+                                    <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Full Name: activate to sort column ascending" style="width: 137px;"><strong>Full Name</strong></th>
+                                    <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Gross Salary: activate to sort column ascending" style="width: 170px;"><strong>Gross Salary</strong></th>
+                                    <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Deductions: activate to sort column ascending" style="width: 151px;"><strong>Deductions</strong></th>
+                                    <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Net Salary: activate to sort column ascending" style="width: 137px;"><strong>Net Salary</strong></th>
+                                    <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Status: activate to sort column ascending" style="width: 91px;"><strong>Status</strong></th>
+                            </thead>
+                            <tbody>
+
+                                <tr class="odd">
+                                    <td class="sorting_1">12345</td>
+                                    <td class=" ">Al Amin</td>
+                                    <td class=" ">23700</td>
+                                    <td class=" ">3700</td>
+                                    <td class=" ">20000</td>
+                                    <td class=" "><span class="label label-success">Paid</span></td>
+
+                                </tr>
+                            </tbody>
+                        </table><div class="row"><div class="col-sm-6"><div class="dataTables_info" id="dataTables-example_info" role="alert" aria-live="polite" aria-relevant="all">Showing 1 to 1 of 1 entries</div></div><div class="col-sm-6"><div class="dataTables_paginate paging_simple_numbers" id="dataTables-example_paginate"><ul class="pagination"><li class="paginate_button previous disabled" aria-controls="dataTables-example" tabindex="0" id="dataTables-example_previous"><a href="#">Previous</a></li><li class="paginate_button active" aria-controls="dataTables-example" tabindex="0"><a href="#">1</a></li><li class="paginate_button next disabled" aria-controls="dataTables-example" tabindex="0" id="dataTables-example_next"><a href="#">Next</a></li></ul></div></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+

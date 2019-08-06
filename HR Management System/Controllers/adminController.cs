@@ -121,7 +121,7 @@ namespace HR_Management_System.Controllers
 
         public IActionResult Profile()
         {
-            return RedirectToPage("/Profile");
+            return RedirectToPage("/AdminPages/Profile");
         }
     }
 }

@@ -12,5 +12,35 @@ namespace HR_Management_System.Controllers
         {
             return View();
         }
+        public IActionResult Dashboard()
+        {
+            return RedirectToPage("/EmployeePages/Employee_Dashboard");
+        }
+        public IActionResult Leave_Application()
+        {
+            return RedirectToPage("/EmployeePages/Leave_Application");
+        }
+        public IActionResult Notice()
+        {
+            return RedirectToPage("/EmployeePages/Notice");
+        }
+        public IActionResult payment_info()
+        {
+            return RedirectToPage("/EmployeePages/payment_info");
+        }
+
+        public IActionResult logout()
+        {
+            return RedirectToPage("/LoginPage");
+        }
+        public IActionResult Profile()
+        {
+            return RedirectToPage("/EmployeePages/Profile");
+        }
+        public IActionResult Apply_Leave()
+        {
+            return RedirectToPage("/EmployeePages/New_leave");
+        }
+
     }
 }
