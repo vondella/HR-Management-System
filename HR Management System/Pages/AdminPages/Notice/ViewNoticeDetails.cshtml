@@ -5,8 +5,7 @@
     Layout = "~/Views/Shared/_AdminDashboardLayout.cshtml";
 }
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
-
-
+@addTagHelper *, HR Management System
 
 <div class="col-md-12">
 
@@ -35,8 +34,10 @@
                     <label class="control-label"><strong>Description:</strong></label>
                 </div>
                 <div class="col-sm-8">
-                    <p class="form-control-static text-justify">@Model.Notice.Description</p>
+                    <rich-description description="@Model.Notice.Description"></rich-description>
+
                 </div>
+             
             </div>
             <div class="col-md-12 notice-details-margin">
                 <div class="col-sm-4">
