@@ -28,6 +28,7 @@
                         <form role="form" id="form" method="post" class="form-horizontal form-groups-bordered">
                             <div asp-validation-summary="All" class="text-danger"></div>
                             <input type="date" asp-for="@Model.Notice.CreatedDate" hidden />
+                            <input type="text" asp-for="@Model.Notice.Id" hidden />
                             <div class="form-group">
                                 <label for="field-1" class="col-sm-3 control-label">Publication Status <span class="required" aria-required="true">*</span></label>
 
@@ -40,7 +41,7 @@
                                 <label for="field-1" class="col-sm-3 control-label">Title <span class="required" aria-required="true">*</span></label>
 
                                 <div class="col-sm-8">
-                                    <input type="text"  asp-for="Notice.Title" class="form-control" placeholder="Enter Notice Title Here">
+                                    <input type="text" asp-for="Notice.Title" class="form-control" placeholder="Enter Notice Title Here">
                                     <span asp-validation-for="Notice.Title" class="text-danger"></span>
                                 </div>
                             </div>
