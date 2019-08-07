@@ -33,6 +33,7 @@ namespace HR_Management_System.Pages.AdminPages.Notice
             }
 
             Notice = notice;
+          
 
             return Page();
         }
@@ -41,7 +42,7 @@ namespace HR_Management_System.Pages.AdminPages.Notice
         [BindProperty]
         public Models.Notice Notice { get; set; }
 
-
+        public Models.Notice Notice2 { get; set; }
 
 
 
