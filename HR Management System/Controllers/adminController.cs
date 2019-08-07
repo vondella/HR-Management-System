@@ -24,7 +24,7 @@ namespace HR_Management_System.Controllers
 
         public IActionResult SetWorkingDays()
         {
-            return RedirectToPage("/AdminPages/Settings/Set_Working_Days");
+            return RedirectToPage("/AdminPages/Settings/SetWorkingDays");
         }
 
         public IActionResult logout()

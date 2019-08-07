@@ -24,19 +24,6 @@
 
 
 
-//function addMoreDesignationField() {
-
-//    var container = document.getElementById("DesignationContainer");
-//    var div = new HTMLDivElement();
-//    div.className = "form-group";
-//    var label = new HTMLLabelElement();
-//    label.classList.add("col-sm-3", "control-label");
-//    label.innerHTML = "Designation Name";
-//    div.appendChild(label);
-//    container.appendChild(div);
-
-//}
-
 
 // department section
 var designation_id_count = 2;
@@ -193,3 +180,18 @@ function RemoveDsgFromContainer(div_element, containerID) {
 
     console.log(element.className);
 }
+
+
+
+
+function WorkingDaysSavedDiv(saved) {
+    if (saved == true) {
+        var divElement = getElementById("WorkingdaysSavedId");
+        
+        divElement.style.display = "block"
+        setTimeout(function () {
+            divElement.style.display = "none";
+        }, 3000);
+    }
+}
+

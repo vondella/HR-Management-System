@@ -1,0 +1,62 @@
+﻿@page "{saved:bool?}"
+@model HR_Management_System.Pages.AdminPages.Settings.SetWorkingDaysModel
+@{
+    ViewData["Title"] = "SetWorkingDays";
+    Layout = "~/Views/Shared/_AdminDashboardLayout.cshtml";
+}
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, HR Management System
+
+
+
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="wrap-fpanel">
+                <div class="panel panel-default" data-collapsed="0">
+                    <div class="panel-heading">
+                        <div class="panel-title">
+                            <strong>Set Working Days</strong>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+
+                        <working-days-saved saved="@Model.Saved"></working-days-saved>
+                        <form method="post" class="form-horizontal form-groups-bordered">
+                            <div class="form-group">
+                                <!-- List  of days -->
+                                <!--Retrieve Days from Database -->
+
+                                @if (Model.Days != null)
+                                {
+                                    if (Model.Days.Count > 0)
+                                    {
+                                        for (int i = 0; i < Model.Days.Count; i++)
+                                        {
+                                            <div class="checkbox-inline">
+                                                <input type="checkbox" asp-for="@Model.Days[i].IsWorkingDay">
+                                                <span>@Model.Days[i].Name</span>
+                                                <input type="text" hidden asp-for="@Model.Days[i].Id">
+                                                <input type="text" hidden asp-for="@Model.Days[i].Name">
+                                            </div>
+                                        }
+
+                                    }
+                                }
+                            </div>
+                            <div class="col-sm-2 pull-right">
+                                <button type="submit" class="btn btn-primary">Save</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
