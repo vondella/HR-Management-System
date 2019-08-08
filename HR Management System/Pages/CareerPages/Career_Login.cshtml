@@ -38,20 +38,20 @@
                     <button type="submit" class="btn btn-primary">Log in</button>
 
                 </div>
-            </form>
+            @*</form>
         </section>
-    </div>
-        @*<div class="form-group">
-                <p>
+    </div>*@
+        <div class="form-group">
+                @*<p>
                     <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
-                </p>
+                </p>*@
                 <p>
-                    <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
+                    <a asp-page="./Register" >Register as a new user</a>
                 </p>
             </div>
                     </form>
                 </section>
-            </div>*@
+            </div>
     
     <section>
         <div class="col-md-12" style="padding-left:80px">
@@ -77,35 +77,50 @@
                             <th style="width: 162px;">Action</th>
                         </tr>
                     </thead>
+                    <tbody>
+
+
+                        <tr class="odd">
+
+                            <td class="sorting_1">09 Jun 2019</td>
+                            <td class=" ">salesman</td>
+                            <td class=" ">
+                                <a asp-page="./req_details" class="btn btn-info btn-xs" data-toggle="tooltip" data-placement="top" title="" data-original-title="View">View</a>
+                            </td>
+
+
+
+                        </tr>
+                    </tbody>
                     @*<tbody>
 
-                            <?php if (!empty($notice_info)): foreach ($notice_info as $v_notice) : ?>
-                            <tr>
+            <?php if (!empty($notice_info)): foreach ($notice_info as $v_notice) : ?>
+            <tr>
 
-                                <td><?php echo date('d M Y', strtotime($v_notice->created_date)); ?></td>
-                                <td><?php echo $v_notice->title ?></td>
-                                <td class="text-justify">
-                                    <?php echo $v_notice->short_description ?>
-                                    <?php
-                                    $str = strlen($v_notice->short_description);
-                                    if ($str > 80) {
-                                    $ss = '<strong> ......</strong>';
-                                    } else {
-                                    $ss = '&nbsp';
-                                    } echo substr($v_notice->short_description, 0, 80) . $ss;
-                                    ?>
-                                </td>
-                                <td><?php echo btn_view('employee/dashboard/notice_detail/' . $v_notice->notice_id); ?></td>
-                            </tr>
-                            <?php
-                            endforeach;
-                            ?>
-                            <?php else : ?>
-                        <td colspan="3">
-                            <strong>There is no data to display</strong>
-                        </td>
-                        <?php endif; ?>
-                        </tbody>*@
+                <td><?php echo date('d M Y', strtotime($v_notice->created_date)); ?></td>
+                <td><?php echo $v_notice->title ?></td>
+                <td class="text-justify">
+                    <?php echo $v_notice->short_description ?>
+                    <?php
+                    $str = strlen($v_notice->short_description);
+                    if ($str > 80) {
+                    $ss = '<strong> ......</strong>';
+                    } else {
+                    $ss = '&nbsp';
+                    } echo substr($v_notice->short_description, 0, 80) . $ss;
+                    ?>
+                </td>
+                <td><?php echo btn_view('employee/dashboard/notice_detail/' . $v_notice->notice_id); ?></td>
+            </tr>
+            <?php
+            endforeach;
+            ?>
+            <?php else : ?>
+        <td colspan="3">
+            <strong>There is no data to display</strong>
+        </td>
+        <?php endif; ?>
+        </tbody>*@
                 </table>
             </div>
         </div>
