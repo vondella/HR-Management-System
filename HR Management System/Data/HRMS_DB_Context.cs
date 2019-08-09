@@ -23,5 +23,9 @@ namespace HR_Management_System.Data
         public DbSet<DesignationModel> Designations { get; set; }
 
         public DbSet<Notice> Notices { get; set; }
+
+        public DbSet<WeekDayModel> WeekDays { get; set; }
+
+        public DbSet<HolidayModel> Holidays { get; set; }
     }
 }

@@ -15,7 +15,7 @@ namespace HR_Management_System.Models
             using (var context = new HRMS_DB_Context(
                 serviceProvider.GetRequiredService<DbContextOptions<HRMS_DB_Context>>()))
             {
-                if(context.Users.Any() && context.CareerUsers.Any())
+                if(context.Users.Any() && context.CareerUsers.Any() && context.WeekDays.Any())
                 {
                     return;
                 }
@@ -61,7 +61,49 @@ namespace HR_Management_System.Models
                     });
                     context.SaveChanges();
                 }
-                
+
+
+                if (!context.WeekDays.Any())
+                {
+                    context.WeekDays.AddRange(
+                        new WeekDayModel
+                        {
+                            Name = "Saturday",
+                            IsHoliday = false
+                        },
+                        new WeekDayModel
+                        {
+                            Name = "Sunday",
+                            IsHoliday = false
+                        },
+                        new WeekDayModel
+                        {
+                            Name = "Monday",
+                            IsHoliday = false
+                        },
+                        new WeekDayModel
+                        {
+                            Name = "Tuesday",
+                            IsHoliday = false
+                        },
+                        new WeekDayModel
+                        {
+                            Name = "Wednesday",
+                            IsHoliday = false
+                        },
+                        new WeekDayModel
+                        {
+                            Name = "Thursday",
+                            IsHoliday = false
+                        },
+                        new WeekDayModel
+                        {
+                            Name = "Friday",
+                            IsHoliday = true
+                        }
+                        );
+                    context.SaveChanges();
+                }
             }
         }
     }

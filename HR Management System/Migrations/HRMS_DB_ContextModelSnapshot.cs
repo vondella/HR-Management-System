@@ -75,6 +75,27 @@ namespace HR_Management_System.Migrations
                     b.ToTable("Designations");
                 });
 
+            modelBuilder.Entity("HR_Management_System.Models.HolidayModel", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Description")
+                        .IsRequired();
+
+                    b.Property<DateTime>("EndDate");
+
+                    b.Property<string>("Name")
+                        .IsRequired();
+
+                    b.Property<DateTime>("StartDate");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Holidays");
+                });
+
             modelBuilder.Entity("HR_Management_System.Models.Notice", b =>
                 {
                     b.Property<long>("Id")
@@ -121,6 +142,21 @@ namespace HR_Management_System.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("HR_Management_System.Models.WeekDayModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool>("IsWorkingDay");
+
+                    b.Property<string>("Name");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("WeekDays");
                 });
 
             modelBuilder.Entity("HR_Management_System.Models.DesignationModel", b =>

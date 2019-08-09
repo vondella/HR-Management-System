@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace HR_Management_System.Pages
+namespace HR_Management_System.Pages.CareerPages
 {
-    public class Set_Working_DaysModel : PageModel
+    public class RegisterModel : PageModel
     {
         public void OnGet()
         {
