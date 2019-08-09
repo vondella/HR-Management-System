@@ -1,0 +1,37 @@
+﻿@page
+@model HR_Management_System.Pages.EmployeePages.Remain_leaveModel
+@{
+    ViewData["Title"] = "Remain_leave";
+    Layout = "~/Views/Shared/_EmployeeLayout.cshtml";
+}
+<center><h1>Remaining Leave Days</h1></center>
+<div class="row" style="margin-top:20px">
+    <div class="col-sm-12">
+        <div class="panel panel-info">
+            <!-- Default panel contents -->
+
+            <table class="table table-bordered table-hover dataTable no-footer" id="dataTables-example" aria-describedby="dataTables-example_info">
+                <thead>
+                    <tr style="font-size: 13px;color: #000000" role="row">
+                        <th class="col-sm-1 sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Status: activate to sort column ascending" style="width: 30px;">SL</th>
+                        <th class="col-sm-2 sorting_asc" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Leave Category: activate to sort column ascending" style="width: 164px;">Leave Category Name</th>
+                        <th class="col-sm-1 sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Status: activate to sort column ascending" style="width: 30px;">Days</th>
+                        <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Reason: activate to sort column ascending" style="width: 50px;">Taken leave dayes</th>
+                        <th class="col-sm-1 sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Status: activate to sort column ascending" style="width: 50px;">Remaining days</th>
+                    </tr>
+                </thead>
+                <tbody style="margin-bottom: 0px;background: #FFFFFF;font-size: 12px;">
+
+
+                    <tr class="odd">
+                        <td class=" ">1</td>
+                        <td class="sorting_1">Sick leave</td>
+                        <td class=" ">30</td>
+                        <td class=" ">5</td>
+                        <td class=" ">35</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
