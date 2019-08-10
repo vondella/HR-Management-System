@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using HR_Management_System.Data;
 using HR_Management_System.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 
 namespace HR_Management_System.Pages
 {
@@ -33,6 +34,8 @@ namespace HR_Management_System.Pages
         [BindProperty]
         public string Department { get; set; }
 
+        [BindProperty]
+        public string Designation { get; set; }
 
         public List<SelectListItem> DepartmentList { get; set; }
 
@@ -46,13 +49,20 @@ namespace HR_Management_System.Pages
         }
 
 
-        public void OnGet()
+        public async void OnGetAsync()
         {
-
+            var departments = await _db.Departments.AsNoTracking().ToListAsync();
+            DepartmentList = new List<SelectListItem>();
+            if(departments != null)
+            {
+                if (departments.Count > 0)
+                {
+                    foreach (var item in departments)
+                    {
+                        DepartmentList.Add(new SelectListItem { Value = item.Id.ToString(), Text = item.Name });
+                    }
+                }
+            }
         }
-
-
-
-
     }
 }
