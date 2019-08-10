@@ -195,3 +195,37 @@ function WorkingDaysSavedDiv(saved) {
     }
 }
 
+
+
+
+function GetDesignations(departmentList) {
+    var val = departmentList.options[departmentList.selectedIndex].value;
+    
+
+    if (val == "") {
+        var option = $('<option></option>').attr("value", "").text("Select Designation");
+        $("#designationSelectList").empty().append(option);
+    }
+    else {
+
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                
+                var response = this.responseText;
+                var json_obj = JSON.parse(response);
+
+
+                var option = $('<option></option>').attr("value", "").text("Select Designation");
+                $("#designationSelectList").empty().append(option);
+
+                for (i = 0; i < json_obj.length; i++) {
+                    option = $('<option></option>').attr("value", `${json_obj[i].id}`).text(`${json_obj[i].name}`);
+                    $("#designationSelectList").append(option);
+                }
+            }
+        };
+        xhttp.open("GET", "https://localhost:44303/" + `home/designations/${val}`, true);
+        xhttp.send();
+    }
+}

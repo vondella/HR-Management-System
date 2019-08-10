@@ -83,11 +83,18 @@ namespace HR_Management_System
 
             //app.UseAuthentication();
 
+           
+
             app.UseMvc(routes =>
             {
+                //routes.MapRoute(
+                //  "designations", template: "api/{controller=Department}/{action=Designations}/{id?}");
+
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
+
+              
             });
         }
     }

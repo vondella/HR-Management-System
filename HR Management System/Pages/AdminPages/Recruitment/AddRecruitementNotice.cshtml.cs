@@ -8,6 +8,7 @@ using HR_Management_System.Data;
 using HR_Management_System.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 
 namespace HR_Management_System.Pages
 {
@@ -20,23 +21,30 @@ namespace HR_Management_System.Pages
         public bool Published { get; set; }
 
         [BindProperty]
+        [Required]
         public string Title { get; set; }
 
         [BindProperty]
+        [Required]
         public string Description { get; set; }
 
         [BindProperty]
-        public DateTime EndDate { get; set; }
+        [Required]
+        public DateTime EndDate { get; set; } = DateTime.Now;
 
         [BindProperty]
+        [Required]
         public int NumberOfVacancy { get; set; }
 
         [BindProperty]
-        public string Department { get; set; }
+        [Required]
+        public long? Department { get; set; }
 
         [BindProperty]
-        public string Designation { get; set; }
+        [Required]
+        public long? Designation { get; set; }
 
+        [BindProperty]
         public List<SelectListItem> DepartmentList { get; set; }
 
         
@@ -49,7 +57,7 @@ namespace HR_Management_System.Pages
         }
 
 
-        public async void OnGetAsync()
+        public async Task<IActionResult> OnGetAsync()
         {
             var departments = await _db.Departments.AsNoTracking().ToListAsync();
             DepartmentList = new List<SelectListItem>();
@@ -63,6 +71,62 @@ namespace HR_Management_System.Pages
                     }
                 }
             }
+            return Page();
+        }
+
+
+
+
+        public async Task<IActionResult> OnPostAsync()
+        {
+            if (ModelState.IsValid)
+            {
+                DepartmentModel department = null;
+                DesignationModel designation = null;
+
+                if (Department != null)
+                {
+                    department = await _db.Departments.FindAsync((long)Department);
+                }
+                if (Designation != null)
+                {
+                    designation = await _db.Designations.FindAsync((long)Designation);
+                }
+
+                if (department == null) return NotFound();
+                if (designation == null) return NotFound();
+
+                var notice = new RecruitementNoticeModel
+                {
+                    Title = Title,
+                    Description = Description,
+                    LastDate = EndDate,
+                    Department = department,
+                    Designation = designation,
+                    NumberOfVacancy = NumberOfVacancy,
+                    IsPublished = Published
+                };
+
+                await _db.RecruitementNotices.AddAsync(notice);
+                await _db.SaveChangesAsync();
+
+                return RedirectToPage("./ManageRecruitmentNotice");
+            }
+
+            var departments = await _db.Departments.AsNoTracking().ToListAsync();
+            DepartmentList = new List<SelectListItem>();
+            if (departments != null)
+            {
+                if (departments.Count > 0)
+                {
+                    foreach (var item in departments)
+                    {
+                        DepartmentList.Add(new SelectListItem { Value = item.Id.ToString(), Text = item.Name });
+                    }
+                }
+            }
+            Department = null;
+            return Page();
         }
     }
 }

@@ -117,6 +117,36 @@ namespace HR_Management_System.Migrations
                     b.ToTable("Notices");
                 });
 
+            modelBuilder.Entity("HR_Management_System.Models.RecruitementNoticeModel", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<long>("DepartmentId");
+
+                    b.Property<string>("Description");
+
+                    b.Property<long>("DesignationId");
+
+                    b.Property<bool>("IsPublished");
+
+                    b.Property<DateTime>("LastDate");
+
+                    b.Property<int>("NumberOfVacancy");
+
+                    b.Property<string>("Title")
+                        .IsRequired();
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DepartmentId");
+
+                    b.HasIndex("DesignationId");
+
+                    b.ToTable("RecruitementNotices");
+                });
+
             modelBuilder.Entity("HR_Management_System.Models.UserModel", b =>
                 {
                     b.Property<long>("Id")
@@ -164,6 +194,19 @@ namespace HR_Management_System.Migrations
                     b.HasOne("HR_Management_System.Models.DepartmentModel")
                         .WithMany("Designation")
                         .HasForeignKey("DepartmentModelId");
+                });
+
+            modelBuilder.Entity("HR_Management_System.Models.RecruitementNoticeModel", b =>
+                {
+                    b.HasOne("HR_Management_System.Models.DepartmentModel", "Department")
+                        .WithMany()
+                        .HasForeignKey("DepartmentId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("HR_Management_System.Models.DesignationModel", "Designation")
+                        .WithMany()
+                        .HasForeignKey("DesignationId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

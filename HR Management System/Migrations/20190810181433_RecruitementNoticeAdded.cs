@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace HR_Management_System.Migrations
 {
-    public partial class created : Migration
+    public partial class RecruitementNoticeAdded : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -36,6 +36,22 @@ namespace HR_Management_System.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Departments", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Holidays",
+                columns: table => new
+                {
+                    Id = table.Column<long>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Name = table.Column<string>(nullable: false),
+                    Description = table.Column<string>(nullable: false),
+                    StartDate = table.Column<DateTime>(nullable: false),
+                    EndDate = table.Column<DateTime>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Holidays", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -73,6 +89,20 @@ namespace HR_Management_System.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "WeekDays",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Name = table.Column<string>(nullable: true),
+                    IsWorkingDay = table.Column<bool>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_WeekDays", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Designations",
                 columns: table => new
                 {
@@ -92,10 +122,51 @@ namespace HR_Management_System.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "RecruitementNotices",
+                columns: table => new
+                {
+                    Id = table.Column<long>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Title = table.Column<string>(nullable: false),
+                    Description = table.Column<string>(nullable: true),
+                    LastDate = table.Column<DateTime>(nullable: false),
+                    IsPublished = table.Column<bool>(nullable: false),
+                    NumberOfVacancy = table.Column<int>(nullable: false),
+                    DepartmentId = table.Column<long>(nullable: false),
+                    DesignationId = table.Column<long>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_RecruitementNotices", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_RecruitementNotices_Departments_DepartmentId",
+                        column: x => x.DepartmentId,
+                        principalTable: "Departments",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.NoAction);
+                    table.ForeignKey(
+                        name: "FK_RecruitementNotices_Designations_DesignationId",
+                        column: x => x.DesignationId,
+                        principalTable: "Designations",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.NoAction);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Designations_DepartmentModelId",
                 table: "Designations",
                 column: "DepartmentModelId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_RecruitementNotices_DepartmentId",
+                table: "RecruitementNotices",
+                column: "DepartmentId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_RecruitementNotices_DesignationId",
+                table: "RecruitementNotices",
+                column: "DesignationId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -104,13 +175,22 @@ namespace HR_Management_System.Migrations
                 name: "CareerUsers");
 
             migrationBuilder.DropTable(
-                name: "Designations");
+                name: "Holidays");
 
             migrationBuilder.DropTable(
                 name: "Notices");
 
             migrationBuilder.DropTable(
+                name: "RecruitementNotices");
+
+            migrationBuilder.DropTable(
                 name: "Users");
+
+            migrationBuilder.DropTable(
+                name: "WeekDays");
+
+            migrationBuilder.DropTable(
+                name: "Designations");
 
             migrationBuilder.DropTable(
                 name: "Departments");
