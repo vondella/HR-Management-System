@@ -13,12 +13,12 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
-#line 1 "E:\Visual studio\HR-Management-System\HR Management System\Views\_ViewImports.cshtml"
+#line 1 "E:\Github\HR-Management-System\HR Management System\Views\_ViewImports.cshtml"
 using HR_Management_System;
 
 #line default
 #line hidden
-#line 2 "E:\Visual studio\HR-Management-System\HR Management System\Views\_ViewImports.cshtml"
+#line 2 "E:\Github\HR-Management-System\HR Management System\Views\_ViewImports.cshtml"
 using HR_Management_System.Models;
 
 #line default

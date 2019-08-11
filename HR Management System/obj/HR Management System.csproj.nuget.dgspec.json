@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Visual studio\\HR-Management-System\\HR Management System\\HR Management System.csproj": {}
+    "E:\\Github\\HR-Management-System\\HR Management System\\HR Management System.csproj": {}
   },
   "projects": {
-    "E:\\Visual studio\\HR-Management-System\\HR Management System\\HR Management System.csproj": {
+    "E:\\Github\\HR-Management-System\\HR Management System\\HR Management System.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Visual studio\\HR-Management-System\\HR Management System\\HR Management System.csproj",
+        "projectUniqueName": "E:\\Github\\HR-Management-System\\HR Management System\\HR Management System.csproj",
         "projectName": "HR Management System",
-        "projectPath": "E:\\Visual studio\\HR-Management-System\\HR Management System\\HR Management System.csproj",
-        "packagesPath": "C:\\Users\\AL-AMIN\\.nuget\\packages\\",
-        "outputPath": "E:\\Visual studio\\HR-Management-System\\HR Management System\\obj\\",
+        "projectPath": "E:\\Github\\HR-Management-System\\HR Management System\\HR Management System.csproj",
+        "packagesPath": "C:\\Users\\SHAKIR\\.nuget\\packages\\",
+        "outputPath": "E:\\Github\\HR-Management-System\\HR Management System\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\AL-AMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\SHAKIR\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
