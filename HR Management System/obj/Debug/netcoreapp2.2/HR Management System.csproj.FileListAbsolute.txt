@@ -220,7 +220,6 @@ E:\Visual studio\HR-Management-System\HR Management System\obj\Debug\netcoreapp2
 E:\Visual studio\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\AdminPages\Recruitment\Selected_Applicant_List.g.cshtml.cs
 E:\Visual studio\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\AdminPages\Settings\HolidayList.g.cshtml.cs
 E:\Visual studio\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\AdminPages\Settings\LeaveCategory.g.cshtml.cs
-E:\Visual studio\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\AdminPages\Settings\Set_Working_Days.g.cshtml.cs
 E:\Github\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\AdminPages\AdminDashboard.g.cshtml.cs
 E:\Github\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\AdminPages\Attendence\AttandenceReport.g.cshtml.cs
 E:\Github\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\AdminPages\Attendence\ManageAttendence.g.cshtml.cs
