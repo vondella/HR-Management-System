@@ -123,11 +123,15 @@ namespace HR_Management_System.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<long>("DepartmentId");
+                    b.Property<DateTime>("CreatedDate");
+
+                    b.Property<string>("Department")
+                        .IsRequired();
 
                     b.Property<string>("Description");
 
-                    b.Property<long>("DesignationId");
+                    b.Property<string>("Designation")
+                        .IsRequired();
 
                     b.Property<bool>("IsPublished");
 
@@ -139,10 +143,6 @@ namespace HR_Management_System.Migrations
                         .IsRequired();
 
                     b.HasKey("Id");
-
-                    b.HasIndex("DepartmentId");
-
-                    b.HasIndex("DesignationId");
 
                     b.ToTable("RecruitementNotices");
                 });
@@ -194,19 +194,6 @@ namespace HR_Management_System.Migrations
                     b.HasOne("HR_Management_System.Models.DepartmentModel")
                         .WithMany("Designation")
                         .HasForeignKey("DepartmentModelId");
-                });
-
-            modelBuilder.Entity("HR_Management_System.Models.RecruitementNoticeModel", b =>
-                {
-                    b.HasOne("HR_Management_System.Models.DepartmentModel", "Department")
-                        .WithMany()
-                        .HasForeignKey("DepartmentId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("HR_Management_System.Models.DesignationModel", "Designation")
-                        .WithMany()
-                        .HasForeignKey("DesignationId")
-                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

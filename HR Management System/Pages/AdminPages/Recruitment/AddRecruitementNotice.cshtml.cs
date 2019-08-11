@@ -101,10 +101,11 @@ namespace HR_Management_System.Pages
                     Title = Title,
                     Description = Description,
                     LastDate = EndDate,
-                    Department = department,
-                    Designation = designation,
+                    Department = department.Name,
+                    Designation = designation.Name,
                     NumberOfVacancy = NumberOfVacancy,
-                    IsPublished = Published
+                    IsPublished = Published,
+                    CreatedDate = DateTime.Now
                 };
 
                 await _db.RecruitementNotices.AddAsync(notice);

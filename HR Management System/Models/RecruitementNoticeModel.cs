@@ -16,6 +16,9 @@ namespace HR_Management_System.Models
         public string Description { get; set; }
 
         [Required]
+        public DateTime CreatedDate { get; set; }
+
+        [Required]
         public DateTime LastDate { get; set; }
 
         [Required]
@@ -25,9 +28,9 @@ namespace HR_Management_System.Models
         public int NumberOfVacancy { get; set; }
 
         [Required]
-        public DepartmentModel Department { get; set; }
+        public string Department { get; set; }
 
         [Required]
-        public DesignationModel Designation { get; set; }
+        public string Designation { get; set; }
     }
 }

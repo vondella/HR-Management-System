@@ -27,9 +27,44 @@ namespace HR_Management_System.Pages
 
 
 
-        public void OnGet()
+        public void OnGet(string src_string)
         {
-            RecruitementNotices = _db.RecruitementNotices.AsNoTracking().ToList();
+            if(src_string != null && src_string != "")
+            {
+                RecruitementNotices = _db.RecruitementNotices.Where(a => a.Title.IndexOf(src_string, StringComparison.CurrentCultureIgnoreCase) > -1).AsNoTracking().ToList();
+            }
+            else
+            {
+                RecruitementNotices = _db.RecruitementNotices.AsNoTracking().ToList();
+            }
+        }
+
+
+        public string IsPublished(bool published)
+        {
+            if (published == true)
+            {
+                return "Published";
+            }
+            else return "Unpublished";
+        }
+
+
+
+
+
+
+        public async Task<IActionResult> OnGetDeleteAsync(long id)
+        {
+            var notice = await _db.RecruitementNotices.FindAsync(id);
+            if(notice == null)
+            {
+                return NotFound();
+            }
+
+            _db.RecruitementNotices.Remove(notice);
+            await _db.SaveChangesAsync();
+            return RedirectToPage();
         }
     }
 }
