@@ -24,9 +24,9 @@
                     <!-- Table -->
 
                     <div id="dataTables-example_wrapper" class="dataTables_wrapper form-inline" role="grid">
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <div id="dataTables-example_filter" class="dataTables_filter">
+                        <div class="row" >
+                            <div class="col-sm-12">
+                                <div id="dataTables-example_filter" class="dataTables_filter" >
                                     <label>Search:<input type="search" style="margin:0px 10px;" class="form-control input-sm" aria-controls="dataTables-example"></label>
                                 </div>
                             </div>
@@ -34,9 +34,10 @@
                         <table class="table table-bordered table-hover dataTable no-footer" id="dataTables-example" aria-describedby="dataTables-example_info">
                             <thead>
                                 <tr role="row">
-                                    <th class="sorting_asc" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="SL: activate to sort column ascending" style="width: 62px;">SL</th>
+                                    <th class="sorting_asc" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="SL: activate to sort column ascending" style="width: 30px;">SL</th>
                                     <th class="col-sm-1 sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Created Date: activate to sort column ascending" style="width: 73px;">Created Date</th>
                                     <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Title: activate to sort column ascending" style="width: 150px;">Title</th>
+                                    <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Title: activate to sort column ascending" style="width: 84px;">Department</th>
                                     <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Title: activate to sort column ascending" style="width: 84px;">Designation</th>
                                     <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Title: activate to sort column ascending" style="width: 84px;">No. of Vacancy</th>
                                     <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Title: activate to sort column ascending" style="width: 84px;">Last Date</th>
@@ -45,6 +46,22 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                <tr class="odd">
+                                    <td class="sorting_1">1</td>
+                                    <td class=" ">12 oct 2019</td>
+                                    <td class=" ">new emp on marketing</td>
+                                    <td class=" ">Marketing</td>
+                                    <td class=" ">Manager</td>
+                                    <td class="show_print ">1</td>
+                                    <td class=" ">12 oct 2019</td>
+                                    <td class=" ">Published</td>
+                                    
+                                    <td class="hidden-print ">
+                                        <a href="https://localhost:44303/AdminPages/Recruitment/R_notice_details" class="btn btn-info btn-xs" data-toggle="tooltip" data-placement="top" title="" data-original-title="View">View</a>
+                                        <a href="http://localhost/HRMS-FRESH/admin/employee/add_employee/3" class="btn btn-primary btn-xs" title="" data-toggle="tooltip" data-placement="top" data-original-title="Edit">Edit</a>
+                                        <a href="http://localhost/HRMS-FRESH/admin/employee/delete_employee/3/2/2" class="btn btn-danger btn-xs" title="" data-toggle="tooltip" data-placement="top" onclick="return confirm('You are about to delete a record. This cannot be undone. Are you sure?');" data-original-title="Delete"> Delete</a>
+                                    </td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
