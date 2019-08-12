@@ -5,158 +5,42 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
-
-
-<h1>Career Login</h1>
-
-<div class="row">
-    <div class="col-md-4">
-        <section>
-            <form method="post">
-                <h4>Use a local account to Log in.</h4>
-                <hr />
-                <div asp-validation-summary="All" class="text-danger"></div>
-                <div class="form-group">
-                    <label asp-for="UserName"></label>
-                    <input asp-for="UserName" class="form-control" />
-                    <span asp-validation-for="UserName" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Password"></label>
-                    <input asp-for="Password" class="form-control" />
-                    <span asp-validation-for="Password" class="text-danger"></span>
-                </div>
-                @*<div class="form-group">
-                    <div class="checkbox">
-                        <label asp-for="RememberMe">
-                            <input asp-for="RememberMe" />
-                            @Html.DisplayNameFor(m => m.User.RememberMe)
-                        </label>
-                    </div>
-                </div>*@
-                <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Log in</button>
-
-                </div>
-            @*</form>
-        </section>
-    </div>*@
-        <div class="form-group">
-                @*<p>
-                    <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
-                </p>*@
-                <p>
-                    <a asp-page="./Register" >Register as a new user</a>
-                </p>
-            </div>
-                    </form>
-                </section>
-            </div>
-    
-    <section>
-        <div class="col-md-12" style="padding-left:80px">
-
-            @*<div class="col-md-12">
-                <div class="row">*@
-            @*<div class="col-sm-12" data-offset="0">*@
-            <div class="panel panel-info" >
-                <!-- Default panel contents -->
-
-                <div class="panel-heading">
-                    <div class="panel-title">
-                        <strong>List of All Recruitement Notices</strong>
-                    </div>
-                </div>
-                <!-- Table -->
-                <table class="table table-bordered table-hover" id="dataTables-example">
-                    <thead>
-                        <tr>
-
-                            <th style="width: 162px;">Published Date</th>
-                            <th style="width: 300px;">Title</th>
-                            <th style="width: 162px;">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-
-
-                        <tr class="odd">
-
-                            <td class="sorting_1">09 Jun 2019</td>
-                            <td class=" ">salesman</td>
-                            <td class=" ">
-                                <a asp-page="./req_details" class="btn btn-info btn-xs" data-toggle="tooltip" data-placement="top" title="" data-original-title="View">View</a>
-                            </td>
+@addTagHelper *, HR Management System
 
 
 
-                        </tr>
-                    </tbody>
-                    @*<tbody>
-
-            <?php if (!empty($notice_info)): foreach ($notice_info as $v_notice) : ?>
-            <tr>
-
-                <td><?php echo date('d M Y', strtotime($v_notice->created_date)); ?></td>
-                <td><?php echo $v_notice->title ?></td>
-                <td class="text-justify">
-                    <?php echo $v_notice->short_description ?>
-                    <?php
-                    $str = strlen($v_notice->short_description);
-                    if ($str > 80) {
-                    $ss = '<strong> ......</strong>';
-                    } else {
-                    $ss = '&nbsp';
-                    } echo substr($v_notice->short_description, 0, 80) . $ss;
-                    ?>
-                </td>
-                <td><?php echo btn_view('employee/dashboard/notice_detail/' . $v_notice->notice_id); ?></td>
-            </tr>
-            <?php
-            endforeach;
-            ?>
-            <?php else : ?>
-        <td colspan="3">
-            <strong>There is no data to display</strong>
-        </td>
-        <?php endif; ?>
-        </tbody>*@
-                </table>
-            </div>
-        </div>
-    </section>
-        
-    @*<section>
-            <h4>Use another service to log in.</h4>
-            <hr />
-            @{
-                if ((Model.ExternalLogins?.Count ?? 0) == 0)
-                {
-                    <div>
-                        <p>
-                            There are no external authentication services configured. See <a href="https://go.microsoft.com/fwlink/?LinkID=532715">this article</a>
-                            for details on setting up this ASP.NET application to support logging in via external services.
-                        </p>
-                    </div>
-                }
-                else
-                {
-                    <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
-                        <div>
-                            <p>
-                                @foreach (var provider in Model.ExternalLogins)
-                                {
-                                    <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
-                                }
-                            </p>
-                        </div>
-                    </form>
-                }
-            }
-        </section>*@
 
 
-</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+
+
 
 
 

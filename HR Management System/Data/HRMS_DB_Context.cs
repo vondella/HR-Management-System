@@ -29,5 +29,7 @@ namespace HR_Management_System.Data
         public DbSet<HolidayModel> Holidays { get; set; }
 
         public DbSet<RecruitementNoticeModel> RecruitementNotices { get; set; }
+
+        public DbSet<LeaveCategory> LeaveCategories { get; set; }
     }
 }
