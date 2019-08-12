@@ -21,6 +21,7 @@ namespace HR_Management_System.Controllers
 
         public IActionResult Index()
         {
+
             return View();
         }
 

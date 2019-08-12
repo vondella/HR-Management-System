@@ -15,7 +15,7 @@ namespace HR_Management_System.Models
             using (var context = new HRMS_DB_Context(
                 serviceProvider.GetRequiredService<DbContextOptions<HRMS_DB_Context>>()))
             {
-                if(context.Users.Any() && context.CareerUsers.Any() && context.WeekDays.Any())
+                if(context.Users.Any() && context.WeekDays.Any())
                 {
                     return;
                 }
@@ -31,34 +31,29 @@ namespace HR_Management_System.Models
                        RememberMe = true,
                        UserName = "admin",
                        UserType = UserType.Admin
+                   },
+
+                   new UserModel
+                   {
+                       Email = "employee@gmail.com",
+                       Name = "Employee",
+                       Password = "1234",
+                       RememberMe = true,
+                       UserName = "employee",
+                       UserType = UserType.Employee
+                   },
+
+
+                   new UserModel
+                   {
+                       Email = "career@gmail.com",
+                       Name= "Career",
+                       Password = "1234",
+                       UserName = "career123",
+                       UserType = UserType.Career
                    }
                    );
-                    context.Users.AddRange(
-                  new UserModel
-                  {
-                      Email = "employee@gmail.com",
-                      Name = "Employee",
-                      Password = "1234",
-                      RememberMe = true,
-                      UserName = "employee",
-                      UserType =  UserType.Employee
-                  }
-                  );
-                    context.SaveChanges();
-                }
-
-
-                if (!context.CareerUsers.Any())
-                {
-                    context.CareerUsers.AddRange(
-                    new CareerUser
-                    {
-                        Email = "career@gmail.com",
-                        FirstName = "Career",
-                        LastName = "",
-                        Password = "1234",
-                        Username = "career"
-                    });
+                   
                     context.SaveChanges();
                 }
 

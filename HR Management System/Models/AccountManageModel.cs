@@ -10,16 +10,9 @@ namespace HR_Management_System.Models
 {
     public class AccountManageModel
     {
-        public static AccountManageModel Current;
-
-
+ 
         public UserModel User { get; set; }
 
-
-        public AccountManageModel(UserModel user)
-        {
-            Current = this;
-            User = user;
-        }
+        public bool IsLoggedIn { get; set; } = false;
     }
 }

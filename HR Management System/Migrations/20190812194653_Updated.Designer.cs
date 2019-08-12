@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HR_Management_System.Migrations
 {
     [DbContext(typeof(HRMS_DB_Context))]
-    [Migration("20190811080112_createdDateAdded")]
-    partial class createdDateAdded
+    [Migration("20190812194653_Updated")]
+    partial class Updated
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,30 +20,6 @@ namespace HR_Management_System.Migrations
                 .HasAnnotation("ProductVersion", "2.2.4-servicing-10062")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("HR_Management_System.Models.CareerUser", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Email")
-                        .IsRequired();
-
-                    b.Property<string>("FirstName");
-
-                    b.Property<string>("LastName");
-
-                    b.Property<string>("Password")
-                        .IsRequired();
-
-                    b.Property<string>("Username")
-                        .IsRequired();
-
-                    b.HasKey("Id");
-
-                    b.ToTable("CareerUsers");
-                });
 
             modelBuilder.Entity("HR_Management_System.Models.DepartmentModel", b =>
                 {
@@ -98,6 +74,22 @@ namespace HR_Management_System.Migrations
                     b.ToTable("Holidays");
                 });
 
+            modelBuilder.Entity("HR_Management_System.Models.LeaveCategory", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Days");
+
+                    b.Property<string>("Title")
+                        .IsRequired();
+
+                    b.HasKey("Id");
+
+                    b.ToTable("LeaveCategories");
+                });
+
             modelBuilder.Entity("HR_Management_System.Models.Notice", b =>
                 {
                     b.Property<long>("Id")
@@ -127,11 +119,13 @@ namespace HR_Management_System.Migrations
 
                     b.Property<DateTime>("CreatedDate");
 
-                    b.Property<long>("DepartmentId");
+                    b.Property<string>("Department")
+                        .IsRequired();
 
                     b.Property<string>("Description");
 
-                    b.Property<long>("DesignationId");
+                    b.Property<string>("Designation")
+                        .IsRequired();
 
                     b.Property<bool>("IsPublished");
 
@@ -143,10 +137,6 @@ namespace HR_Management_System.Migrations
                         .IsRequired();
 
                     b.HasKey("Id");
-
-                    b.HasIndex("DepartmentId");
-
-                    b.HasIndex("DesignationId");
 
                     b.ToTable("RecruitementNotices");
                 });
@@ -198,19 +188,6 @@ namespace HR_Management_System.Migrations
                     b.HasOne("HR_Management_System.Models.DepartmentModel")
                         .WithMany("Designation")
                         .HasForeignKey("DepartmentModelId");
-                });
-
-            modelBuilder.Entity("HR_Management_System.Models.RecruitementNoticeModel", b =>
-                {
-                    b.HasOne("HR_Management_System.Models.DepartmentModel", "Department")
-                        .WithMany()
-                        .HasForeignKey("DepartmentId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("HR_Management_System.Models.DesignationModel", "Designation")
-                        .WithMany()
-                        .HasForeignKey("DesignationId")
-                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }
