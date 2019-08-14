@@ -29,7 +29,7 @@
                             <div class="form-group">
                                 <label for="field-1" class="control-label">First Name <span class="required" aria-required="true">*</span></label>
                                 <div>
-                                    <input type="text" class="form-control" placeholder="Enter First Name">
+                                    <input type="text" class="form-control" name="first_name" placeholder="Shakir">
                                 </div>
                             </div>
                         </div>
@@ -37,7 +37,7 @@
                             <div class="form-group">
                                 <label for="field-1" class="control-label">Last Name <span class="required" aria-required="true">*</span></label>
                                 <div>
-                                    <input type="text" class="form-control" placeholder="Enter Last Name">
+                                    <input type="text" name="last_name" class="form-control" placeholder="Enter Last Name">
                                 </div>
                             </div>
                         </div>
@@ -47,7 +47,7 @@
                             <div class="form-group">
                                 <label for="field-1" class="control-label">Father Name <span class="required" aria-required="true">*</span></label>
                                 <div>
-                                    <input type="text" class="form-control" placeholder="Enter Father Name">
+                                    <input type="text" name="father_name" class="form-control" placeholder="Enter Father Name">
                                 </div>
                             </div>
                         </div>
@@ -55,7 +55,7 @@
                             <div class="form-group">
                                 <label for="field-1" class="control-label">Mother Name <span class="required" aria-required="true">*</span></label>
                                 <div>
-                                    <input type="text" class="form-control" placeholder="Enter Mother Name">
+                                    <input type="text" name="mother_name" class="form-control" placeholder="Enter Mother Name">
                                 </div>
                             </div>
                         </div>
@@ -65,7 +65,7 @@
                             <div class="form-group">
                                 <label for="field-1" class="control-label">Present Address <span class="required" aria-required="true">*</span></label>
                                 <div>
-                                    <textarea class="form-control" placeholder="Enter Present Address" style="max-height:150px;"></textarea>
+                                    <textarea class="form-control" name="present_address" placeholder="Enter Present Address" style="max-height:150px;"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -73,7 +73,7 @@
                             <div class="form-group">
                                 <label for="field-1" class="control-label">Permanent Address<span class="required" aria-required="true">*</span></label>
                                 <div>
-                                    <textarea class="form-control" placeholder="Enter Permanent Address" style="max-height:150px;"></textarea>
+                                    <textarea class="form-control" name="permanent_address" placeholder="Enter Permanent Address" style="max-height:150px;"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -81,11 +81,11 @@
                 </div>
                 <div class="col-4">
                     <div class="d-flex justify-content-center">
-                        <img src="~/img/user.png" alt="Alternate Text" class="img-profile rounded-circle shadow" style="border:solid white 3px;" width="150" height="150" />
+                        <img id="CVProfileImg" src="~/img/user.png" alt="Alternate Text" class="img-profile rounded-circle shadow" style="border:solid white 3px;" width="150" height="150" />
                     </div>
                     <div class="mt-4 d-flex justify-content-center">
                         <button style="width:130px;" type="button" class="btn btn-primary" onclick="openDialog()">Upload</button>
-                        <input type="file" id="UploadPhotoInput" hidden />
+                        <input type="file" name="profile_img" onchange="CVPhotoFileOnChanged(this)" id="UploadPhotoInput" hidden accept=".png,.jpg"/>
                     </div>
                 </div>
             </div>
@@ -95,7 +95,7 @@
                     <div class="form-group">
                         <label for="field-1" class="control-label">Phone Number <span class="required" aria-required="true">*</span></label>
                         <div>
-                            <input type="text" class="form-control" placeholder="Enter Phone Number">
+                            <input type="text" class="form-control" name="phone_number" placeholder="Enter Phone Number">
                         </div>
                     </div>
                 </div>
@@ -103,7 +103,7 @@
                     <div class="form-group">
                         <label for="field-1" class="control-label">Mobile Number <span class="required" aria-required="true">*</span></label>
                         <div>
-                            <input type="text" class="form-control" placeholder="Enter Mobile Number">
+                            <input type="text" class="form-control" name="mobile_number" placeholder="Enter Mobile Number">
                         </div>
                     </div>
                 </div>
@@ -111,8 +111,7 @@
                     <div class="form-group">
                         <label for="field-1" class="control-label">Date of Birth <span class="required" aria-required="true">*</span></label>
                         <div>
-                            <input id="datepicker" width="276" />
-
+                            <input id="datepicker" width="276" name="date_of_birth" />
                         </div>
                     </div>
                 </div>
@@ -120,15 +119,20 @@
             <div class="row">
                 <div class="col-4 mt-auto">
                     <div class="form-group">
-                        <select class="form-control">
+                        <select class="form-control" name="gender">
                             <option value="">Select Gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
                         </select>
                     </div>
                 </div>
                 <div class="col-4 mt-auto">
                     <div class="form-group">
-                        <select class="form-control">
+                        <select class="form-control" name="marritual_status[]">
                             <option value="">Select Marritual Status</option>
+                            <option value="Married">Maried</option>
+                            <option value="Unmarried">Unmarried</option>
                         </select>
                     </div>
                 </div>
@@ -136,7 +140,7 @@
                     <div class="form-group">
                         <label for="field-1" class="control-label">National ID Card <span class="required" aria-required="true">*</span></label>
                         <div>
-                            <input type="text" class="form-control" placeholder="Enter National ID Card">
+                            <input type="text" name="national_id" class="form-control" placeholder="Enter National ID Card">
                         </div>
                     </div>
                 </div>
@@ -144,8 +148,13 @@
             <div class="row">
                 <div class="col-4 mt-auto">
                     <div class="form-group">
-                        <select class="form-control">
+                        <select class="form-control" name="religion">
                             <option value="">Select Religion</option>
+                            <option value="Islam">Islam</option>
+                            <option value="Hindu">Hindu</option>
+                            <option value="Christian">Christian</option>
+                            <option value="Buddha">Buddha</option>
+                            <option value="Other">Other</option>
                         </select>
                     </div>
                 </div>
@@ -153,7 +162,7 @@
                     <div class="form-group">
                         <label for="field-1" class="control-label">Nationality <span class="required" aria-required="true">*</span></label>
                         <div>
-                            <input type="text" class="form-control" placeholder="Enter Your Nationality">
+                            <input type="text" name="nationality" class="form-control" placeholder="Enter Your Nationality">
                         </div>
                     </div>
                 </div>
@@ -161,7 +170,7 @@
                     <div class="form-group">
                         <label for="field-1" class="control-label">Personal Email <span class="required" aria-required="true">*</span></label>
                         <div>
-                            <input type="text" class="form-control" placeholder="Enter Email Address">
+                            <input type="text" name="email" class="form-control" placeholder="Enter Email Address">
                         </div>
                     </div>
                 </div>
@@ -185,14 +194,14 @@
                             <div class="form-group">
                                 <label class="control-label">Qualification<span class="required" aria-required="true">*</span></label>
                                 <div>
-                                    <input type="text" class="form-control" placeholder="Enter Qualification">
+                                    <input type="text" name="qualification[]" class="form-control" placeholder="Enter Qualification">
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label class="control-label">Passing Year<span class="required" aria-required="true">*</span></label>
                                 <div>
-                                    <input type="text" class="form-control" placeholder="Enter Passing Year">
+                                    <input type="text" name="passing_year[]" class="form-control" placeholder="Enter Passing Year">
                                 </div>
 
                             </div>
@@ -201,14 +210,14 @@
                             <div class="form-group">
                                 <label class="control-label">Subject <span class="required" aria-required="true">*</span></label>
                                 <div>
-                                    <input type="text" class="form-control" placeholder="Enter Subject">
+                                    <input type="text" name="subject[]" class="form-control" placeholder="Enter Subject">
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="control-label">Grade.Result <span class="required" aria-required="true">*</span></label>
+                                <label class="control-label">Grade/Result <span class="required" aria-required="true">*</span></label>
                                 <div>
-                                    <input type="text" class="form-control" placeholder="Enter Grade">
+                                    <input type="text" name="grade[]" class="form-control" placeholder="Enter Grade">
                                 </div>
 
                             </div>
@@ -217,7 +226,7 @@
                             <div class="form-group">
                                 <label class="control-label">Institute/University <span class="required" aria-required="true">*</span></label>
                                 <div>
-                                    <input type="text" class="form-control" placeholder="Enter Institute">
+                                    <input type="text" name="university[]" class="form-control" placeholder="Enter Institute">
                                 </div>
 
                             </div>
@@ -248,14 +257,14 @@
                             <div class="form-group">
                                 <label class="control-label">Company Name<span class="required" aria-required="true">*</span></label>
                                 <div>
-                                    <input type="text" class="form-control">
+                                    <input type="text" name="company_name[]" class="form-control">
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label class="control-label">Duration(From)<span class="required" aria-required="true">*</span></label>
                                 <div>
-                                    <input type="date" class="form-control" />
+                                    <input type="date" name="duration_from[]" class="form-control" />
                                 </div>
 
                             </div>
@@ -264,14 +273,14 @@
                             <div class="form-group">
                                 <label class="control-label">Company Address <span class="required" aria-required="true">*</span></label>
                                 <div>
-                                    <input type="text" class="form-control">
+                                    <input type="text" name="company_address[]" class="form-control">
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label class="control-label">Duration(to)<span class="required" aria-required="true">*</span></label>
                                 <div>
-                                    <input type="date" class="form-control" />
+                                    <input type="date" name="duration_to[]" class="form-control" />
                                 </div>
 
                             </div>
@@ -280,7 +289,7 @@
                             <div class="form-group">
                                 <label class="control-label">Role/Responsibility <span class="required" aria-required="true">*</span></label>
                                 <div>
-                                    <input type="text" class="form-control">
+                                    <input type="text" name="role[]" class="form-control">
                                 </div>
 
                             </div>

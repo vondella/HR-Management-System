@@ -243,13 +243,13 @@ function AddMoreEducationDetailsRow() {
             '<div class= "form-group">' +
             '<label class="control-label">Qualification<span class="required" aria-required="true">*</span></label>' +
             "<div>" +
-            '<input type="text" class="form-control" placeholder="Enter Qualification">' +
+            '<input type="text" name="qualification[]" class="form-control" placeholder="Enter Qualification">' +
             "</div>" +
             "</div>" +
             '<div class="form-group">' +
             '<label class="control-label">Passing Year<span class="required" aria-required="true">*</span></label>' +
             "<div>" +
-            '<input type="text" class="form-control" placeholder="Enter Passing Year">' +
+            '<input type="text" name="passing_year[]" class="form-control" placeholder="Enter Passing Year">' +
             "</div>" +
             "</div>" +
             "</td>" +
@@ -257,13 +257,13 @@ function AddMoreEducationDetailsRow() {
             '<div class="form-group">' +
             '<label class="control-label">Subject <span class="required" aria-required="true">*</span></label>' +
             "<div>" +
-            '<input type="text" class="form-control" placeholder="Enter Subject">' +
+            '<input type="text" name="subject[]" class="form-control" placeholder="Enter Subject">' +
             "</div>" +
             "</div>" +
             '<div class="form-group">' +
             '<label class="control-label">Grade.Result <span class="required" aria-required="true">*</span></label>' +
             "<div>" +
-            '<input type="text" class="form-control" placeholder="Enter Grade">' +
+            '<input type="text" name="grade[]" class="form-control" placeholder="Enter Grade">' +
             "</div>" +
             "</div>" +
             "</td>" +
@@ -271,7 +271,7 @@ function AddMoreEducationDetailsRow() {
             '<div class="form-group">' +
             '<label class="control-label">Institute/University <span class="required" aria-required="true">*</span></label>' +
             "<div>" +
-            '<input type="text" class="form-control" placeholder="Enter Institute">' +
+            '<input type="text" name="university[]" class="form-control" placeholder="Enter Institute">' +
             "</div>" +
             "</div>" +
             "<div>" +
@@ -298,14 +298,14 @@ function AddMoreExperienceDetailsRow() {
                     '<div class="form-group">' +
                         '<label class="control-label">Company Name<span class="required" aria-required="true">*</span></label>' +
                         "<div>" +
-                            '<input type="text" class="form-control">' +
+                            '<input type="text" name="company_name[]" class="form-control">' +
                                 "</div>" +
                         "</div>" +
 
                         '<div class="form-group">' + 
                             '<label class="control-label">Duration(From)<span class="required" aria-required="true">*</span></label>' +
                             "<div>" +
-                                '<input type="date" class="form-control" />' +
+                                '<input type="date" name="duration_from[]" class="form-control" />' +
                             "</div>" +
 
                         "</div>" +
@@ -314,14 +314,14 @@ function AddMoreExperienceDetailsRow() {
                         '<div class="form-group">' +
                             '<label class="control-label">Company Address <span class="required" aria-required="true">*</span></label>' +
                             "<div>" + 
-                                '<input type="text" class="form-control">' +
+                                '<input type="text" name="company_address[]" class="form-control">' +
                                 "</div>" +
                             "</div>" +
 
                             '<div class="form-group">' +
                                 '<label class="control-label">Duration(to)<span class="required" aria-required="true">*</span></label>' +
                                 "<div>" +
-                                    '<input type="date" class="form-control" />' +
+                                    '<input type="date" name="duration_to[]" class="form-control" />' +
                                 "</div>" +
 
                             "</div>" +
@@ -330,7 +330,7 @@ function AddMoreExperienceDetailsRow() {
                             '<div class="form-group">' +
                                 '<label class="control-label">Role/Responsibility <span class="required" aria-required="true">*</span></label>' +
                                 "<div>" +
-                                    '<input type="text" class="form-control">' +
+                                    '<input type="text" name="role[]" class="form-control">' +
                                 "</div>" +
                                 "</div>" +
                                 "<div>" +
@@ -360,4 +360,29 @@ function RemoveExperienceDetailsRow(btn_control) {
 
 function openDialog() {
     document.getElementById('UploadPhotoInput').click();
+}
+
+
+//$(document).ready(function () {
+//    $('input[type="file"]').change(function (e) {
+//        var fileName = e.target.files[0].name;
+//        alert('The file "' + fileName + '" has been selected.');
+//    });
+//});
+
+
+
+
+
+
+function CVPhotoFileOnChanged(file_input) {
+    if (file_input.files && file_input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#CVProfileImg').attr('src', e.target.result);
+        }
+
+        reader.readAsDataURL(file_input.files[0]);
+    }
 }
