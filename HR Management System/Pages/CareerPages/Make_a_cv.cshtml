@@ -12,10 +12,11 @@
 
 
 <div class="card shadow mb-4">
-    <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Create CV</h6>
+    <div class="card-header">
+        <h5 class="m-0 font-weight-bold text-primary float-left">Create CV</h5>
+        <button class="btn btn-primary float-right" >Create</button>
     </div>
-
+    
     <form action="/" method="post">
         <div class="card-body">
             <div>
@@ -80,10 +81,11 @@
                 </div>
                 <div class="col-4">
                     <div class="d-flex justify-content-center">
-                        <img src="~/img/user.png" alt="Alternate Text" class="img-profile rounded-circle shadow" style="border:solid white 3px;" width="120" height="120" />
+                        <img src="~/img/user.png" alt="Alternate Text" class="img-profile rounded-circle shadow" style="border:solid white 3px;" width="150" height="150" />
                     </div>
                     <div class="mt-4 d-flex justify-content-center">
-                        <button style="width:130px;" class="btn btn-primary">Upload</button>
+                        <button style="width:130px;" type="button" class="btn btn-primary" onclick="openDialog()">Upload</button>
+                        <input type="file" id="UploadPhotoInput" hidden />
                     </div>
                 </div>
             </div>
@@ -166,66 +168,128 @@
             </div>
 
             <div class="d-flex flex-row mt-4">
-               <h5 class="text-gray-900 d-flex align-items-center">Educational Details</h5>
-                <a href="#" onclick="AddMoreEducationDetailsRow()" class="d-flex align-items-center mb-2 ml-4">+ Add More</a>
+                <h5 class="text-gray-900 d-flex align-items-center">Educational Details</h5>
+                <a style="color:darkblue; cursor:pointer;" onclick="AddMoreEducationDetailsRow()" class="d-flex align-items-center mb-2 ml-4">+ Add More</a>
             </div>
 
             <table class="table" id="EducationDetailsTable" width="100%" cellspacing="0">
-               
-               <tbody>
-                   <tr>
-                       <td>
-                           <div class="mt-auto">
-                               1
-                           </div>
-                       </td>
-                       <td>
-                           <div class="form-group">
-                               <label class="control-label">Qualification<span class="required" aria-required="true">*</span></label>
-                               <div>
-                                   <input type="text" class="form-control" placeholder="Enter Qualification">
-                               </div>
-                           </div>
 
-                           <div class="form-group">
-                               <label class="control-label">Passing Year<span class="required" aria-required="true">*</span></label>
-                               <div>
-                                   <input type="text" class="form-control" placeholder="Enter Passing Year">
-                               </div>
-                               
-                           </div>
-                       </td>
-                       <td>
-                           <div class="form-group">
-                               <label class="control-label">Subject <span class="required" aria-required="true">*</span></label>
-                               <div>
-                                   <input type="text" class="form-control" placeholder="Enter Subject">
-                               </div>
-                           </div>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="mt-auto">
+                                1
+                            </div>
+                        </td>
+                        <td>
+                            <div class="form-group">
+                                <label class="control-label">Qualification<span class="required" aria-required="true">*</span></label>
+                                <div>
+                                    <input type="text" class="form-control" placeholder="Enter Qualification">
+                                </div>
+                            </div>
 
-                           <div class="form-group">
-                               <label class="control-label">Grade.Result <span class="required" aria-required="true">*</span></label>
-                               <div>
-                                   <input type="text" class="form-control" placeholder="Enter Grade">
-                               </div>
+                            <div class="form-group">
+                                <label class="control-label">Passing Year<span class="required" aria-required="true">*</span></label>
+                                <div>
+                                    <input type="text" class="form-control" placeholder="Enter Passing Year">
+                                </div>
 
-                           </div>
-                       </td>
-                       <td>
-                           <div class="form-group">
-                               <label class="control-label">Institute/University <span class="required" aria-required="true">*</span></label>
-                               <div>
-                                   <input type="text" class="form-control" placeholder="Enter Institute">
-                               </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="form-group">
+                                <label class="control-label">Subject <span class="required" aria-required="true">*</span></label>
+                                <div>
+                                    <input type="text" class="form-control" placeholder="Enter Subject">
+                                </div>
+                            </div>
 
-                           </div>
-                           @*<div>
-                               <button class="btn btn-danger" onclick="RemoveEducationDetailsRow(this)" style="margin-top:30px;">Remove</button>
-                           </div>*@
-                       </td>
-                   </tr>
+                            <div class="form-group">
+                                <label class="control-label">Grade.Result <span class="required" aria-required="true">*</span></label>
+                                <div>
+                                    <input type="text" class="form-control" placeholder="Enter Grade">
+                                </div>
 
-               </tbody>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="form-group">
+                                <label class="control-label">Institute/University <span class="required" aria-required="true">*</span></label>
+                                <div>
+                                    <input type="text" class="form-control" placeholder="Enter Institute">
+                                </div>
+
+                            </div>
+                            @*<div>
+                                    <button class="btn btn-danger" onclick="RemoveEducationDetailsRow(this)" style="margin-top:30px;">Remove</button>
+                                </div>*@
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+            <div class="d-flex flex-row mt-4">
+                <h5 class="text-gray-900 d-flex align-items-center">Professional Experience</h5>
+                <a onclick="AddMoreExperienceDetailsRow()" class="d-flex align-items-center mb-2 ml-4" style="color:darkblue;cursor:pointer;">+ Add More</a>
+            </div>
+
+            <table class="table" id="ExperienceDetailsTable" width="100%" cellspacing="0">
+
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="mt-auto">
+                                1
+                            </div>
+                        </td>
+                        <td>
+                            <div class="form-group">
+                                <label class="control-label">Company Name<span class="required" aria-required="true">*</span></label>
+                                <div>
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label">Duration(From)<span class="required" aria-required="true">*</span></label>
+                                <div>
+                                    <input type="date" class="form-control" />
+                                </div>
+
+                            </div>
+                        </td>
+                        <td>
+                            <div class="form-group">
+                                <label class="control-label">Company Address <span class="required" aria-required="true">*</span></label>
+                                <div>
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label">Duration(to)<span class="required" aria-required="true">*</span></label>
+                                <div>
+                                    <input type="date" class="form-control" />
+                                </div>
+
+                            </div>
+                        </td>
+                        <td>
+                            <div class="form-group">
+                                <label class="control-label">Role/Responsibility <span class="required" aria-required="true">*</span></label>
+                                <div>
+                                    <input type="text" class="form-control">
+                                </div>
+
+                            </div>
+                            @*<div>
+                                    <button class="btn btn-danger" onclick="RemoveExperienceDetailsRow(this)" style="margin-top:30px;">Remove</button>
+                                </div>*@
+                        </td>
+                    </tr>
+                </tbody>
             </table>
         </div>
     </form>
@@ -240,4 +304,10 @@
     $('#datepicker').datepicker({
         uiLibrary: 'bootstrap4'
     });
+
+
+      
 </script>
+
+
+

@@ -286,6 +286,78 @@ function AddMoreEducationDetailsRow() {
 
 
 
+function AddMoreExperienceDetailsRow() {
+    if ($("#ExperienceDetailsTable tbody").children("tr").length < 5) {
+        var SlNo = $("#ExperienceDetailsTable tbody").children("tr").length;
+        $("#ExperienceDetailsTable tbody").append(
+            "<tr>" +
+            "<td>" +
+            `<div class="mt-auto">${SlNo + 1}</div>` +
+                "</td>" +
+                "<td>" +
+                    '<div class="form-group">' +
+                        '<label class="control-label">Company Name<span class="required" aria-required="true">*</span></label>' +
+                        "<div>" +
+                            '<input type="text" class="form-control">' +
+                                "</div>" +
+                        "</div>" +
+
+                        '<div class="form-group">' + 
+                            '<label class="control-label">Duration(From)<span class="required" aria-required="true">*</span></label>' +
+                            "<div>" +
+                                '<input type="date" class="form-control" />' +
+                            "</div>" +
+
+                        "</div>" +
+                        "</td>" +
+                    "<td>" +
+                        '<div class="form-group">' +
+                            '<label class="control-label">Company Address <span class="required" aria-required="true">*</span></label>' +
+                            "<div>" + 
+                                '<input type="text" class="form-control">' +
+                                "</div>" +
+                            "</div>" +
+
+                            '<div class="form-group">' +
+                                '<label class="control-label">Duration(to)<span class="required" aria-required="true">*</span></label>' +
+                                "<div>" +
+                                    '<input type="date" class="form-control" />' +
+                                "</div>" +
+
+                            "</div>" +
+                        "</td>" +
+                        "<td>" +
+                            '<div class="form-group">' +
+                                '<label class="control-label">Role/Responsibility <span class="required" aria-required="true">*</span></label>' +
+                                "<div>" +
+                                    '<input type="text" class="form-control">' +
+                                "</div>" +
+                                "</div>" +
+                                "<div>" +
+                                    '<button class="btn btn-danger" onclick="RemoveExperienceDetailsRow(this)" style="margin-top:30px;">Remove</button>' +
+                                "</div>" +
+                        "</td>" +
+                    "</tr>"
+        );
+    }
+}
+
+
+
+
+
 function RemoveEducationDetailsRow(btn_control) {
     $(btn_control).parents("tr").remove();
+}
+
+
+function RemoveExperienceDetailsRow(btn_control) {
+    $(btn_control).parents("tr").remove();
+}
+
+
+
+
+function openDialog() {
+    document.getElementById('UploadPhotoInput').click();
 }
