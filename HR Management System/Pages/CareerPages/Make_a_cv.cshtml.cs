@@ -36,7 +36,7 @@ namespace HR_Management_System.Pages
 
 
 
-        public async Task<IActionResult> OnPostAsync(string first_name, string last_name, string father_name, string mother_name,
+        public async Task<IActionResult> OnPostAsync(string title, string first_name, string last_name, string father_name, string mother_name,
            string present_address, string permanent_address, IFormFile profile_img, string phone_number, string mobile_number,
            DateTime date_of_birth, string gender, string marritual_status, string national_id, string religion, string nationality,
            string email, string[] qualification, string[] passing_year, string[] subject, string[] grade, string[] university,
@@ -45,7 +45,7 @@ namespace HR_Management_System.Pages
             var fdg = profile_img;
 
             Resume resume = new Resume();
-
+            resume.Title = title;
             resume.FirstName = first_name;
             resume.LastName = last_name;
             resume.DateOfBirth = date_of_birth;
@@ -190,7 +190,9 @@ namespace HR_Management_System.Pages
 
             resume.Religion = religion;
 
-            _db.Resumes.Add(resume);
+            var user = await _db.Users.FindAsync(_accountManage.User.Id);
+            user.Resume = resume;
+
             await _db.SaveChangesAsync();
 
             return RedirectToPage("./Career_Dashboard");

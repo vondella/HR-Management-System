@@ -10,6 +10,8 @@ namespace HR_Management_System.Models
     {
         public long Id { get; set; }
 
+        public string Title { get; set; }
+
         public byte[] ProfileImage { get; set; }
 
         public string FirstName { get; set; }
