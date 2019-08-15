@@ -8,6 +8,7 @@ namespace HR_Management_System.Models
     public enum UserType
     {
         Admin = 0,
-        Employee = 1
+        Employee = 1,
+        Career = 2
     }
 }

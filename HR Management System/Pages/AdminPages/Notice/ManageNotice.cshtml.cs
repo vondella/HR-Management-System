@@ -26,15 +26,25 @@ namespace HR_Management_System.Pages
 
 
 
-        public void OnGet()
+        //public void OnGet()
+        //{
+        //    if (_db.Notices.Any())
+        //    {
+        //        Notices = _db.Notices.AsNoTracking().ToList();
+        //    }
+        //}
+
+        public void OnGet(string src_string)
         {
-            if (_db.Notices.Any())
+            if (src_string != null && src_string != "")
+            {
+                Notices = _db.Notices.Where(a => a.Title.IndexOf(src_string, StringComparison.CurrentCultureIgnoreCase) > -1).AsNoTracking().ToList();
+            }
+            else
             {
                 Notices = _db.Notices.AsNoTracking().ToList();
             }
         }
-
-
 
 
         public async Task<IActionResult> OnGetViewNoticeAsync(long id)

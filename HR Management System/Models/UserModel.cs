@@ -31,5 +31,7 @@ namespace HR_Management_System.Models
 
         [Display(Name = "Remember me?")]
         public bool RememberMe { get; set; }
+
+        public Resume Resume { get; set; }
     }
 }

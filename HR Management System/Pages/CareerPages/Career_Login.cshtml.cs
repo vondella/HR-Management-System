@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using HR_Management_System.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using HR_Management_System.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace HR_Management_System.Pages
 {
@@ -13,19 +15,27 @@ namespace HR_Management_System.Pages
     {
 
         private readonly HRMS_DB_Context _db;
+        public AccountManageModel AccountManage { get; set; }
 
-        public Career_LoginModel(HRMS_DB_Context context)
+
+        public Career_LoginModel(HRMS_DB_Context context, AccountManageModel accountManage)
         {
             _db = context;
+            AccountManage = accountManage;
         }
 
       
+        
         public long UserId { get; set; }
+
+
+        public bool AuthenticationFailed { get; set; } = false;
 
 
         [BindProperty]
         [Required]
-        public string UserName { get; set; }
+        [DataType(DataType.EmailAddress)]
+        public string EmailAddress { get; set; }
 
 
         [BindProperty]
@@ -36,31 +46,48 @@ namespace HR_Management_System.Pages
 
         public void OnGet()
         {
-            var user = _db.CareerUsers.SingleOrDefault();
-            UserId = user.Id;
+            
         }
 
 
-        public IActionResult OnPostAsync()
+        public IActionResult OnPost()
         {
-            //if (!ModelState.IsValid)
-            //{
-            //    return Page();
-            //}
-
-            var _user = _db.CareerUsers.Where(a => a.Username == UserName).ToList().SingleOrDefault();
-
-            if (_user == null)
+            if (ModelState.IsValid)
             {
-                return Page();
-            }
+                var _user = _db.Users.Where(a => a.UserType == UserType.Career && a.Email.ToLower() == EmailAddress.ToLower()).AsNoTracking().ToList().SingleOrDefault();
 
-            if (Password == _user.Password)
-            {
-                return RedirectToPage("/CareerPages/Career_Dashboard");
+                if (_user == null)
+                {
+                    AuthenticationFailed = true;
+                    return Page();
+                }
+
+                if (Password == _user.Password)
+                {
+                    AuthenticationFailed = false;
+                    AccountManage.IsLoggedIn = true;
+
+                    AccountManage.User = new UserModel
+                    {
+                        Email = _user.Email,
+                        Id = _user.Id,
+                        Name = _user.Name,
+                        UserType = UserType.Career,
+                        Password = _user.Password,
+                        UserName = _user.UserName
+                    };
+
+                    return RedirectToPage("/CareerPages/Career_Dashboard");
+                }
+                else
+                {
+                    AuthenticationFailed = true;
+                    return Page();
+                }
             }
             else
             {
+                AuthenticationFailed = false;
                 return Page();
             }
         }

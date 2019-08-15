@@ -24,5 +24,7 @@ namespace HR_Management_System.Models
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 
+      
+
     }
 }

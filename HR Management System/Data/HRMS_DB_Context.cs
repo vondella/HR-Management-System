@@ -16,7 +16,6 @@ namespace HR_Management_System.Data
 
         public DbSet<UserModel> Users { get; set; }
 
-        public DbSet<CareerUser> CareerUsers { get; set; }
 
         public DbSet<DepartmentModel> Departments { get; set; }
 
@@ -27,5 +26,14 @@ namespace HR_Management_System.Data
         public DbSet<WeekDayModel> WeekDays { get; set; }
 
         public DbSet<HolidayModel> Holidays { get; set; }
+
+        public DbSet<RecruitementNoticeModel> RecruitementNotices { get; set; }
+
+        public DbSet<LeaveCategory> LeaveCategories { get; set; }
+
+        public DbSet<Resume> Resumes { get; set; }
+
+
+
     }
 }
