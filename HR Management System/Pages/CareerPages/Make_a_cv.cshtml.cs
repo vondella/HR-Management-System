@@ -8,6 +8,8 @@ using HR_Management_System.Data;
 using HR_Management_System.Models;
 using Microsoft.AspNetCore.Http;
 using System.IO;
+using Microsoft.EntityFrameworkCore;
+using System.IO;
 
 namespace HR_Management_System.Pages
 {
@@ -29,7 +31,7 @@ namespace HR_Management_System.Pages
             {
                 return RedirectToPage("./Career_Login");
             }
-
+            ViewData["User_Name"] = _accountManage.User.Name;
             return Page();
         }
 
@@ -40,7 +42,7 @@ namespace HR_Management_System.Pages
            string present_address, string permanent_address, IFormFile profile_img, string phone_number, string mobile_number,
            DateTime date_of_birth, string gender, string marritual_status, string national_id, string religion, string nationality,
            string email, string[] qualification, string[] passing_year, string[] subject, string[] grade, string[] university,
-           string[] company_name, DateTime[] duration_from, string[] company_address, DateTime[] duration_to, string[] role)
+           string[] company_name, DateTime?[] duration_from, string[] company_address, DateTime?[] duration_to, string[] role)
         {
             var fdg = profile_img;
 
@@ -178,8 +180,8 @@ namespace HR_Management_System.Pages
             resume.PermanentAddress = permanent_address;
             resume.PhoneNumber = phone_number;
             resume.PresentAddress = present_address;
-            
-            if(profile_img != null)
+
+            if (profile_img != null)
             {
                 using (var memoryStream = new MemoryStream())
                 {
@@ -187,15 +189,29 @@ namespace HR_Management_System.Pages
                     resume.ProfileImage = memoryStream.ToArray();
                 }
             }
+            else
+            {
+                MemoryStream memoryStream = new MemoryStream();
+                var current_directory = Directory.GetCurrentDirectory();
+                FileStream fileStream = new FileStream($"{current_directory}/wwwroot/img/user.png", FileMode.Open);
+                await fileStream.CopyToAsync(memoryStream);
+                resume.ProfileImage = memoryStream.ToArray();
+            }
 
             resume.Religion = religion;
-
-            var user = await _db.Users.FindAsync(_accountManage.User.Id);
+            UserModel user = null;
+            user =  _db.Users.Include(a=> a.Resume).Include(a=> a.Resume.Experiences).Include(a=> a.Resume.EducationalDetails).Single(aa=> aa.Id == _accountManage.User.Id);
+            if(user == null)
+            {
+                return NotFound();
+            }
             user.Resume = resume;
 
             await _db.SaveChangesAsync();
 
-            return RedirectToPage("./Career_Dashboard");
+            var us = _db.Users.Include(u => u.Resume).SingleOrDefault(u => u.Id == _accountManage.User.Id);
+
+            return RedirectToPage("./ViewCV", new {id = us.Resume.Id });
         }
     }
 }
