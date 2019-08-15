@@ -10,14 +10,15 @@
 <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
 <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
 
+<form method="post" enctype="multipart/form-data">
+    <div class="card shadow mb-4">
 
-<div class="card shadow mb-4">
-    <div class="card-header">
-        <h5 class="m-0 font-weight-bold text-primary float-left">Create CV</h5>
-        <button class="btn btn-primary float-right" >Create</button>
-    </div>
-    
-    <form action="/" method="post">
+        <div class="card-header">
+            <h5 class="m-0 font-weight-bold text-primary float-left">Create CV</h5>
+            <button class="btn btn-primary float-right" type="submit">Create</button>
+        </div>
+
+
         <div class="card-body">
             <div>
                 <h5 class="text-gray-900">Personal Details</h5>
@@ -85,7 +86,7 @@
                     </div>
                     <div class="mt-4 d-flex justify-content-center">
                         <button style="width:130px;" type="button" class="btn btn-primary" onclick="openDialog()">Upload</button>
-                        <input type="file" name="profile_img" onchange="CVPhotoFileOnChanged(this)" id="UploadPhotoInput" hidden accept=".png,.jpg"/>
+                        <input type="file" name="profile_img" onchange="CVPhotoFileOnChanged(this)" id="UploadPhotoInput" hidden accept=".png,.jpg" />
                     </div>
                 </div>
             </div>
@@ -129,7 +130,7 @@
                 </div>
                 <div class="col-4 mt-auto">
                     <div class="form-group">
-                        <select class="form-control" name="marritual_status[]">
+                        <select class="form-control" name="marritual_status">
                             <option value="">Select Marritual Status</option>
                             <option value="Married">Maried</option>
                             <option value="Unmarried">Unmarried</option>
@@ -301,10 +302,10 @@
                 </tbody>
             </table>
         </div>
-    </form>
 
-</div>
 
+    </div>
+</form>
 
 
 
@@ -315,7 +316,7 @@
     });
 
 
-      
+
 </script>
 
 

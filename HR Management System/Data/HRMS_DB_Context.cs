@@ -30,5 +30,10 @@ namespace HR_Management_System.Data
         public DbSet<RecruitementNoticeModel> RecruitementNotices { get; set; }
 
         public DbSet<LeaveCategory> LeaveCategories { get; set; }
+
+        public DbSet<Resume> Resumes { get; set; }
+
+
+
     }
 }
