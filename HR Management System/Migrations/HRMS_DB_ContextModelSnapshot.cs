@@ -249,6 +249,8 @@ namespace HR_Management_System.Migrations
                     b.Property<string>("Password")
                         .IsRequired();
 
+                    b.Property<long?>("RecruitementNoticeModelId");
+
                     b.Property<bool>("RememberMe");
 
                     b.Property<long?>("ResumeId");
@@ -259,6 +261,8 @@ namespace HR_Management_System.Migrations
                     b.Property<int>("UserType");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("RecruitementNoticeModelId");
 
                     b.HasIndex("ResumeId");
 
@@ -303,6 +307,10 @@ namespace HR_Management_System.Migrations
 
             modelBuilder.Entity("HR_Management_System.Models.UserModel", b =>
                 {
+                    b.HasOne("HR_Management_System.Models.RecruitementNoticeModel")
+                        .WithMany("Applicants")
+                        .HasForeignKey("RecruitementNoticeModelId");
+
                     b.HasOne("HR_Management_System.Models.Resume", "Resume")
                         .WithMany()
                         .HasForeignKey("ResumeId");

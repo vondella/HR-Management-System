@@ -33,5 +33,6 @@ namespace HR_Management_System.Models
         public bool RememberMe { get; set; }
 
         public Resume Resume { get; set; }
+
     }
 }

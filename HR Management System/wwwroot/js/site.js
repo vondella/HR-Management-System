@@ -386,3 +386,35 @@ function CVPhotoFileOnChanged(file_input) {
         reader.readAsDataURL(file_input.files[0]);
     }
 }
+
+
+
+
+
+function ApplyForThePost(btn_control) {
+    
+    //get id;
+    var post_id = $("#RecruitmentID").val();
+    var career_id = $("#CareerID").val();
+
+    //change button inner text
+    btn_control.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Applying...';
+    $(btn_control).attr("disabled", "true");
+
+
+    $.ajax({
+        url: "https://localhost:44303/career/applyforpost?" + `post_id=${post_id}&applicant_id=${career_id}`, success: function (data, result) {
+            //alert(data);
+            if (data == "success") {
+                var fdf = "<h6>Applied</h6>";
+                $(btn_control).remove();
+                $("#HeaderContainer").append(fdf);
+            }
+            else {
+                btn_control.innerText = "Apply";
+                $(btn_control).attr("disabled", "false");
+            }
+        }
+    });
+    
+}
