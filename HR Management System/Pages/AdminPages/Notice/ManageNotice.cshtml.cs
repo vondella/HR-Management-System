@@ -60,7 +60,7 @@ namespace HR_Management_System.Pages
 
         public IActionResult OnGetEditNoticeAsync(long id)
         {
-            return RedirectToPage("/AdminPages/Notice/EditNotice", new { id =id });
+            return RedirectToPage("/AdminPages/Notice/EditNotice", new { id = id });
         }
 
 
@@ -77,7 +77,7 @@ namespace HR_Management_System.Pages
 
         public string IsPublished(bool val)
         {
-            if(val == true)
+            if (val == true)
             {
                 return "Published";
 

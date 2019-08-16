@@ -15,10 +15,22 @@ namespace HR_Management_System.Models
             using (var context = new HRMS_DB_Context(
                 serviceProvider.GetRequiredService<DbContextOptions<HRMS_DB_Context>>()))
             {
-                if(context.Users.Any() && context.WeekDays.Any())
+                //context.Users.Add(new UserModel
+                //{
+                //    Email = "career@gmail.com",
+                //    Name = "Career",
+                //    Password = "1234",
+                //    UserName = "career123",
+                //    UserType = UserType.Career
+                //});
+                //context.SaveChanges();
+
+                if (context.Users.Any() && context.WeekDays.Any())
                 {
                     return;
                 }
+
+               
 
                 if (!context.Users.Any())
                 {

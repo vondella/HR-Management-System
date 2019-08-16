@@ -227,6 +227,8 @@ namespace HR_Management_System.Migrations
 
                     b.Property<string>("Religion");
 
+                    b.Property<string>("Title");
+
                     b.HasKey("Id");
 
                     b.ToTable("Resumes");
