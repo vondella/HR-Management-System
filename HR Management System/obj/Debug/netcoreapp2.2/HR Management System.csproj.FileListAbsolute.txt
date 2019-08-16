@@ -486,3 +486,4 @@ D:\GitHub\ASPNETCORE\HR Management System\HR-Management-System\HR Management Sys
 E:\Github\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_LoginRegistrationLayout.g.cshtml.cs
 E:\Github\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\CareerPages\ViewRecruitmentNotice.g.cshtml.cs
 D:\GitHub\ASPNETCORE\HR Management System\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\CareerPages\ViewRecruitmentNotice.g.cshtml.cs
+E:\Github\HR-Management-System\HR Management System\obj\Debug\netcoreapp2.2\Razor\Pages\CareerPages\ChangePassword.g.cshtml.cs

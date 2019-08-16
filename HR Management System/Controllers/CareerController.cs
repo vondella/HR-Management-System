@@ -67,6 +67,14 @@ namespace HR_Management_System.Controllers
         }
 
 
+        public IActionResult ChangePassword()
+        {
+            
+            return RedirectToPage("/CareerPages/ChangePassword");
+        }
+
+
+
         public IActionResult view_cv()
         {
             UserModel user = null;
