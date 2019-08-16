@@ -9,7 +9,7 @@ using HR_Management_System.Models;
 using Microsoft.AspNetCore.Http;
 using System.IO;
 using Microsoft.EntityFrameworkCore;
-using System.IO;
+
 
 namespace HR_Management_System.Pages
 {
