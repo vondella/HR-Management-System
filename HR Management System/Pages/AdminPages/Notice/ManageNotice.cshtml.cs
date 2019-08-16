@@ -26,25 +26,15 @@ namespace HR_Management_System.Pages
 
 
 
-        //public void OnGet()
-        //{
-        //    if (_db.Notices.Any())
-        //    {
-        //        Notices = _db.Notices.AsNoTracking().ToList();
-        //    }
-        //}
-
-        public void OnGet(string src_string)
+        public void OnGet()
         {
-            if (src_string != null && src_string != "")
-            {
-                Notices = _db.Notices.Where(a => a.Title.IndexOf(src_string, StringComparison.CurrentCultureIgnoreCase) > -1).AsNoTracking().ToList();
-            }
-            else
+            if (_db.Notices.Any())
             {
                 Notices = _db.Notices.AsNoTracking().ToList();
             }
         }
+
+
 
 
         public async Task<IActionResult> OnGetViewNoticeAsync(long id)
@@ -60,7 +50,7 @@ namespace HR_Management_System.Pages
 
         public IActionResult OnGetEditNoticeAsync(long id)
         {
-            return RedirectToPage("/AdminPages/Notice/EditNotice", new { id = id });
+            return RedirectToPage("/AdminPages/Notice/EditNotice", new { id =id });
         }
 
 
@@ -77,7 +67,7 @@ namespace HR_Management_System.Pages
 
         public string IsPublished(bool val)
         {
-            if (val == true)
+            if(val == true)
             {
                 return "Published";
 

@@ -32,5 +32,7 @@ namespace HR_Management_System.Models
 
         [Required]
         public string Designation { get; set; }
+
+        public List<UserModel> Applicants { get; set; }
     }
 }

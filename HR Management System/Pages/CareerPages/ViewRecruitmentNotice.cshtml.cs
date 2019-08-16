@@ -13,11 +13,13 @@ namespace HR_Management_System.Pages.CareerPages
     public class ViewRecruitmentNoticeModel : PageModel
     {
         private readonly HRMS_DB_Context _db;
-        private readonly AccountManageModel _accountManage;
+        public readonly AccountManageModel _accountManage;
 
 
         [BindProperty]
         public RecruitementNoticeModel RecruitmentNotice { get; set; }
+
+        public bool Applied { get; set; }
 
 
         public ViewRecruitmentNoticeModel(HRMS_DB_Context db, AccountManageModel accountManage)
@@ -26,7 +28,7 @@ namespace HR_Management_System.Pages.CareerPages
             _accountManage = accountManage;
         }
 
-        public async Task<IActionResult> OnGetAsync(long id)
+        public IActionResult OnGetAsync(long id)
         {
             if (_accountManage.IsLoggedIn == true)
             {
@@ -35,7 +37,14 @@ namespace HR_Management_System.Pages.CareerPages
                     if (_accountManage.User.UserType == UserType.Career)
                     {
                         ViewData.Add("User_Name", _accountManage.User.Name);
-                        RecruitmentNotice = await _db.RecruitementNotices.FindAsync(id);
+                        RecruitmentNotice =  _db.RecruitementNotices.Include(a=>a.Applicants).Single(a=>a.Id == id);
+                        var gg = RecruitmentNotice.Applicants.Where(p => p.Id == _accountManage.User.Id).FirstOrDefault();
+                        if (gg != null)
+                        {
+                            Applied = true;
+                        }
+                        else Applied = false;
+
                         return Page();
                     }
                 }

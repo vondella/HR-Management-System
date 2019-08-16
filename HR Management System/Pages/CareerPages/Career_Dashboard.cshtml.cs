@@ -24,7 +24,7 @@ namespace HR_Management_System.Pages
         }
 
 
-        public async void OnGetAsync()
+        public async Task<IActionResult> OnGetAsync()
         {
             if(_accountManage.IsLoggedIn == true)
             {
@@ -34,12 +34,12 @@ namespace HR_Management_System.Pages
                     {
                         ViewData.Add("User_Name", _accountManage.User.Name);
                         RecruitementNotices = await _db.RecruitementNotices.Where(a => a.IsPublished == true).AsNoTracking().ToListAsync();
-                        return;
+                        return Page();
                     }
                 }
             }
 
-            RedirectToPage("./Career_Login");
+            return RedirectToPage("./Career_Login");
         }
 
 
