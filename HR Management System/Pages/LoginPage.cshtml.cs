@@ -13,10 +13,10 @@ namespace HR_Management_System.Pages
     public class LoginPageModel : PageModel
     {
         private readonly HRMS_DB_Context _db;
-
-        public LoginPageModel(HRMS_DB_Context context)
+        private readonly AccountManageModel _accountManage;
+        public LoginPageModel(HRMS_DB_Context context, AccountManageModel accountManage)
         {
-            _db = context;
+            _db = context; _accountManage = accountManage;
         }
 
         public List<UserModel> Users { get; set; }
@@ -65,7 +65,9 @@ namespace HR_Management_System.Pages
                 ViewData.Add("User_Name", (string)_user.Name);
 
                 if (_user.UserType == UserType.Admin)
-                {    
+                {
+                    _accountManage.IsLoggedIn = true;
+                    _accountManage.User = _user;
                     return RedirectToPage("/AdminPages/AdminDashboard");
                 }
                 if (_user.UserType ==  UserType.Employee)

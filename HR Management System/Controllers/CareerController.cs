@@ -103,6 +103,7 @@ namespace HR_Management_System.Controllers
             {
                 var notice = _db.RecruitementNotices.Include(o => o.Applicants).Single(i => i.Id == post_id);
                 var CareerUser = await _db.Users.FindAsync(applicant_id);
+                CareerUser.DateOfApplication = DateTime.Now;
                 notice.Applicants.Add(CareerUser);
                 await _db.SaveChangesAsync();
                 Thread.Sleep(2000);

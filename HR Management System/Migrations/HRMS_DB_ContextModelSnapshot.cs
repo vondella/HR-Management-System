@@ -240,6 +240,8 @@ namespace HR_Management_System.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<DateTime?>("DateOfApplication");
+
                     b.Property<string>("Email")
                         .IsRequired();
 

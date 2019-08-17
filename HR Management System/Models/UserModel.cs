@@ -34,5 +34,7 @@ namespace HR_Management_System.Models
 
         public Resume Resume { get; set; }
 
+        public DateTime? DateOfApplication { get; set; }
+
     }
 }
