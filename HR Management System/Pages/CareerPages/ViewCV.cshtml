@@ -20,7 +20,7 @@
             <div style="height:300px; background-color:dimgray;">
 
             </div>
-            <div class="d-flex flex-row" style="margin-top:-250px; margin-left:40px; height:100%;">
+            <div class="d-flex" style="margin-top:-250px; margin-left:40px; height:100%;">
                 <div style="height:100%; width:300px; background-color:whitesmoke;">
                     <div class="p-4">
                         <div class="d-flex justify-content-center">
@@ -187,82 +187,81 @@
 
                 </div>
 
-                <div class="mt-5 ml-4">
-                    <div class="text-gray-100">
-                        <p>Hello, I am</p>
-                        <div>
-                            <h3>@Model.Resume.FirstName @Model.Resume.LastName</h3>
+                <div>
+                    <div class="mt-5 ml-4" style="position:absolute">
+                        <div class="text-gray-100">
+                            <p>Hello, I am</p>
+                            <div>
+                                <h3>@Model.Resume.FirstName @Model.Resume.LastName</h3>
+                            </div>
+                            <div>@Model.Resume.Title</div>
                         </div>
-                        <div>@Model.Resume.Title</div>
                     </div>
-
-
-
-                </div>
-                <div style="margin-top:275px; margin-left:-170px;" class="text-gray-900">
-                    @if (Model.Resume.Experiences != null)
-                    {
-                        if (Model.Resume.Experiences.Count > 0)
+                    <div style="margin-left:20px; margin-top:280px; position:absolute;" class="text-gray-900">
+                        @if (Model.Resume.Experiences != null)
                         {
-                            <h5>Experience</h5>
-                            <div>
-                                <ul>
-                                    @foreach (var item in Model.Resume.Experiences)
-                                    {
-                                        <li>
-                                            <div>
-                                                <h6 class="font-weight-bold mb-0">@item.Role</h6>
-                                                <div class="d-inline-flex">
-                                                    <p class="mb-0">From</p>
-                                                    <p class="ml-2 mb-0">@Model.BirthdayString(item.DurationFrom)</p>
-                                                    <p class="ml-2 mb-0">To</p>
-                                                    <p class="ml-2 mb-0">@Model.BirthdayString(item.DurationTo)</p>
+                            if (Model.Resume.Experiences.Count > 0)
+                            {
+                                <h5>Experience</h5>
+                                <div>
+                                    <ul>
+                                        @foreach (var item in Model.Resume.Experiences)
+                                        {
+                                            <li>
+                                                <div>
+                                                    <h6 class="font-weight-bold mb-0">@item.Role</h6>
+                                                    <div class="d-inline-flex">
+                                                        <p class="mb-0">From</p>
+                                                        <p class="ml-2 mb-0">@Model.BirthdayString(item.DurationFrom)</p>
+                                                        <p class="ml-2 mb-0">To</p>
+                                                        <p class="ml-2 mb-0">@Model.BirthdayString(item.DurationTo)</p>
+                                                    </div>
+                                                    <p class="mb-0">@item.CompanyName</p>
+                                                    <P class="mb-0">@item.CompanyAddress</P>
+
                                                 </div>
-                                                <p class="mb-0">@item.CompanyName</p>
-                                                <P class="mb-0">@item.CompanyAddress</P>
+                                            </li>
+                                            <br />
+                                        }
 
-                                            </div>
-                                        </li>
-                                        <br />
-                                    }
+                                    </ul>
+                                </div>
+                                <div style="max-width:100%; height:2px; min-width:400px;" class="bg-dark mr-4"></div>
 
-                                </ul>
-                            </div>
-                            <div style="max-width:100%; height:2px; min-width:400px;" class="bg-dark mr-4"></div>
-
+                            }
                         }
-                    }
-                    @if (Model.Resume.EducationalDetails != null)
-                    {
-                        if (Model.Resume.EducationalDetails.Count > 0)
+                        @if (Model.Resume.EducationalDetails != null)
                         {
-                            <h5 class="mt-4">Education</h5>
-                            <div>
-                                <ul>
-                                    @foreach (var item in Model.Resume.EducationalDetails)
-                                    {
-                                        <li>
-                                            <div>
-                                                <h6 class="font-weight-bold mb-0">@item.Institute</h6>
-                                                <div class="d-inline-flex">
-                                                    <p class="mb-0">@item.Qualification</p>
-                                                    <p class="ml-2 mb-0">/</p>
-                                                    <p class="ml-2 mb-0">@item.Grade</p>
-                                                    <p class="mb-0 ml-2">/</p>
-                                                    <p class="ml-2 mb-0">@item.Subject</p>
-                                                    <p class="mb-0 ml-2">/</p>
-                                                    <p class="ml-2 mb-0">@item.PassingYear</p>
+                            if (Model.Resume.EducationalDetails.Count > 0)
+                            {
+                                <h5 class="mt-4">Education</h5>
+                                <div>
+                                    <ul>
+                                        @foreach (var item in Model.Resume.EducationalDetails)
+                                        {
+                                            <li>
+                                                <div>
+                                                    <h6 class="font-weight-bold mb-0">@item.Institute</h6>
+                                                    <div class="d-inline-flex">
+                                                        <p class="mb-0">@item.Qualification</p>
+                                                        <p class="ml-2 mb-0">/</p>
+                                                        <p class="ml-2 mb-0">@item.Grade</p>
+                                                        <p class="mb-0 ml-2">/</p>
+                                                        <p class="ml-2 mb-0">@item.Subject</p>
+                                                        <p class="mb-0 ml-2">/</p>
+                                                        <p class="ml-2 mb-0">@item.PassingYear</p>
+                                                    </div>
+
                                                 </div>
-
-                                            </div>
-                                        </li>
-                                        <br />
-                                    }
-                                </ul>
-                            </div>
+                                            </li>
+                                            <br />
+                                        }
+                                    </ul>
+                                </div>
+                            }
                         }
-                    }
 
+                    </div>
                 </div>
             </div>
 

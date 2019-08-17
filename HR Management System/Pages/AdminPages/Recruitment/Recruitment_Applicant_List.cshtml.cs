@@ -106,7 +106,7 @@ namespace HR_Management_System.Pages
 
         public IActionResult OnGetView(long id)
         {
-            return RedirectToPage("./Applicant_details");
+            return RedirectToPage("./Applicant_details", new {id = id });
         }
     }
 }
