@@ -16,5 +16,7 @@ namespace HR_Management_System.Models
         public string Designation { get; set; }
 
         public DateTime? DateOfApplication { get; set; }
+
+        public DateTime? DateOfInterview { get; set; }
     }
 }

@@ -25,6 +25,9 @@ namespace HR_Management_System.Models
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
+        public string Department { get; set; }
+        public string Designation { get; set; }
+
         [Required]
         public UserType UserType { get; set; }
 

@@ -242,6 +242,10 @@ namespace HR_Management_System.Migrations
 
                     b.Property<DateTime?>("DateOfApplication");
 
+                    b.Property<string>("Department");
+
+                    b.Property<string>("Designation");
+
                     b.Property<string>("Email")
                         .IsRequired();
 
