@@ -251,6 +251,8 @@ namespace HR_Management_System.Migrations
 
                     b.Property<DateTime?>("InterviewDate");
 
+                    b.Property<DateTime?>("JoiningDate");
+
                     b.Property<string>("Name")
                         .IsRequired();
 

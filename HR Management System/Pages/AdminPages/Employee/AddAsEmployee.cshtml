@@ -1,0 +1,59 @@
+﻿@page
+@model HR_Management_System.Pages.AdminPages.Employee.AddAsEmployeeModel
+@{
+    ViewData["Title"] = "AddAsEmployee";
+    Layout = "~/Views/Shared/_AdminDashboardLayout.cshtml";
+}
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, HR Management System
+
+
+
+<center><h2>Add Employee</h2></center>
+
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">@Model.Applicant.Name</h6>
+    </div>
+    <div class="card-body">
+        <form role="form" method="post" class="form-horizontal form-groups-bordered">
+            <input type="text"  value="@Model.Applicant.Id" hidden name="id" />
+            <div class="form-group">
+                <label class="col-sm-3 control-label">Joining Date<span class="required" aria-required="true">*</span></label>
+                <div class="col-sm-3 col-md-3">
+                    <input type="date" asp-for="JoiningDate" class="form-control">
+                    <small><span asp-validation-for="JoiningDate" class="text-danger"></span></small>
+                </div>
+
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">Username <span class="required" aria-required="true">*</span></label>
+                <div class="col-sm-3 col-md-3">
+                    <input type="text" class="form-control" asp-for="Username">
+                    <small> <span asp-validation-for="Username" class="text-danger"></span></small>
+                    @if (Model.UsernameExisted == true)
+                    {
+                        <small> <span class="text-danger">Username existed. Try another username.</span></small>
+                    }
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-offset-3 col-sm-5">
+                    <button type="submit" id="sbtn" class="btn btn-primary">Add Employee</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

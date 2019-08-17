@@ -4,412 +4,76 @@
     ViewData["Title"] = "AddEmployee";
     Layout = "~/Views/Shared/_AdminDashboardLayout.cshtml";
 }
-    <head>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, HR Management System
 
 
-        <style>
-
-            h2 {
-                background: #1886FA;
-                text-align: center;
-                padding: 5px;
-                color: white;
-            }
-
-            td {
-                padding: 7px;
-            }
-
-            input {
-                height: 25px;
-                border-radius: 10px;
-                border: #000000;
-                background: #66C7FF;
-            }
-
-                input:focus, teaxtarea:focus {
-                    outline: none;
-                    border: 1px solid #0037ff;
-                }
-
-            textarea {
-                border-radius: 10px;
-            }
-
-            .button {
-                background-color: #1886FA;
-                color: white;
-                font-size: 18px;
-                padding: 3px 25px;
-                border: none;
-                margin-bottom: 20px;
-            }
-
-                .button:hover {
-                    cursor: pointer;
-                    box-shadow: 7px 7px 7px yellow;
-                }
-        </style>
-    </head>
-
-    <body>
-
-        <h1 align="center">Add Employee Form</h1>
-        <form>
-            <table width="50%">
-                <tr>
-                    <td>Application ID</td>
-                    <td>
-                        <input type="text" size="25">
-                    </td>
-                    <td align="center">
-                        <input type="submit" value="Search" class="button">
-                    </td>
-                </tr>
 
 
-                <tr>
-                    <td><label class="control-label">Designation <span class="required" aria-required="true">*</span></label></td>
-                    <td>
-                        <select name="designations_id" class="form-control">
-                            <option>Select Designations</option>
+<center><h2>Add Employee</h2></center>
 
-                        </select>
-                    </td>
 
-                </tr>
-                <tr>
-                    <td>
-                        <label for="field-1" class="control-label">Joining Date <span class="required" aria-required="true">*</span></label>
-                    </td>
-                    <td>
-                        <input type="date">
-                    </td>
 
-                </tr>
-                </table>
-        </form>
-        <!--Personal Details-->
 
-        <form action="">
-            <div id="personal-information">
-                <h2>Personal Information</h2>
-                <table width="100%">
-                    <tr>
-                        <td>First Name</td>
-                        <td>
-                            <input type="text" size="25">
-                        </td>
-                        <td>Last Name</td>
-                        <td>
-                            <input type="text" size="25">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Father's Name</td>
-                        <td>
-                            <input type="text" size="25">
-                        </td>
-                        <td>Mother's Name</td>
-                        <td>
-                            <input type="text" size="25">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Present Address</td>
-                        <td>
-                            <textarea cols="25" rows="5"></textarea>
-                        </td>
-                        <td>Permanent Address</td>
-                        <td>
-                            <textarea cols="25" rows="5"></textarea>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Phone Number</td>
-                        <td>
-                            <input type="Number" size="25">
-                        </td>
-                        <td>Mobile Number</td>
-                        <td>
-                            <input type="Number" size="25">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Date of Birth</td>
-                        <td>
-                            <input type="date">
-                        </td>
-                        <td>Place of Birth</td>
-                        <td>
-                            <input type="text" size="25">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Select Gender</td>
-                        <td>
-                            <select>
-                                <option value="select">Select One</option>
-                                <option value="male">Male</option>
-                                <option value="female">Female</option>
-                            </select>
-                        </td>
-                        <td>Maritual Status</td>
-                        <td>
-                            <select>
-                                <option value="select">Select One</option>
-                                <option value="married">Married</option>
-                                <option value="single">Single</option>
-                                <option value="divorced">Divorced</option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>National ID Card Number</td>
-                        <td>
-                            <input type="Number">
-                        </td>
-                        <td>Religion</td>
-                        <td>
-                            <select>
-                                <option value="islam">Islam</option>
-                                <option value="hindu">Hindu</option>
-                                <option value="christian">Christian</option>
-                                <option value="boddho">Boddho</option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Nationality</td>
-                        <td>
-                            <input type="text" size="25">
-                        </td>
-                        <td>Personal Email</td>
-                        <td>
-                            <input type="text" size="25">
-                        </td>
-                    </tr>
-                </table>
+<div class="card shadow mb-4">
+
+    <div class="row">
+        <div class="col-sm-6 col-md-6">
+            <div id="dataTable_filter" class="dataTables_filter ml-4 mt-4">
+                <form method="get">
+                    <label>Search:<input type="search" class="form-control form-control-sm" placeholder="Search by Title" aria-controls="dataTable" name="src_string"></label>
+                    <span><button class="btn btn-primary form-control-sm" type="submit">Search</button></span>
+                </form>
+
             </div>
+        </div>
+    </div>
 
-            <!--Educational Details-->
 
-            <div id="education-details">
-                <h2>Educational Information</h2>
-                <table width="100%">
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
                     <tr>
-                        <td>SNo</td>
-                        <td>Qualification</td>
-                        <td>Major in Subject</td>
-                        <td>Institute/ University</td>
-                        <td>Year of Passing</td>
-                        <td>Result/ Grade</td>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Department</th>
+                        <th>Designation</th>
+                        <th>Date of interview</th>
+                        <th>Action</th>
                     </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>
-                            <input type="text" size="20">
-                        </td>
-                        <td>
-                            <input type="text" size="20">
-                        </td>
-                        <td>
-                            <input type="text" size="20">
-                        </td>
-                        <td>
-                            <input type="month">
-                        </td>
-                        <td>
-                            <input type="text">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>
-                            <input type="text" size="20">
-                        </td>
-                        <td>
-                            <input type="text" size="20">
-                        </td>
-                        <td>
-                            <input type="text" size="20">
-                        </td>
-                        <td>
-                            <input type="month">
-                        </td>
-                        <td>
-                            <input type="text">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>
-                            <input type="text" size="20">
-                        </td>
-                        <td>
-                            <input type="text" size="20">
-                        </td>
-                        <td>
-                            <input type="text" size="20">
-                        </td>
-                        <td>
-                            <input type="month">
-                        </td>
-                        <td>
-                            <input type="text">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>
-                            <input type="text" size="20">
-                        </td>
-                        <td>
-                            <input type="text" size="20">
-                        </td>
-                        <td>
-                            <input type="text" size="20">
-                        </td>
-                        <td>
-                            <input type="month">
-                        </td>
-                        <td>
-                            <input type="text">
-                        </td>
-                    </tr>
-                </table>
-            </div>
+                </thead>
 
-            <!--Training Experience-->
 
-            <div id="work-experience">
-                <h2>Professional Training Information</h2>
-                <table width="100%">
-                    <tr>
-                        <td>SNo</td>
-                        <td>Company Name</td>
-                        <td>Company Address</td>
-                        <td>Role/ Responsibilities</td>
-                        <td colspan="2">Duration (From - To)</td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>
-                            <textarea cols="20" rows="5"></textarea>
-                        </td>
-                        <td>
-                            <textarea cols="20" rows="5"></textarea>
-                        </td>
-                        <td>
-                            <textarea cols="20" rows="5"></textarea>
-                        </td>
-                        <td>
-                            <input type="month">
-                        </td>
-                        <td>
-                            <input type="month">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>
-                            <textarea cols="20" rows="5"></textarea>
-                        </td>
-                        <td>
-                            <textarea cols="20" rows="5"></textarea>
-                        </td>
-                        <td>
-                            <textarea cols="20" rows="5"></textarea>
-                        </td>
-                        <td>
-                            <input type="month">
-                        </td>
-                        <td>
-                            <input type="month">
-                        </td>
-                    </tr>
-                </table>
-            </div>
 
-            <!--Other Details-->
-            <div id="other-information">
-                <h2>Other Information</h2>
-                <table width="100%">
-                    <tr>
-                        <td>Blood Group</td>
-                        <td>
-                            <select>
-                                <option value="select">
-                                    Select One
-                                </option>
-                                <option value="A+">
-                                    A+
-                                </option>
-                                <option value="A-">
-                                    A-
-                                </option>
-                                <option value="B+">
-                                    B+
-                                </option>
-                                <option value="B-">
-                                    B-
-                                </option>
-                                <option value="O+">
-                                    O+
-                                </option>
-                                <option value="O-">
-                                    O-
-                                </option>
-                                <option value="AB+">
-                                    AB+
-                                </option>
-                                <option value="AB-">
-                                    AB-
-                                </option>
-                            </select>
-                        </td>
-                        <td>Username:</td>
-                        <td>
-                            <input type="text" size="25">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Upload Your Picture</td>
-                        <td>
-                            <input type="file" name="picture" accept="image">
-                        </td>
-                        <td>Upload Your Signature</td>
-                        <td>
-                            <input type="file" name="signature" accept="image">
-                        </td>
-                    </tr>
+                <tbody>
 
-                    <tr>
-                        <td>Applointment Letter</td>
-                        <td>
-                            <input type="file" name="picture" accept="image">
-                        </td>
-                    </tr>
-                    <tr align="center">
-                        <td colspan="1">
-                            <input type="checkbox">
-                        </td>
-                        <td>
-                            This is to inform that, All the above mentioned information is correct as per my knowledge.
-                        </td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td align="center">
-                            <input type="submit" value="Submit" class="button">
-                        </td>
-                        <td align="center">
-                            <input type="submit" value="Update" class="button">
-                        </td>
-                        <td></td>
-                    </tr>
-                </table>
-            </div>
-        </form>
-    </body>
+                    @if (Model.Applicants != null)
+                    {
+                        if (Model.Applicants.Count > 0)
+                        {
+                            for (int i = 0; i < Model.Applicants.Count; i++)
+                            {
+                                <tr>
+                                    <td>@Model.Applicants[i].Id</td>
+                                    <td>@Model.Applicants[i].Name</td>
+                                    <td>@Model.Applicants[i].Department</td>
+                                    <td>@Model.Applicants[i].Designation</td>
+                                    <td>@Model.DateOfApplcationShortForm(Model.Applicants[i].InterviewDate)</td>
+                                    <td>
+                                        <div class="row">
+                                            <div class="col-6"><a asp-page="./AddAsEmployee" asp-route-id="@Model.Applicants[i].Id">Select as Employee</a></div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    }
 
+                </tbody>
+
+
+            </table>
+        </div>
+    </div>
+</div>
