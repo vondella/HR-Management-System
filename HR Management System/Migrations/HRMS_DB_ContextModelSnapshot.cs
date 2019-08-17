@@ -245,6 +245,8 @@ namespace HR_Management_System.Migrations
                     b.Property<string>("Email")
                         .IsRequired();
 
+                    b.Property<DateTime?>("InterviewDate");
+
                     b.Property<string>("Name")
                         .IsRequired();
 

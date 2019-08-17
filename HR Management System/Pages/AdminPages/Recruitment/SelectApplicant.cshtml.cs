@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 using HR_Management_System.Data;
@@ -25,6 +26,15 @@ namespace HR_Management_System.Pages.AdminPages.Recruitment
         public UserModel Career_user { get; set; }
 
 
+        [Required]
+        [BindProperty]
+        [DataType(DataType.Date)]
+        public DateTime InterviewDate { get; set; } = DateTime.Now;
+
+        [Required]
+        [BindProperty]
+        [DataType(DataType.Time)]
+        public DateTime InterviewTime { get; set; } = DateTime.Now;
 
 
         public IActionResult OnGet(long id)
@@ -52,6 +62,17 @@ namespace HR_Management_System.Pages.AdminPages.Recruitment
 
 
 
-      
+
+        public async Task<IActionResult> OnPostAsync(long id)
+        {
+            if (ModelState.IsValid)
+            {
+                var u = await _db.Users.FindAsync(id);
+                u.InterviewDate = new DateTime(InterviewDate.Year, InterviewDate.Month, InterviewDate.Day, InterviewTime.Hour, InterviewTime.Minute, InterviewTime.Second);
+                await _db.SaveChangesAsync();
+                return RedirectToPage("./Recruitment_Applicant_List");
+            }
+            return Page();
+        }
     }
 }

@@ -36,5 +36,8 @@ namespace HR_Management_System.Models
 
         public DateTime? DateOfApplication { get; set; }
 
+
+        public DateTime? InterviewDate { get; set; }
+
     }
 }
