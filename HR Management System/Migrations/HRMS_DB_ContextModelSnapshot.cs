@@ -259,6 +259,8 @@ namespace HR_Management_System.Migrations
 
                     b.Property<long?>("ResumeId");
 
+                    b.Property<bool>("SelectedForInterview");
+
                     b.Property<string>("UserName")
                         .IsRequired();
 

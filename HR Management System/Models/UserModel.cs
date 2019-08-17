@@ -39,5 +39,8 @@ namespace HR_Management_System.Models
 
         public DateTime? InterviewDate { get; set; }
 
+        
+        public bool SelectedForInterview { get; set; } = false;
+
     }
 }
