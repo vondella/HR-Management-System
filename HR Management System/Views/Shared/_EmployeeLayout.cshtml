@@ -23,11 +23,18 @@
             <!-- Sidebar -->
             <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
-                <!-- Sidebar - Brand -->
+                 @*Sidebar - Brand 
                 <a class="sidebar-brand d-flex align-items-center justify-content-center" asp-controller="Emp" asp-action="Dashboard">
                     <div class="sidebar-brand-icon">
                         <img src="~/img/pclink.png" alt="pclinklogo" height="125" width="250" />
                     </div>
+                </a>*@
+                <a class="sidebar-brand d-flex align-items-center justify-content-center" asp-controller="Emp" asp-action="Dashboard">
+                    <div class="sidebar-brand-icon">
+                        @*<span style="font-family:Copperplate Gothic Light; color:white; font-size:30px">P</span>*@
+                        <img src="~/img/p-letter-logo.png" alt="pclinklogo" height="50" width="50" />
+                    </div>
+                    <div class="sidebar-brand-text mx-3">PC Link IT</div>
                 </a>
 
                 <!-- Divider -->
@@ -65,20 +72,20 @@
                     </a>
                 </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" asp-action="Notice" asp-controller="Emp">
-                        <i class="fa fa-flag"></i>
-                        <span>Notice Board</span>
-                    </a>
-                </li>
+                @*<li class="nav-item">
+            <a class="nav-link" asp-action="Notice" asp-controller="Emp">
+                <i class="fa fa-flag"></i>
+                <span>Notice Board</span>
+            </a>
+        </li>
 
 
-                <li class="nav-item">
-                    <a class="nav-link" asp-action="payment_info" asp-controller="Emp">
-                        <i class="fa fa-dollar-sign"></i>
-                        <span>Salary Info</span>
-                    </a>
-                </li>
+        <li class="nav-item">
+            <a class="nav-link" asp-action="payment_info" asp-controller="Emp">
+                <i class="fa fa-dollar-sign"></i>
+                <span>Salary Info</span>
+            </a>
+        </li>*@
 
 
                 <!-- Divider -->
