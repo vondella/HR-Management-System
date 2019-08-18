@@ -32,8 +32,8 @@ namespace HR_Management_System.Pages.CareerPages
                 return RedirectToPage("./Career_Login");
             }
             ViewData["User_Name"] = _accountManage.User.Name;
-            
-            if(id == null)
+            ViewData.Add("ProfileImg", _accountManage.User.ProfileImageSrc);
+            if (id == null)
             {
                 Resume = null;
                 return Page();

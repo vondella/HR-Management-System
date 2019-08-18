@@ -259,6 +259,8 @@ namespace HR_Management_System.Migrations
                     b.Property<string>("Password")
                         .IsRequired();
 
+                    b.Property<byte[]>("ProfileImage");
+
                     b.Property<long?>("RecruitementNoticeModelId");
 
                     b.Property<bool>("RememberMe");

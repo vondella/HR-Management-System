@@ -47,8 +47,7 @@ namespace HR_Management_System.Pages.AdminPages.Employee
             ViewData["User_Name"] = _accountManage.User.Name;
 
             Applicant = await _db.Users.FindAsync(id);
-
-
+            
             return Page();
         }
 
@@ -68,71 +67,95 @@ namespace HR_Management_System.Pages.AdminPages.Employee
             }
 
             var user = await _db.Users.FindAsync(id);
-            var notices = await _db.RecruitementNotices.Include(a => a.Applicants).ToListAsync();
+            //var notices = await _db.RecruitementNotices.Include(a => a.Applicants).ToListAsync();
+
+
            
-            if (notices != null)
-            {
-                if(notices.Count> 0)
-                {
-                    bool done = false;
-                    foreach (var item in notices)
-                    {
+            //if (notices != null)
+            //{
+            //    if(notices.Count> 0)
+            //    {
+            //        bool done = false;
+            //        foreach (var item in notices)
+            //        {
                         
-                        foreach(var apl in item.Applicants)
-                        {
-                            if(apl.Id == id)
-                            {
-                                user.Department = item.Department;
-                                user.Designation = item.Designation;
-                                done = true;
-                                break;
-                            }
-                        }
-                        if (done == true)
-                            break;
-                    }
-                }
-            }
+            //            foreach(var apl in item.Applicants)
+            //            {
+            //                if(apl.Id == id)
+            //                {
+            //                    user.Department = item.Department;
+            //                    user.Designation = item.Designation;
+            //                    done = true;
+            //                    break;
+            //                }
+            //            }
+            //            if (done == true)
+            //                break;
+            //        }
+            //    }
+            //}
 
             user.UserType = UserType.Employee;
             user.UserName = Username;
             user.JoiningDate = JoiningDate;
             await _db.SaveChangesAsync();
 
-            notices = await _db.RecruitementNotices.Include(a => a.Applicants).ToListAsync();
+            
 
-           
-           
-            if (notices != null)
-            {
-                if (notices.Count > 0)
-                {
-                    bool done = false;
-                    foreach (var item in notices)
-                    {
-                        UserModel u = null; 
-                        foreach (var apl in item.Applicants)
-                        {
-                            if (apl.Id == id)
-                            {
-                                u = apl;
-                                done = true;
-                                break;
-                            }
-                        }
-                        if( u!= null)
-                        {
-                            item.Applicants.Remove(u);
-                            if (done == true)
-                                break;
-                        }
+            var uu = await _db.RecruitementNotices.Include(a => a.Applicants).SelectMany(a => a.Applicants).ToListAsync();
+            var yy = uu.Find(o => o.Id == user.Id);
+
+            uu.Remove(yy);
+
+            //if (notices != null)
+            //{
+            //    if (notices.Count > 0)
+            //    {
+            //        bool done = false;
+            //        foreach (var item in notices)
+            //        {
+            //            UserModel u = null; 
+            //            foreach (var apl in item.Applicants)
+            //            {
+            //                if (apl.Id == id)
+            //                {
+            //                    u = apl;
+            //                    done = true;
+            //                    break;
+            //                }
+            //            }
+            //            if( u!= null)
+            //            {
+            //                item.Applicants.Remove(u);
+            //                if (done == true)
+            //                    break;
+            //            }
                         
-                    }
-                }
-            }
+            //        }
+            //    }
+            //}
             await _db.SaveChangesAsync();
             
             return RedirectToPage("./EmployeeList");
+        }
+
+
+
+
+
+        public string ImgSrc(byte[] img_data)
+        {
+            try
+            {
+                var base64 = Convert.ToBase64String(img_data);
+                var imgSrc = String.Format("data:image/jpg;base64,{0}", base64);
+                return imgSrc;
+            }
+            catch
+            {
+                return "~/img/user.png";
+            }
+
         }
     }
 }
