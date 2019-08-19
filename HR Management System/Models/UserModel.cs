@@ -45,15 +45,14 @@ namespace HR_Management_System.Models
 
         public DateTime? DateOfApplication { get; set; }
 
-
         public DateTime? InterviewDate { get; set; }
-
         
         public bool SelectedForInterview { get; set; } = false;
-
 
         public DateTime? JoiningDate { get; set; }
 
         public bool Status { get; set; }
+
+        public Salary Salary { get; set; }
     }
 }

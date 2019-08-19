@@ -33,7 +33,7 @@ namespace HR_Management_System.Data
 
         public DbSet<Resume> Resumes { get; set; }
 
-
+        public DbSet<Salary> Salaries { get; set; }
 
     }
 }

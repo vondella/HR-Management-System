@@ -234,6 +234,39 @@ namespace HR_Management_System.Migrations
                     b.ToTable("Resumes");
                 });
 
+            modelBuilder.Entity("HR_Management_System.Models.Salary", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<double>("BasicSalary");
+
+                    b.Property<double>("GrossSalary");
+
+                    b.Property<double>("HouseRent");
+
+                    b.Property<double>("MedicalBill");
+
+                    b.Property<double>("MobileBill");
+
+                    b.Property<double>("NetSalary");
+
+                    b.Property<double>("Other");
+
+                    b.Property<double>("OtherDeduction");
+
+                    b.Property<double>("ProvidentFundDeduction");
+
+                    b.Property<double>("TaxDeduction");
+
+                    b.Property<double>("TotalDeduction");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Salaries");
+                });
+
             modelBuilder.Entity("HR_Management_System.Models.UserModel", b =>
                 {
                     b.Property<long>("Id")
@@ -267,6 +300,8 @@ namespace HR_Management_System.Migrations
 
                     b.Property<long?>("ResumeId");
 
+                    b.Property<long?>("SalaryId");
+
                     b.Property<bool>("SelectedForInterview");
 
                     b.Property<bool>("Status");
@@ -281,6 +316,8 @@ namespace HR_Management_System.Migrations
                     b.HasIndex("RecruitementNoticeModelId");
 
                     b.HasIndex("ResumeId");
+
+                    b.HasIndex("SalaryId");
 
                     b.ToTable("Users");
                 });
@@ -330,6 +367,10 @@ namespace HR_Management_System.Migrations
                     b.HasOne("HR_Management_System.Models.Resume", "Resume")
                         .WithMany()
                         .HasForeignKey("ResumeId");
+
+                    b.HasOne("HR_Management_System.Models.Salary", "Salary")
+                        .WithMany()
+                        .HasForeignKey("SalaryId");
                 });
 #pragma warning restore 612, 618
         }
