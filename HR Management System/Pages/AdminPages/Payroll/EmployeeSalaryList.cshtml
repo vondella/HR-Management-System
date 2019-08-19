@@ -70,26 +70,30 @@
                                             </tfoot>
                                         }
 
-                                        <tbody>
+                            <tbody>
 
-                                            @for (int i = 0; i < Model.Employees.Count; i++)
-                                            {
-                                            <tr>
-                                                <td>@Model.Employees[i].Id</td>
-                                                <td>@Model.Employees[i].Name</td>
-                                                <td>@Model.Employees[i].Salary.GrossSalary</td>
-                                                <td>@Model.Employees[i].Salary.TotalDeduction</td>
-                                                <td>@Model.Employees[i].Salary.NetSalary</td>
+                                @for (int i = 0; i < Model.Employees.Count; i++)
+                                {
+                                    @if (Model.Employees[i].Salary != null)
+                                    {
+                                        <tr>
+                                            <td>@Model.Employees[i].Id</td>
+                                            <td>@Model.Employees[i].Name</td>
+                                            <td>@Model.Employees[i].Salary.GrossSalary</td>
+                                            <td>@Model.Employees[i].Salary.TotalDeduction</td>
+                                            <td>@Model.Employees[i].Salary.NetSalary</td>
 
-                                                <td>
-                                                    <div class="row">
-                                                        <div class="col"><a asp-page="./ViewSalaryDetails" asp-route-id="@Model.Employees[i].Id">View Details</a></div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            }
+                                            <td>
+                                                <div class="row">
+                                                    <div class="col"><a asp-page="./ViewSalaryDetails" asp-route-id="@Model.Employees[i].Id">View Details</a></div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    }
 
-                                        </tbody>
+                                }
+
+                            </tbody>
                                     }
                                 }
                             </table>
