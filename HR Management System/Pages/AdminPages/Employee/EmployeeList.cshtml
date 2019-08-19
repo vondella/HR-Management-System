@@ -85,8 +85,8 @@
 
                                                     <td>
                                                         <div class="row">
-                                                            <div class="col-6"><a href="#"><span class="fa fa-list-alt Edit-HyperLink"></span></a></div>
-                                                            @*<input type="text" name="EmployeeID" value="@Model.Employees[i].Id" hidden />*@
+                                                            <div class="col-6"><a asp-page="./ViewEmployeeDetails" asp-route-id="@Model.Employees[i].Id"><span class="fa fa-list-alt Edit-HyperLink"></span></a></div>
+                                                          
                                                             <div class="col-6"><employee-is-active is-active="@Model.Employees[i].Status" id="@Model.Employees[i].Id"></employee-is-active></div>
                                                             
                                                         </div>
