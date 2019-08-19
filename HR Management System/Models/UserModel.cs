@@ -54,5 +54,6 @@ namespace HR_Management_System.Models
 
         public DateTime? JoiningDate { get; set; }
 
+        public bool Status { get; set; }
     }
 }

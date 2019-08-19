@@ -418,3 +418,44 @@ function ApplyForThePost(btn_control) {
     });
     
 }
+
+
+
+
+
+
+function ActivateDeactivateEmployee(id, link_control) {
+
+    
+    $.ajax({
+        url: "https://localhost:44303/emp/activateordeactivateemployeeasync?" + `id=${id}`, success: function (data, result) {
+            //alert(data);
+            if (data == "active") {
+                $(link_control).children("span").removeClass("employee-deactive");
+                $(link_control).children("span").addClass("employee-active");
+                
+                var gg = link_control.parentElement;
+                console.log(gg);
+                gg = gg.parentElement;
+                console.log(gg);
+                gg = gg.parentElement;
+                console.log(gg);
+                gg = gg.previousElementSibling;
+                gg.innerText = "Active"
+                
+            }
+            else if (data == "deactive") {
+                $(link_control).children("span").removeClass("employee-active");
+                $(link_control).children("span").addClass("employee-deactive");
+                var gg = link_control.parentElement;
+                console.log(gg);
+                gg = gg.parentElement;
+                console.log(gg);
+                gg = gg.parentElement;
+                console.log(gg);
+                gg = gg.previousElementSibling;
+                gg.innerText = "Deactive"
+            }
+        }
+    });
+}

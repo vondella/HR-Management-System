@@ -74,6 +74,30 @@ body {
     cursor: pointer;
 }
 
-.Delete-HyperLink:hover {
+
+
+    .Delete-HyperLink:hover {
+        color: red;
+    }
+
+
+
+
+.employee-deactive {
+    color: lightgrey;
+    cursor: pointer;
+}
+
+.employee-active {
+    color: lightgray;
+    cursor: pointer;
+}
+
+
+.employee-deactive:hover {
+    color: lawngreen;
+}
+
+.employee-active:hover {
     color: red;
 }
