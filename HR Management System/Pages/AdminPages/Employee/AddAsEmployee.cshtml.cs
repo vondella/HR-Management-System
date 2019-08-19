@@ -67,36 +67,10 @@ namespace HR_Management_System.Pages.AdminPages.Employee
             }
 
             var user = await _db.Users.FindAsync(id);
-            //var notices = await _db.RecruitementNotices.Include(a => a.Applicants).ToListAsync();
-
-
            
-            //if (notices != null)
-            //{
-            //    if(notices.Count> 0)
-            //    {
-            //        bool done = false;
-            //        foreach (var item in notices)
-            //        {
-                        
-            //            foreach(var apl in item.Applicants)
-            //            {
-            //                if(apl.Id == id)
-            //                {
-            //                    user.Department = item.Department;
-            //                    user.Designation = item.Designation;
-            //                    done = true;
-            //                    break;
-            //                }
-            //            }
-            //            if (done == true)
-            //                break;
-            //        }
-            //    }
-            //}
 
             user.UserType = UserType.Employee;
-            user.UserName = Username;
+            user.UserName = Username.ToLower();
             user.JoiningDate = JoiningDate;
             await _db.SaveChangesAsync();
 

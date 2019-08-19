@@ -12,42 +12,54 @@ namespace HR_Management_System.Pages
 {
     public class Employee_DashboardModel : PageModel
     {
-        public Employee_DashboardModel(HRMS_DB_Context db)
+        private readonly HRMS_DB_Context _db;
+
+        private readonly AccountManageModel _accountManage;
+
+        public Employee_DashboardModel(HRMS_DB_Context db, AccountManageModel accountManage)
         {
             _db = db;
+            _accountManage = accountManage;
         }
 
-        readonly HRMS_DB_Context _db;
+       
 
 
-        [BindProperty]
         public List<Notice> Notices { get; set; }
 
 
 
 
-        public void OnGet(string src_string)
+        public async Task<IActionResult> OnGetAsync(string src_string)
         {
-            if (src_string != null && src_string != "")
+            if (_accountManage.IsLoggedIn != true || _accountManage.User.UserType != UserType.Employee)
             {
-                Notices = _db.Notices.Where(a => a.Title.IndexOf(src_string, StringComparison.CurrentCultureIgnoreCase) > -1).AsNoTracking().ToList();
+                return RedirectToPage("/LoginPage");
             }
-            else
+            ViewData["User_Name"] = _accountManage.User.Name;
+            ViewData.Add("ProfileImg", _accountManage.User.ProfileImageSrc);
+
+            Notices = await _db.Notices.Where(a=>a.Published == true).AsNoTracking().ToListAsync();
+
+            if(Notices != null && src_string != null && src_string != "")
             {
-                Notices = _db.Notices.AsNoTracking().ToList();
+                Notices = Notices.Where(a => a.Title.IndexOf(src_string, StringComparison.CurrentCultureIgnoreCase) > -1).ToList();
             }
+
+            return Page();
         }
 
 
 
 
-        public async Task<IActionResult> OnGetViewNoticeAsync(long id)
+        public string ShortDateString(DateTime? gg)
         {
-            var notice = await _db.Notices.FindAsync(id);
-            if (notice != null)
-                return RedirectToPage("/EmployeePages/emp_notice_details", notice);
-            return Page();
-
+            if (gg != null)
+            {
+                var fd = (DateTime)gg;
+                return fd.ToShortDateString();
+            }
+            return "";
         }
     }
 }

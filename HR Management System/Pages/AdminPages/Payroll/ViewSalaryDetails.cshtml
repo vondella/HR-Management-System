@@ -11,7 +11,7 @@
 <center><h2>View Salary Details</h2></center>
 
 <div class="card shadow mb-4">
-    
+
     <div class="card-body">
         <div class="d-flex justify-content-between">
             <h3>@Model.Employee.Name</h3>
@@ -20,9 +20,12 @@
             </div>
         </div>
 
-        <div><h3>Salary Details</h3></div>
+        <div class="d-flex flex-row align-items-center" >
+            <h3 class="d-flex align-items-center">Salary Details </h3>
+            <a class="ml-4 d-flex align-items-center"  asp-page="./EditSalary" asp-route-id="@Model.Employee.Salary.Id">Edit</a>
+        </div>
         <hr />
-        <div class="row" >
+        <div class="row">
             <div class="col-lg-3">
                 <div class="d-flex flex-column">
                     <p>Summery</p>
@@ -41,7 +44,7 @@
                 </div>
                 <hr />
             </div>
-            
+
             <div class="col-lg-9">
                 <p>Details</p>
                 <div class="d-flex flex-row">
@@ -81,9 +84,7 @@
                             <p>Other Deduction</p>
                         </div>
                     </div>
-                    
-                   
-                   
+
                 </div>
             </div>
         </div>
