@@ -97,6 +97,37 @@ namespace HR_Management_System.Migrations
                     b.ToTable("Holidays");
                 });
 
+            modelBuilder.Entity("HR_Management_System.Models.LeaveApplication", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("AppliedDate");
+
+                    b.Property<int>("Days");
+
+                    b.Property<DateTime>("EndDate");
+
+                    b.Property<long>("LeaveCategoryId");
+
+                    b.Property<string>("Reason");
+
+                    b.Property<DateTime>("StartDate");
+
+                    b.Property<int>("Status");
+
+                    b.Property<long?>("UserId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("LeaveCategoryId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("LeaveApplications");
+                });
+
             modelBuilder.Entity("HR_Management_System.Models.LeaveCategory", b =>
                 {
                     b.Property<long>("Id")
@@ -349,6 +380,18 @@ namespace HR_Management_System.Migrations
                     b.HasOne("HR_Management_System.Models.DepartmentModel")
                         .WithMany("Designation")
                         .HasForeignKey("DepartmentModelId");
+                });
+
+            modelBuilder.Entity("HR_Management_System.Models.LeaveApplication", b =>
+                {
+                    b.HasOne("HR_Management_System.Models.LeaveCategory", "LeaveCategory")
+                        .WithMany()
+                        .HasForeignKey("LeaveCategoryId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("HR_Management_System.Models.UserModel", "User")
+                        .WithMany("LeaveApplications")
+                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("HR_Management_System.Models.ProfessionalExperience", b =>

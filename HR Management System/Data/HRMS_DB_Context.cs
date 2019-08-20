@@ -16,7 +16,6 @@ namespace HR_Management_System.Data
 
         public DbSet<UserModel> Users { get; set; }
 
-
         public DbSet<DepartmentModel> Departments { get; set; }
 
         public DbSet<DesignationModel> Designations { get; set; }
@@ -34,6 +33,9 @@ namespace HR_Management_System.Data
         public DbSet<Resume> Resumes { get; set; }
 
         public DbSet<Salary> Salaries { get; set; }
+
+
+        public DbSet<LeaveApplication> LeaveApplications { get; set; }
 
     }
 }

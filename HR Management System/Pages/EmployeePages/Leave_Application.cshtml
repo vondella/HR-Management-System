@@ -4,76 +4,59 @@
     ViewData["Title"] = "Leave_Application";
     Layout = "~/Views/Shared/_EmployeeLayout.cshtml";
 }
-
-<div class="row">
-
-    <div class="margin">
-        <div class="col-md-12">
-            <div class="main_content">
-                <div class="row">
-
-                    <div class="col-md-12">
-                     
-                        <h4><a href="https://localhost:44303/EmployeePages/New_leave"><i class="fa fa-plus"></i> Apply New Leave Application</a></h4>
-                        <br>
-                        <div class="pull-right" style="margin-bottom:20px">
-                            <span><a href="https://localhost:44303/EmployeePages/Remain_leave"><i class="fa fa-flag"></i> Remaing Leave Days</a></span>
-
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="panel panel-info">
-                                    <!-- Default panel contents -->
-                                    <div class="panel-heading">
-                                        <div class="panel-title">
-                                            <strong>Leave Applications You Applied</strong>
-                                        </div>
-                                    </div>
-                                    <div id="dataTables-example_wrapper" class="dataTables_wrapper form-inline" role="grid">
-                                        <div class="row">
-                                        <div class="col-sm-6">
-                                            <div class="dataTables_length" id="dataTables-example_length">
-                                            
-                                        <table class="table table-bordered table-hover dataTable no-footer" id="dataTables-example" aria-describedby="dataTables-example_info">
-                                            <thead>
-                                                <tr style="font-size: 13px;color: #000000" role="row">
-                                                    <th class="col-sm-2 sorting_asc" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Leave Category: activate to sort column ascending" style="width: 164px;">Leave Category</th>
-                                                    <th class="col-sm-1 sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Start Date: activate to sort column ascending" style="width: 73px;">Start Date</th>
-                                                    <th class="col-sm-1 sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="End Date: activate to sort column ascending" style="width: 73px;">End Date</th>
-                                                    <th class="col-sm-1 sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Status: activate to sort column ascending" style="width: 30px;">Days</th>
-                                                    <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Reason: activate to sort column ascending" style="width: 533px;">Reason</th>
-                                                    <th class="col-sm-1 sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Applied On: activate to sort column ascending" style="width: 73px;">Applied On</th>
-                                                    <th class="col-sm-1 sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Status: activate to sort column ascending" style="width: 73px;">Status</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody style="margin-bottom: 0px;background: #FFFFFF;font-size: 12px;">
-
-
-                                                <tr class="odd">
-                                                    <td class="sorting_1">eid</td>
-                                                    <td class=" ">18 Jun 2019</td>
-                                                    <td class=" ">18 Jun 2019</td>
-                                                    <td class=" ">1</td>
-                                                    <td class=" "></td>
-                                                    <td class=" ">18 Jun 2019</td>
-                                                    <td class=" "><span class="label label-success">Accepted</span>                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                            
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, HR Management System
 
 
 
-                </div>
-            </div>
-        </div>
+
+<center><h2>Leave Application</h2></center>
+
+<div class="card shadow">
+    <div class="card-header d-flex justify-content-between">
+        <h5><a asp-page="./New_leave">+ Apply new Leave Application</a></h5>
+        <h5> <a asp-page="./Remain_leave">See Remaining Days</a></h5>
     </div>
-</div>
-</div>
+
+    <div class="card-body">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>SL</th>
+                    <th>Leave Category</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Total Days</th>
+                    <th>Reason</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+
+
+
+            <tbody>
+
+                @if (Model.LeaveApplications != null)
+                {
+                    if (Model.LeaveApplications.Count > 0)
+                    {
+                        for (int i = 0; i < Model.LeaveApplications.Count; i++)
+                        {
+                            <tr>
+                                <td>@(i + 1)</td>
+                                <td>@Model.LeaveApplications[i].LeaveCategory.Title</td>
+                                <td>@Model.LeaveApplications[i].StartDate.Date</td>
+                                <td>@Model.LeaveApplications[i].EndDate.Date</td>
+                                <td>@Model.LeaveApplications[i].Days</td>
+                                <td>@Model.LeaveApplications[i].Reason</td>
+                                <td>@Model.LeaveApplications[i].Status</td>
+                            </tr>
+                        }
+                    }
+                }
+            </tbody>
+
+
+        </table>
     </div>
 </div>

@@ -56,7 +56,7 @@ namespace HR_Management_System.Pages
 
         public async Task<IActionResult> OnGetDeleteAsync(long id)
         {
-            var notice = await _db.RecruitementNotices.FindAsync(id);
+            var notice = await _db.RecruitementNotices.Include(a=>a.Applicants).SingleAsync(o=>o.Id == id);
             if(notice == null)
             {
                 return NotFound();
