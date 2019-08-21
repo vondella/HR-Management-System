@@ -45,7 +45,7 @@ namespace HR_Management_System.Pages
                 var today = DateTime.Today;
                 TotalDays = DateTime.DaysInMonth(today.Year, today.Month);
 
-                var employess = await _db.Users.Where(a => a.UserType == UserType.Employee && a.Status == true).Include(a => a.Attendances).AsNoTracking().ToListAsync();
+                var employess = await _db.Users.Where(a => a.UserType == UserType.Employee && a.Status == true && a.JoiningDate != null).Include(a => a.Attendances).AsNoTracking().ToListAsync();
 
                 var startMonthDate = new DateTime(searchDateMonth.Year, searchDateMonth.Month, 1);
                 var endMonthDate = new DateTime(searchDateMonth.Year, searchDateMonth.Month, TotalDays);
