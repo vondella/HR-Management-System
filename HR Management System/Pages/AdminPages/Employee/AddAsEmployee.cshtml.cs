@@ -72,6 +72,16 @@ namespace HR_Management_System.Pages.AdminPages.Employee
             user.UserType = UserType.Employee;
             user.UserName = Username.ToLower();
             user.JoiningDate = JoiningDate;
+
+            var appls = await _db.RecruitementNotices.Include(a => a.Applicants).SelectMany(a => a.Applicants).ToListAsync();
+
+            var gg =  appls.SingleOrDefault(a => a.Id == user.Id);
+            if(gg != null)
+            {
+                appls.Remove(gg);
+            }
+
+
             await _db.SaveChangesAsync();
 
             

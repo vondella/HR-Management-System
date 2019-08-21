@@ -68,8 +68,10 @@ namespace HR_Management_System.Pages.AdminPages.Recruitment
             if (ModelState.IsValid)
             {
                 var u = await _db.Users.FindAsync(id);
+               
                 u.InterviewDate = new DateTime(InterviewDate.Year, InterviewDate.Month, InterviewDate.Day, InterviewTime.Hour, InterviewTime.Minute, InterviewTime.Second);
                 u.SelectedForInterview = true;
+                
                 await _db.SaveChangesAsync();
                 return RedirectToPage("./Recruitment_Applicant_List");
             }

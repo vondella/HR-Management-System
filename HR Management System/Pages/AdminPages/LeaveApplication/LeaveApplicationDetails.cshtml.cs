@@ -99,7 +99,7 @@ namespace HR_Management_System.Pages.AdminPages.LeaveApplication
 
         public async Task<IActionResult> OnPostAsync(long id, string status)
         {
-            LeaveApplication = await _db.LeaveApplications.FindAsync(id);
+            LeaveApplication = await _db.LeaveApplications.Include(a=>a.User).ThenInclude(o=>o.Attendances).SingleAsync(a=>a.Id == id);
 
             switch (status)
             {
@@ -118,6 +118,23 @@ namespace HR_Management_System.Pages.AdminPages.LeaveApplication
                 case "Default":
                     LeaveApplication.Status = LeaveApplicationStatus.Pending;
                     break;
+            }
+
+            if(LeaveApplication.Status == LeaveApplicationStatus.Approved)
+            {
+                for(int i = 0; i < LeaveApplication.Days; i++)
+                {
+                    var new_date = LeaveApplication.StartDate.AddDays(i);
+                    LeaveApplication.User.Attendances.Add(new Attendance
+                    {
+                        Status = AttendanceStatus.InLeave,
+                        Date = new_date,
+                        Day = new_date.Day,
+                        Month = new_date.Month,
+                        Year = new_date.Year
+                    });
+                }
+                
             }
 
             await _db.SaveChangesAsync();

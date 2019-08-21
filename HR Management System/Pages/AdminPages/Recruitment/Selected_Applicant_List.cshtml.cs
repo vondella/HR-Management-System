@@ -51,7 +51,7 @@ namespace HR_Management_System.Pages
 
                                 foreach (var applicant_item in item.Applicants)
                                 {
-                                    if(applicant_item.SelectedForInterview == true)
+                                    if(applicant_item.SelectedForInterview == true && applicant_item.JoiningDate != null)
                                     {
                                         var applicant = new Applicant
                                         {

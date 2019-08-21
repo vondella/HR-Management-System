@@ -47,7 +47,7 @@ namespace HR_Management_System.Pages
                     {
                         foreach (var u in d.Applicants)
                         {
-                            if (u.SelectedForInterview == true)
+                            if (u.SelectedForInterview == true && u.UserType == UserType.Career)
                             {
                                 var applicant = new UserModel
                                 {

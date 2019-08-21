@@ -34,8 +34,9 @@ namespace HR_Management_System.Data
 
         public DbSet<Salary> Salaries { get; set; }
 
-
         public DbSet<LeaveApplication> LeaveApplications { get; set; }
+
+        public DbSet<Attendance> Attendances { get; set; }
 
     }
 }

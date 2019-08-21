@@ -55,15 +55,19 @@ namespace HR_Management_System.Pages
 
                                 foreach(var applicant_item in item.Applicants)
                                 {
-                                    var applicant = new Applicant
+                                    if(applicant_item.SelectedForInterview != true)
                                     {
-                                        Id = applicant_item.Id,
-                                        DateOfApplication = applicant_item.DateOfApplication,
-                                        Department = item.Department,
-                                        Designation = item.Designation,
-                                        Name = applicant_item.Name
-                                    };
-                                    Applicants.Add(applicant);
+                                        var applicant = new Applicant
+                                        {
+                                            Id = applicant_item.Id,
+                                            DateOfApplication = applicant_item.DateOfApplication,
+                                            Department = item.Department,
+                                            Designation = item.Designation,
+                                            Name = applicant_item.Name
+                                        };
+                                        Applicants.Add(applicant);
+                                    }
+                                   
                                 }
                             }
                         }

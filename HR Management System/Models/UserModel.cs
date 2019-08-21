@@ -54,8 +54,9 @@ namespace HR_Management_System.Models
         public bool Status { get; set; }
 
         public Salary Salary { get; set; }
-
         
         public List<LeaveApplication> LeaveApplications { get; set; }
+
+        public List<Attendance> Attendances { get; set; }
     }
 }

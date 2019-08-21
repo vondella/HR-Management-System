@@ -4,267 +4,140 @@
     ViewData["Title"] = "ManageAttendence";
     Layout = "~/Views/Shared/_AdminDashboardLayout.cshtml";
 }
+
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, HR Management System
+
+
+
+
 <center><h1>Set Attendence</h1></center>
 
-
-<body>
-
-    <div class="container-fluid">
-        <script language="javascript" type="text/javascript">
-            function getXMLHTTP() { //fuction to return the xml http object
-                var xmlhttp = false;
-                try {
-                    xmlhttp = new XMLHttpRequest();
-                }
-                catch (e) {
-                    try {
-                        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-                    }
-                    catch (e) {
-                        try {
-                            xmlhttp = new ActiveXObject("Msxml2.XMLHTTP");
-                        }
-                        catch (e1) {
-                            xmlhttp = false;
-                        }
-                    }
-                }
-
-                return xmlhttp;
-            }
-
-            function check_duplicate_emp_id(val) {
-                var base_url = 'http://localhost/HRMS-FRESH/';
-                var strURL = base_url + "admin/global_controller/check_duplicate_emp_id/" + val;
-                var req = getXMLHTTP();
-                if (req) {
-                    req.onreadystatechange = function () {
-                        if (req.readyState == 4) {
-                            // only if "OK"
-                            if (req.status == 200) {
-                                var result = req.responseText;
-                                if (result) {
-                                    $("#id_error_msg").append(result);
-                                    document.getElementById('btn_emp').disabled = true;
-                                } else {
-                                    document.getElementById('btn_emp').disabled = false;
-                                }
-
-                            } else {
-                                alert("There was a problem while using XMLHTTP:\n" + req.statusText);
-                            }
-                        }
-                    }
-                    req.open("POST", strURL, true);
-                    req.send(null);
-                }
-
-            }
-            ;
-            function get_employee_by_designations_id(designation_id) {
-                var base_url = 'http://localhost/HRMS-FRESH/';
-                var strURL = base_url + "admin/global_controller/get_employee_by_designations_id/" + designation_id;
-                var req = getXMLHTTP();
-                if (req) {
-                    req.onreadystatechange = function () {
-                        if (req.readyState == 4) {
-                            // only if "OK"
-                            if (req.status == 200) {
-                                var result = req.responseText;
-
-                                $("#employee").html("<option value='' >Select Employee...</option>");
-                                $("#employee").append(result);
-
-                            } else {
-                                alert("There was a problem while using XMLHTTP:\n" + req.statusText);
-                            }
-                        }
-                    }
-                    req.open("POST", strURL, true);
-                    req.send(null);
-                }
-
-            }
-            ;
-            function check_current_password(val) {
-                var base_url = 'http://localhost/HRMS-FRESH/';
-                var strURL = base_url + "admin/global_controller/check_current_password/" + val;
-                var req = getXMLHTTP();
-                if (req) {
-                    req.onreadystatechange = function () {
-                        if (req.readyState == 4) {
-                            // only if "OK"
-                            if (req.status == 200) {
-                                var result = req.responseText;
-                                if (result) {
-                                    $("#id_error_msg").css("display", "block");
-                                    document.getElementById('sbtn').disabled = true;
-                                } else {
-                                    $("#id_error_msg").css("display", "none");
-                                    document.getElementById('sbtn').disabled = false;
-                                }
-
-                            } else {
-                                alert("There was a problem while using XMLHTTP:\n" + req.statusText);
-                            }
-                        }
-                    }
-                    req.open("POST", strURL, true);
-                    req.send(null);
-                }
-
-            }
-            function check_employee_password(val) {
-
-                var base_url = 'http://localhost/HRMS-FRESH/';
-                var strURL = base_url + "employee/dashboard/check_employee_password/" + val;
-
-                var req = getXMLHTTP();
-                if (req) {
-                    req.onreadystatechange = function () {
-                        if (req.readyState == 4) {
-                            // only if "OK"
-                            if (req.status == 200) {
-                                var result = req.responseText;
-                                if (result) {
-                                    $("#id_error_msg").css("display", "block");
-                                    document.getElementById('sbtn').disabled = true;
-                                } else {
-                                    $("#id_error_msg").css("display", "none");
-                                    document.getElementById('sbtn').disabled = false;
-                                }
-
-                            } else {
-                                alert("There was a problem while using XMLHTTP:\n" + req.statusText);
-                            }
-                        }
-                    }
-                    req.open("POST", strURL, true);
-                    req.send(null);
-                }
-
-            }
-            ;
-
-
-        </script>
-
+@if (Model.TodayIsHoliDay != true)
+{
+    <div class="wrap-fpanel">
         <div class="row">
-            <div class="col-sm-12">
-
-                <div class="row">
-                    <div class="col-sm-12" data-offset="0">
-                        <div class="wrap-fpanel">
-                            <div class="panel panel-default" data-collapsed="0">
-                                <div class="panel-heading">
-                                    @*<div class="panel-title">
-                                        <center><strong>Set Attendance</strong></center>
-                                    </div>*@
-                                </div>
-                                <div class="panel-body">
-                                    <form id="form" action="http://localhost/HRMS-FRESH/admin/attendance/manage_attendance" method="post" enctype="multipart/form-data" class="form-horizontal" novalidate="novalidate">
-                                        <div class="panel_controls">
-                                            <div class="form-group margin">
-                                                <label class="col-sm-3 control-label">Select Day <span class="required" aria-required="true">*</span></label>
-
-                                                <div class="col-sm-5">
-                                                    <div class="input-group">
-                                                        <input type="date" name="date" id="date" placeholder="Enter Day" class="form-control" value="2019-07-02" data-format="dd-mm-yyyy">
-                                                        <div class="input-group-addon">
-                                                            <a href="#"><i class="entypo-calendar"></i></a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="field-1" class="col-sm-3 control-label">Department <span class="required" aria-required="true">*</span></label>
-
-                                                <div class="col-sm-5">
-                                                    <select name="department_id" id="department" class="form-control">
-                                                        <option value="">Select Department</option>
-
-
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <div class="col-sm-offset-3 col-sm-5">
-                                                    <button type="submit" id="sbtn" name="sbtn" value="1" class="btn btn-primary">Go</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                            <table class="table table-bordered">
-                                <thead>
-                                    <tr>
-                                        <th>Employee Name</th>
-                                        <th>Designation</th>
-                                        <th> Attend</th>
-                                        <th> Absent</th>
-                                        <th> Leave Category</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-
-                                    <tr>
-                                        <td>
-                                            <input type="hidden" name="date" value="2019-07-02">
-
-                                            <input type="hidden" name="employee_id[]" value="2"> Al Amin
-                                        </td>
-                                        <td>manager</td>
-                                        <td><input name="attendance[]" id="2" value="2" type="checkbox" class="child_present"> </td>
-                                        <td><input name="attendance[]" id="2" value="2" type="checkbox" class="child_present"> </td>
-
-                                        <td style="width: 35%">
-                                            <input id="2" type="checkbox" value="2" class="child_absent">
-                                            <div id="l_category" class="col-sm-9">
-                                                <select name="leave_category_id[]" class="form-control">
-                                                    <option value="">Select Leave Category</option>
-                                                    <option value="1">
-                                                        eid
-                                                    </option>;
-                                                </select>
-                                            </div>
-                                        </td>
-                                    </tr>
-
-                                </tbody>
-                            </table>
-                            
+            <div class="col-sm-12" data-offset="0">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="panel-title">
+                            <strong>List of Employees</strong>
                         </div>
-                        <div class="form-group">
-                            <div class="col-sm-offset-11">
-                                <button type="submit" id="sbtn" class="btn btn-primary">Update</button>
+                    </div>
+
+                    <div class="card shadow mb-4 mt-2">
+
+                        <div class="card-header">
+                            <div class="d-flex flex-row mb-0">
+                                <p>Date:</p>
+                                <p class="ml-2">@DateTime.Now.ToShortDateString()</p>
                             </div>
                         </div>
 
+
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr role="row">
+                                            <th>Emp ID</th>
+                                            <th>Emp Name</th>
+                                            <th>Department</th>
+                                            <th>Designation</th>
+                                            <th>Status</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        @if (Model.SortedEmployees != null)
+                                        {
+                                            if (Model.SortedEmployees.Count > 0)
+                                            {
+                                                for (int i = 0; i < Model.SortedEmployees.Count; i++)
+                                                {
+                                                    <tr class="odd">
+                                                        <td class="sorting_1">@Model.SortedEmployees[i].Id</td>
+                                                        <td>@Model.SortedEmployees[i].Name</td>
+                                                        <td>@Model.SortedEmployees[i].Department</td>
+                                                        <td>@Model.SortedEmployees[i].Designation</td>
+                                                        @{
+                                                            var t = DateTime.Today;
+                                                            var att = Model.SortedEmployees[i].Attendances.SingleOrDefault(a => a.Month == t.Month && a.Year == a.Year && a.Day == t.Day);
+
+                                                            if (att == null)
+                                                            {
+                                                                <td>No Defined</td>
+                                                            }
+                                                            else
+                                                            {
+                                                                <td>@att.Status.ToString()</td>
+                                                            }
+
+                                                        }
+                                                        <td>
+                                                            <emp-attendance id="@Model.SortedEmployees[i].Id"></emp-attendance>
+                                                            @*<div class="d-flex flex-row">
+                                                                    <a onclick="SetAttendance('present', this)" href="#">Present</a>
+                                                                    <a class="ml-2" onclick="SetAttendance('absent', this)" href="#">Absent</a>
+                                                                </div>*@
+                                                        </td>
+                                                    </tr>
+                                                }
+                                            }
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <script type="text/javascript">
-            $(document).ready(function () {
-                $(':checkbox').on('change', function () {
-                    var th = $(this), id = th.prop('id');
-
-                    if (th.is(':checked')) {
-                        $(':checkbox[id="' + id + '"]').not($(this)).prop('checked', false);
-                    }
-                });
-            });
-        </script>
-        <script>
-            $(function () {
-                $('#date').datepicker({
-                    autoclose: true,
-                    format: "yyyy-mm-dd",
-                });
-            });
-
-        </script>
     </div>
-</body>
+}
+else
+{
+    <center class="mt-5"><h1>Today is Holiday</h1></center>
+}
 
+
+
+
+
+<script>
+
+    function SetAttendance(id, status, link_control) {
+
+
+        $.ajax({
+            url: "https://localhost:44303/emp/presentabsentemployeeasync?" + `id=${id}` + `&status=${status}`, success: function (data, result) {
+                //alert(data);
+                if (data == "present") {
+
+                    var gg = link_control.parentElement;
+                    gg = gg.parentElement;
+                    gg = gg.previousElementSibling;
+
+                    gg.innerText = "Present"
+
+                }
+                else if (data == "absent") {
+                    var gg = link_control.parentElement;
+                    gg = gg.parentElement;
+                    gg = gg.previousElementSibling;
+
+                    gg.innerText = "Absent"
+                }
+                else if (data == "holiday") {
+                    var gg = link_control.parentElement;
+                    gg = gg.parentElement;
+                    gg = gg.previousElementSibling;
+
+                    gg.innerText = "Holiday"
+                }
+            }
+        });
+    }
+
+</script>
