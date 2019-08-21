@@ -12,14 +12,24 @@ namespace HR_Management_System.Pages.AdminPages.Settings
     public class SetWorkingDaysModel : PageModel
     {
         private readonly HRMS_DB_Context _db;
+        private readonly AccountManageModel _accountManage;
 
-        public SetWorkingDaysModel(HRMS_DB_Context db)
+
+        public SetWorkingDaysModel(HRMS_DB_Context db, AccountManageModel accountManage)
         {
-            _db = db;
+            _db = db; _accountManage = accountManage;
         }
 
-        public void OnGet(bool? saved)
+        public IActionResult OnGet(bool? saved)
         {
+            if (_accountManage.IsLoggedIn != true || _accountManage.User.UserType != UserType.Admin)
+            {
+                return RedirectToPage("/LoginPage");
+            }
+            ViewData["User_Name"] = _accountManage.User.Name;
+            ViewData.Add("ProfileImg", _accountManage.User.ProfileImageSrc);
+
+
             Days = _db.WeekDays.ToList();
 
             if (saved != null)
@@ -27,6 +37,8 @@ namespace HR_Management_System.Pages.AdminPages.Settings
                 Saved = (bool)saved;
             }
             else Saved = false;
+
+            return Page();
         }
 
 
@@ -39,6 +51,9 @@ namespace HR_Management_System.Pages.AdminPages.Settings
 
         public async Task<IActionResult> OnPostAsync()
         {
+
+
+
             if (ModelState.IsValid)
             {
                 foreach (var item in Days)

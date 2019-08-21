@@ -15,6 +15,7 @@ namespace HR_Management_System.Pages
     public class AddRecruitementNoticeModel : PageModel
     {
         private readonly HRMS_DB_Context _db;
+        private readonly AccountManageModel _accountManage;
 
 
         [BindProperty]
@@ -51,14 +52,21 @@ namespace HR_Management_System.Pages
 
 
 
-        public AddRecruitementNoticeModel(HRMS_DB_Context db)
+        public AddRecruitementNoticeModel(HRMS_DB_Context db, AccountManageModel accountManage)
         {
-            _db = db;
+            _db = db; _accountManage = accountManage;
         }
 
 
         public async Task<IActionResult> OnGetAsync()
         {
+            if (_accountManage.IsLoggedIn != true || _accountManage.User.UserType != UserType.Admin)
+            {
+                return RedirectToPage("/LoginPage");
+            }
+            ViewData["User_Name"] = _accountManage.User.Name;
+            ViewData.Add("ProfileImg", _accountManage.User.ProfileImageSrc);
+
             var departments = await _db.Departments.AsNoTracking().ToListAsync();
             DepartmentList = new List<SelectListItem>();
             if(departments != null)
