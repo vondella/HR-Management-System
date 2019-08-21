@@ -13,10 +13,11 @@ namespace HR_Management_System.Pages
     public class HolidayListModel : PageModel
     {
         private readonly HRMS_DB_Context _db;
+        private readonly AccountManageModel _accountManage;
 
-        public HolidayListModel(HRMS_DB_Context db)
+        public HolidayListModel(HRMS_DB_Context db, AccountManageModel accountManage)
         {
-            _db = db;
+            _db = db; _accountManage = accountManage;
         }
 
         [BindProperty]
@@ -27,8 +28,15 @@ namespace HR_Management_System.Pages
 
 
 
-        public void OnGet(DateTime? sort_date)
+        public IActionResult OnGet(DateTime? sort_date)
         {
+            if (_accountManage.IsLoggedIn != true || _accountManage.User.UserType != UserType.Admin)
+            {
+                return RedirectToPage("/LoginPage");
+            }
+            ViewData["User_Name"] = _accountManage.User.Name;
+            ViewData.Add("ProfileImg", _accountManage.User.ProfileImageSrc);
+
             SortedMonth = sort_date;
 
             IQueryable<HolidayModel> IQHolidays = from hol in _db.Holidays
@@ -41,6 +49,7 @@ namespace HR_Management_System.Pages
             }
 
             SortedHolidays = IQHolidays.AsNoTracking().ToList();
+            return Page();
         }
 
 

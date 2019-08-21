@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using HR_Management_System.Models;
 using Microsoft.EntityFrameworkCore;
+using System.IO;
 
 namespace HR_Management_System.Pages
 {
@@ -50,7 +51,7 @@ namespace HR_Management_System.Pages
         }
 
 
-        public IActionResult OnPost()
+        public async Task<IActionResult> OnPostAsync()
         {
             if (ModelState.IsValid)
             {
@@ -76,6 +77,14 @@ namespace HR_Management_System.Pages
                         Password = _user.Password,
                         UserName = _user.UserName
                     };
+
+                    AccountManage.User.ProfileImageSrc = AccountManage.ImgSrc(_user.ProfileImage);
+
+
+
+
+
+
 
                     return RedirectToPage("/CareerPages/Career_Dashboard");
                 }

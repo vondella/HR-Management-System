@@ -13,13 +13,13 @@ namespace HR_Management_System.Pages
     public class DepartmentlistModel : PageModel
     {
         private readonly HRMS_DB_Context _db;
-
+        private readonly AccountManageModel _accountManage;
         public List<DepartmentModel> Departments { get; set; }
 
 
-        public DepartmentlistModel(HRMS_DB_Context db)
+        public DepartmentlistModel(HRMS_DB_Context db, AccountManageModel accountManage)
         {
-            _db = db;
+            _db = db; _accountManage = accountManage;
         }
 
 
@@ -51,13 +51,20 @@ namespace HR_Management_System.Pages
         }
 
 
-        public void OnGet()
+        public IActionResult OnGet()
         {
-            if(_db.Departments.Any())
+            if (_accountManage.IsLoggedIn != true || _accountManage.User.UserType != UserType.Admin)
+            {
+                return RedirectToPage("/LoginPage");
+            }
+            ViewData["User_Name"] = _accountManage.User.Name;
+            ViewData.Add("ProfileImg", _accountManage.User.ProfileImageSrc);
+
+            if (_db.Departments.Any())
             {
                 Departments = _db.Departments.Include(d => d.Designation).AsNoTracking().ToList();
             }
-
+            return Page();
 
             //Departments = _db.Departments.Select(d => new DepartmentModel
             //{

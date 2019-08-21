@@ -14,7 +14,7 @@ namespace HR_Management_System.Pages.AdminPages.Department
     public class EditDepartmentModel : PageModel
     {
         private readonly HRMS_DB_Context _db;
-
+        private readonly AccountManageModel _accountManage;
 
         [BindProperty]
         public DepartmentModel Department { get; set; }
@@ -29,9 +29,9 @@ namespace HR_Management_System.Pages.AdminPages.Department
 
 
 
-        public EditDepartmentModel(HRMS_DB_Context db)
+        public EditDepartmentModel(HRMS_DB_Context db, AccountManageModel accountManage)
         {
-            _db = db;
+            _db = db; _accountManage = accountManage;
         }
 
 
@@ -43,6 +43,13 @@ namespace HR_Management_System.Pages.AdminPages.Department
             {
                 return NotFound();
             }
+
+            if (_accountManage.IsLoggedIn != true || _accountManage.User.UserType != UserType.Admin)
+            {
+                return RedirectToPage("/LoginPage");
+            }
+            ViewData["User_Name"] = _accountManage.User.Name;
+            ViewData.Add("ProfileImg", _accountManage.User.ProfileImageSrc);
 
 
             Department = await _db.Departments.Include(d=> d.Designation).FirstOrDefaultAsync(d=>d.Id == id);

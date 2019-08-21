@@ -15,10 +15,11 @@ namespace HR_Management_System.Pages.AdminPages.Notice
     public class EditNoticeModel : PageModel
     {
         private readonly HRMS_DB_Context _db;
+        private readonly AccountManageModel _accountManage;
 
-        public EditNoticeModel(HRMS_DB_Context db)
+        public EditNoticeModel(HRMS_DB_Context db, AccountManageModel accountManage)
         {
-            _db = db;
+            _db = db; _accountManage = accountManage;
         }
 
 
@@ -31,6 +32,14 @@ namespace HR_Management_System.Pages.AdminPages.Notice
             {
                 return NotFound();
             }
+
+            if (_accountManage.IsLoggedIn != true || _accountManage.User.UserType != UserType.Admin)
+            {
+                return RedirectToPage("/LoginPage");
+            }
+            ViewData["User_Name"] = _accountManage.User.Name;
+            ViewData.Add("ProfileImg", _accountManage.User.ProfileImageSrc);
+
 
             Notice = notice;
           

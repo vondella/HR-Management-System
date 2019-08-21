@@ -8,15 +8,20 @@ using HR_Management_System.Data;
 using System.ComponentModel.DataAnnotations;
 using HR_Management_System.Models;
 using System.Threading;
+using HR_Management_System.Models;
+
 
 namespace HR_Management_System.Pages
 {
     public class AddDepartmentModel : PageModel
     {
         private readonly HRMS_DB_Context _db;
-        public AddDepartmentModel(HRMS_DB_Context db)
+        private readonly AccountManageModel  _accountManage;
+
+        public AddDepartmentModel(HRMS_DB_Context db, AccountManageModel accountManage)
         {
             _db = db;
+            _accountManage = accountManage;
         }
 
 
@@ -31,10 +36,15 @@ namespace HR_Management_System.Pages
 
 
 
-        public void OnGet()
+        public IActionResult OnGet()
         {
-           
-
+            if (_accountManage.IsLoggedIn != true || _accountManage.User.UserType != UserType.Admin)
+            {
+                return RedirectToPage("/LoginPage");
+            }
+            ViewData["User_Name"] = _accountManage.User.Name;
+            ViewData.Add("ProfileImg", _accountManage.User.ProfileImageSrc);
+            return Page();
         }
 
         public IActionResult OnPost(string department_name, string[] designations)

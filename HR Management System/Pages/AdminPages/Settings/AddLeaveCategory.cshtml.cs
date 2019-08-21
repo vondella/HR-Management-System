@@ -15,22 +15,30 @@ namespace HR_Management_System.Pages.AdminPages.Settings
     public class AddLeaveCategoryModel : PageModel
     {
         private readonly HRMS_DB_Context _db;
-        
+        private readonly AccountManageModel _accountManage;
+
 
         [BindProperty]
         public LeaveCategory LeaveCategory { get; set; }
 
 
-        public AddLeaveCategoryModel(HRMS_DB_Context db)
+        public AddLeaveCategoryModel(HRMS_DB_Context db, AccountManageModel accountManage)
         {
-            _db = db;
+            _db = db; _accountManage = accountManage;
         }
 
 
 
-        public void OnGet()
+        public IActionResult OnGet()
         {
+            if (_accountManage.IsLoggedIn != true || _accountManage.User.UserType != UserType.Admin)
+            {
+                return RedirectToPage("/LoginPage");
+            }
+            ViewData["User_Name"] = _accountManage.User.Name;
+            ViewData.Add("ProfileImg", _accountManage.User.ProfileImageSrc);
 
+            return Page();
         }
 
 
