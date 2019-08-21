@@ -37,6 +37,7 @@ namespace HR_Management_System.Pages.CareerPages
                     if (_accountManage.User.UserType == UserType.Career)
                     {
                         ViewData.Add("User_Name", _accountManage.User.Name);
+                        ViewData.Add("ProfileImg", _accountManage.User.ProfileImageSrc);
                         RecruitmentNotice =  _db.RecruitementNotices.Include(a=>a.Applicants).Single(a=>a.Id == id);
                         var gg = RecruitmentNotice.Applicants.Where(p => p.Id == _accountManage.User.Id).FirstOrDefault();
                         if (gg != null)

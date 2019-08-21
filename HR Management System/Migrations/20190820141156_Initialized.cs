@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace HR_Management_System.Migrations
 {
-    public partial class ApplicantListAdded : Migration
+    public partial class Initialized : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -117,6 +117,29 @@ namespace HR_Management_System.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Salaries",
+                columns: table => new
+                {
+                    Id = table.Column<long>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    GrossSalary = table.Column<double>(nullable: false),
+                    NetSalary = table.Column<double>(nullable: false),
+                    TotalDeduction = table.Column<double>(nullable: false),
+                    BasicSalary = table.Column<double>(nullable: false),
+                    HouseRent = table.Column<double>(nullable: false),
+                    MobileBill = table.Column<double>(nullable: false),
+                    MedicalBill = table.Column<double>(nullable: false),
+                    Other = table.Column<double>(nullable: false),
+                    ProvidentFundDeduction = table.Column<double>(nullable: false),
+                    TaxDeduction = table.Column<double>(nullable: false),
+                    OtherDeduction = table.Column<double>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Salaries", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "WeekDays",
                 columns: table => new
                 {
@@ -204,13 +227,22 @@ namespace HR_Management_System.Migrations
                 {
                     Id = table.Column<long>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    ProfileImage = table.Column<byte[]>(nullable: true),
                     Name = table.Column<string>(nullable: false),
                     UserName = table.Column<string>(nullable: false),
                     Email = table.Column<string>(nullable: false),
                     Password = table.Column<string>(nullable: false),
+                    Department = table.Column<string>(nullable: true),
+                    Designation = table.Column<string>(nullable: true),
                     UserType = table.Column<int>(nullable: false),
                     RememberMe = table.Column<bool>(nullable: false),
                     ResumeId = table.Column<long>(nullable: true),
+                    DateOfApplication = table.Column<DateTime>(nullable: true),
+                    InterviewDate = table.Column<DateTime>(nullable: true),
+                    SelectedForInterview = table.Column<bool>(nullable: false),
+                    JoiningDate = table.Column<DateTime>(nullable: true),
+                    Status = table.Column<bool>(nullable: false),
+                    SalaryId = table.Column<long>(nullable: true),
                     RecruitementNoticeModelId = table.Column<long>(nullable: true)
                 },
                 constraints: table =>
@@ -227,6 +259,43 @@ namespace HR_Management_System.Migrations
                         column: x => x.ResumeId,
                         principalTable: "Resumes",
                         principalColumn: "Id",
+                        onDelete: ReferentialAction.NoAction);
+                    table.ForeignKey(
+                        name: "FK_Users_Salaries_SalaryId",
+                        column: x => x.SalaryId,
+                        principalTable: "Salaries",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.NoAction);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "LeaveApplications",
+                columns: table => new
+                {
+                    Id = table.Column<long>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    LeaveCategoryId = table.Column<long>(nullable: false),
+                    StartDate = table.Column<DateTime>(nullable: false),
+                    EndDate = table.Column<DateTime>(nullable: false),
+                    Days = table.Column<int>(nullable: false),
+                    Reason = table.Column<string>(nullable: true),
+                    Status = table.Column<int>(nullable: false),
+                    UserId = table.Column<long>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_LeaveApplications", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_LeaveApplications_LeaveCategories_LeaveCategoryId",
+                        column: x => x.LeaveCategoryId,
+                        principalTable: "LeaveCategories",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_LeaveApplications_Users_UserId",
+                        column: x => x.UserId,
+                        principalTable: "Users",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -239,6 +308,16 @@ namespace HR_Management_System.Migrations
                 name: "IX_Designations_DepartmentModelId",
                 table: "Designations",
                 column: "DepartmentModelId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_LeaveApplications_LeaveCategoryId",
+                table: "LeaveApplications",
+                column: "LeaveCategoryId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_LeaveApplications_UserId",
+                table: "LeaveApplications",
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_ProfessionalExperience_ResumeId",
@@ -254,6 +333,11 @@ namespace HR_Management_System.Migrations
                 name: "IX_Users_ResumeId",
                 table: "Users",
                 column: "ResumeId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Users_SalaryId",
+                table: "Users",
+                column: "SalaryId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -268,7 +352,7 @@ namespace HR_Management_System.Migrations
                 name: "Holidays");
 
             migrationBuilder.DropTable(
-                name: "LeaveCategories");
+                name: "LeaveApplications");
 
             migrationBuilder.DropTable(
                 name: "Notices");
@@ -277,19 +361,25 @@ namespace HR_Management_System.Migrations
                 name: "ProfessionalExperience");
 
             migrationBuilder.DropTable(
-                name: "Users");
-
-            migrationBuilder.DropTable(
                 name: "WeekDays");
 
             migrationBuilder.DropTable(
                 name: "Departments");
 
             migrationBuilder.DropTable(
+                name: "LeaveCategories");
+
+            migrationBuilder.DropTable(
+                name: "Users");
+
+            migrationBuilder.DropTable(
                 name: "RecruitementNotices");
 
             migrationBuilder.DropTable(
                 name: "Resumes");
+
+            migrationBuilder.DropTable(
+                name: "Salaries");
         }
     }
 }

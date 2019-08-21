@@ -4,108 +4,83 @@
     ViewData["Title"] = "Selected_Applicant_List";
     Layout = "~/Views/Shared/_AdminDashboardLayout.cshtml";
 }
-<center><h1>Add Selected Parson</h1></center>
-
-<body>
-    <div class="container-fluid">
-
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="wrap-fpanel">
-                    <div class="panel panel-default" data-collapsed="0">
-                        <div class="panel-heading">
-                            @*<div class="panel-title">
-                                    <strong>Add Selected Parson</strong>
-                                </div>*@
-                        </div>
-                        <div class="panel-body">
-
-                            <form id="form" action="http://localhost/HRMS-FRESH/admin/settings/save_leave_category/" method="post" class="form-horizontal form-groups-bordered" novalidate="novalidate">
-
-                                <div class="form-group">
-                                    <div>
-                                        Application ID
-                                    </div>
-                                    <div class="col-sm-5">
-                                        <input type="text" name="category" value="" class="form-control" placeholder="Enter Applicatin ID">
-                                    </div>
-                                    <div>
-                                        Interview Date
-                                    </div>
-                                    <div class="col-sm-5">
-                                        <input type="date" name="category" value="" class="form-control" placeholder="Interview Date">
-                                    </div><div>
-                                        <div class="col-sm-2">
-                                            <button type="submit" id="sbtn" class="btn btn-primary">Save</button>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-sm-12 wrap-fpanel" data-offset="0">
-                                            <div class="panel panel-default">
-
-                                                <div class="panel-heading">
-                                                    <div class="panel-title" style="text-align:center">
-                                                        <span>
-                                                            <strong>Recruitment Selected List</strong>
-                                                        </span>
-                                                    </div>
-
-                                                    <!-- Table -->
-                                                </div>
-                                                <div id="dataTables-example_wrapper" class="dataTables_wrapper form-inline" role="grid">
-                                                    <div class="row">
-                                                
-                                                    <div class="col-sm-12"><div id="dataTables-example_filter" class="dataTables_filter">
-                                                        <label>Search:<input type="search" style="margin:0px 10px;" class="form-control input-sm" aria-controls="dataTables-example"></label>
-                                                         </div>
-                                                        </div>
-                                                        </div>
-                                                    <table class="table table-bordered table-hover dataTable no-footer" id="dataTables-example" aria-describedby="dataTables-example_info">
-                                                        <thead>
-                                                            <tr role="row">
-                                                                <th class="col-sm-1 sorting_asc" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="ID: activate to sort column ascending" style="width: 73px;">ID</th>
-                                                                <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Full Name: activate to sort column ascending" style="width: 116px;">Full Name</th>
-                                                                <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Department: activate to sort column ascending" style="width: 125px;">Department</th>
-                                                                <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Designation: activate to sort column ascending" style="width: 125px;">Designation</th>
-                                                                <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Date of Application: activate to sort column ascending" style="width: 132px;">Date of Application</th>
-                                                                <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Date of Interview: activate to sort column ascending" style="width: 132px;">Date of Interview</th>
-                                                                <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="View Details: activate to sort column ascending" style="width: 162px;">View CV</th>
-                                                                <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="View Details: activate to sort column ascending" style="width: 162px;">Action</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            <tr class="odd">
-                                                                <td class="sorting_1">112</td>
-                                                                <td class=" ">Ovijit Roy</td>
-                                                                <td class=" ">Marketing</td>
-                                                                <td class=" ">Manager</td>
-                                                                <td class="">20 oct 2019</td>
-
-                                                                <td class="">31 oct 2019</td>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, HR Management System
 
 
-                                                                <td class="hidden-print "><a href="https://localhost:44303/AdminPages/Recruitment/Applicant_details" class="btn btn-info btn-xs" data-toggle="tooltip" data-placement="top" title="" data-original-title="View">View</a></td>
-                                                                <td class="hidden-print ">
-                                                                    <a href="http://localhost/HRMS-FRESH/admin/employee/add_employee/3" class="btn btn-primary btn-xs" title="" data-toggle="tooltip" data-placement="top" data-original-title="Edit">Edit</a>
-                                                                    <a href="http://localhost/HRMS-FRESH/admin/employee/delete_employee/3/2/2" class="btn btn-danger btn-xs" title="" data-toggle="tooltip" data-placement="top" onclick="return confirm('You are about to delete a record. This cannot be undone. Are you sure?');" data-original-title="Delete"> Delete</a>
-                                                                </td>
-                                                            </tr>
-                                                            
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
 
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
+<center><h1>Recruitment Selected List</h1></center>
+
+
+
+<div class="card shadow mb-4">
+
+    <div class="row">
+        <div class="col-sm-6 col-md-6">
+            <div id="dataTable_filter" class="dataTables_filter ml-4 mt-4">
+                <form method="get">
+                    <label>Search:<input type="search" class="form-control form-control-sm" placeholder="Search by Title" aria-controls="dataTable" name="src_string"></label>
+                    <span><button class="btn btn-primary form-control-sm" type="submit">Search</button></span>
+                </form>
+
             </div>
         </div>
     </div>
 
-</body>
+
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Department</th>
+                        <th>Designation</th>
+                        <th>Date of interview</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+
+
+                <tbody>
+
+                    @if (Model.SelectedApplicants != null)
+                    {
+                        if (Model.SelectedApplicants.Count > 0)
+                        {
+                            for (int i = 0; i < Model.SelectedApplicants.Count; i++)
+                            {
+                                <tr>
+                                    <td>@Model.SelectedApplicants[i].Id</td>
+                                    <td>@Model.SelectedApplicants[i].Name</td>
+                                    <td>@Model.SelectedApplicants[i].Department</td>
+                                    <td>@Model.SelectedApplicants[i].Designation</td>
+                                    <td>@Model.DateOfApplcationShortForm(Model.SelectedApplicants[i].DateOfInterview)</td>
+                                    <td>
+                                        <div class="row">
+                                            <div class="col-6"><a asp-page="./ViewApplicantDetails" asp-route-id="@Model.SelectedApplicants[i].Id"><span class="fa fa-list-alt Edit-HyperLink"></span></a></div>
+                                            <div class="col-6"><a asp-page-handler="Delete" asp-route-id="@Model.SelectedApplicants[i].Id"><span class="oi Delete-HyperLink" data-glyph="trash"></span></a></div>
+
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    }
+
+
+
+                </tbody>
+
+
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+
+

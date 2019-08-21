@@ -1,5 +1,6 @@
 ﻿
 
+
 <!DOCTYPE html>
 
 <html>
@@ -21,16 +22,26 @@
 </head>
 
 
+
+
+
 <body id="page-top">
 
 
 
     <div id="wrapper">
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" asp-action="Dashboard" asp-controller="Admin">
+            @*<a class="sidebar-brand d-flex align-items-center justify-content-center" asp-action="Dashboard" asp-controller="Admin">
                 <div class="sidebar-brand-icon">
                     <img src="~/img/pclink.png" alt="pclinklogo" height="125" width="250" />
                 </div>
+            </a>*@
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" asp-action="Dashboard" asp-controller="Admin">
+                <div class="sidebar-brand-icon">
+                    @*<span style="font-family:Copperplate Gothic Light; color:white; font-size:30px">P</span>*@
+                    <img src="~/img/p-letter-logo.png" alt="pclinklogo" height="50" width="50" />
+                </div>
+                <div class="sidebar-brand-text mx-3">PC Link IT</div>
             </a>
 
             <hr class="sidebar-divider my-0" />
@@ -137,7 +148,7 @@
 
                         <a class="collapse-item" asp-action="ManageSalaryDetails" asp-controller="Admin">Manage Salary Details</a>
                         <a class="collapse-item" asp-action="EmployeeSalaryList" asp-controller="Admin">Employee Salary List</a>
-                        <a class="collapse-item" asp-action="GeneratePayslip" asp-controller="Admin">Generate Payslip</a>
+                        @*<a class="collapse-item" asp-action="GeneratePayslip" asp-controller="Admin">Generate Payslip</a>*@
 
                     </div>
                 </div>
@@ -224,14 +235,14 @@
                         </li>
 
                         <!-- Nav Item - Alerts -->
-                        <li class="nav-item dropdown no-arrow mx-1">
+                        @*<li class="nav-item dropdown no-arrow mx-1">
                             <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-bell fa-fw"></i>
-                                <!-- Counter - Alerts -->
+                                 Counter - Alerts 
                                 <span class="badge badge-danger badge-counter"></span>
                             </a>
 
-                            <!-- Dropdown - Alerts -->
+                             Dropdown - Alerts 
                             <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
                                 <h6 class="dropdown-header">
                                     Notice Board
@@ -250,14 +261,14 @@
                             </div>
                         </li>
 
-                        <!-- Nav Item - Messages -->
+                         Nav Item - Messages 
                         <li class="nav-item dropdown no-arrow mx-1">
                             <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-envelope fa-fw"></i>
-                                <!-- Counter - Messages -->
+                                 Counter - Messages 
                                 <span class="badge badge-danger badge-counter"></span>
                             </a>
-                            <!-- Dropdown - Messages -->
+                             Dropdown - Messages 
 
                             <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
                                 <h6 class="dropdown-header">
@@ -276,7 +287,7 @@
                                 </a>
                                 <a class="dropdown-item text-center small text-gray-500" asp-controller="admin" asp-action="LeaveApplicationList">See All Application</a>
                             </div>
-                        </li>
+                        </li>*@
 
                         <div class="topbar-divider d-none d-sm-block"></div>
 

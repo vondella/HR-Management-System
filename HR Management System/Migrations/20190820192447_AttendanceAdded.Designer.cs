@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HR_Management_System.Migrations
 {
     [DbContext(typeof(HRMS_DB_Context))]
-    [Migration("20190816150643_ApplicantListAdded")]
-    partial class ApplicantListAdded
+    [Migration("20190820192447_AttendanceAdded")]
+    partial class AttendanceAdded
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,6 +20,31 @@ namespace HR_Management_System.Migrations
                 .HasAnnotation("ProductVersion", "2.2.4-servicing-10062")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("HR_Management_System.Models.Attendance", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("Date");
+
+                    b.Property<int>("Day");
+
+                    b.Property<int>("Month");
+
+                    b.Property<int>("Status");
+
+                    b.Property<long?>("UserModelId");
+
+                    b.Property<int>("Year");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserModelId");
+
+                    b.ToTable("Attendances");
+                });
 
             modelBuilder.Entity("HR_Management_System.Models.DegreeDetails", b =>
                 {
@@ -97,6 +122,37 @@ namespace HR_Management_System.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Holidays");
+                });
+
+            modelBuilder.Entity("HR_Management_System.Models.LeaveApplication", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("AppliedDate");
+
+                    b.Property<int>("Days");
+
+                    b.Property<DateTime>("EndDate");
+
+                    b.Property<long>("LeaveCategoryId");
+
+                    b.Property<string>("Reason");
+
+                    b.Property<DateTime>("StartDate");
+
+                    b.Property<int>("Status");
+
+                    b.Property<long?>("UserId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("LeaveCategoryId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("LeaveApplications");
                 });
 
             modelBuilder.Entity("HR_Management_System.Models.LeaveCategory", b =>
@@ -236,14 +292,57 @@ namespace HR_Management_System.Migrations
                     b.ToTable("Resumes");
                 });
 
+            modelBuilder.Entity("HR_Management_System.Models.Salary", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<double>("BasicSalary");
+
+                    b.Property<double>("GrossSalary");
+
+                    b.Property<double>("HouseRent");
+
+                    b.Property<double>("MedicalBill");
+
+                    b.Property<double>("MobileBill");
+
+                    b.Property<double>("NetSalary");
+
+                    b.Property<double>("Other");
+
+                    b.Property<double>("OtherDeduction");
+
+                    b.Property<double>("ProvidentFundDeduction");
+
+                    b.Property<double>("TaxDeduction");
+
+                    b.Property<double>("TotalDeduction");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Salaries");
+                });
+
             modelBuilder.Entity("HR_Management_System.Models.UserModel", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<DateTime?>("DateOfApplication");
+
+                    b.Property<string>("Department");
+
+                    b.Property<string>("Designation");
+
                     b.Property<string>("Email")
                         .IsRequired();
+
+                    b.Property<DateTime?>("InterviewDate");
+
+                    b.Property<DateTime?>("JoiningDate");
 
                     b.Property<string>("Name")
                         .IsRequired();
@@ -251,11 +350,19 @@ namespace HR_Management_System.Migrations
                     b.Property<string>("Password")
                         .IsRequired();
 
+                    b.Property<byte[]>("ProfileImage");
+
                     b.Property<long?>("RecruitementNoticeModelId");
 
                     b.Property<bool>("RememberMe");
 
                     b.Property<long?>("ResumeId");
+
+                    b.Property<long?>("SalaryId");
+
+                    b.Property<bool>("SelectedForInterview");
+
+                    b.Property<bool>("Status");
 
                     b.Property<string>("UserName")
                         .IsRequired();
@@ -267,6 +374,8 @@ namespace HR_Management_System.Migrations
                     b.HasIndex("RecruitementNoticeModelId");
 
                     b.HasIndex("ResumeId");
+
+                    b.HasIndex("SalaryId");
 
                     b.ToTable("Users");
                 });
@@ -286,6 +395,13 @@ namespace HR_Management_System.Migrations
                     b.ToTable("WeekDays");
                 });
 
+            modelBuilder.Entity("HR_Management_System.Models.Attendance", b =>
+                {
+                    b.HasOne("HR_Management_System.Models.UserModel")
+                        .WithMany("Attendances")
+                        .HasForeignKey("UserModelId");
+                });
+
             modelBuilder.Entity("HR_Management_System.Models.DegreeDetails", b =>
                 {
                     b.HasOne("HR_Management_System.Models.Resume")
@@ -298,6 +414,18 @@ namespace HR_Management_System.Migrations
                     b.HasOne("HR_Management_System.Models.DepartmentModel")
                         .WithMany("Designation")
                         .HasForeignKey("DepartmentModelId");
+                });
+
+            modelBuilder.Entity("HR_Management_System.Models.LeaveApplication", b =>
+                {
+                    b.HasOne("HR_Management_System.Models.LeaveCategory", "LeaveCategory")
+                        .WithMany()
+                        .HasForeignKey("LeaveCategoryId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("HR_Management_System.Models.UserModel", "User")
+                        .WithMany("LeaveApplications")
+                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("HR_Management_System.Models.ProfessionalExperience", b =>
@@ -316,6 +444,10 @@ namespace HR_Management_System.Migrations
                     b.HasOne("HR_Management_System.Models.Resume", "Resume")
                         .WithMany()
                         .HasForeignKey("ResumeId");
+
+                    b.HasOne("HR_Management_System.Models.Salary", "Salary")
+                        .WithMany()
+                        .HasForeignKey("SalaryId");
                 });
 #pragma warning restore 612, 618
         }

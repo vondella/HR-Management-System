@@ -32,6 +32,7 @@ namespace HR_Management_System.Pages
                 return RedirectToPage("./Career_Login");
             }
             ViewData["User_Name"] = _accountManage.User.Name;
+            ViewData.Add("ProfileImg", _accountManage.User.ProfileImageSrc);
             return Page();
         }
 
@@ -44,7 +45,13 @@ namespace HR_Management_System.Pages
            string email, string[] qualification, string[] passing_year, string[] subject, string[] grade, string[] university,
            string[] company_name, DateTime?[] duration_from, string[] company_address, DateTime?[] duration_to, string[] role)
         {
-            var fdg = profile_img;
+            
+            UserModel user = null;
+            user = _db.Users.Include(a => a.Resume).Include(a => a.Resume.Experiences).Include(a => a.Resume.EducationalDetails).Single(aa => aa.Id == _accountManage.User.Id);
+            if (user == null)
+            {
+                return NotFound();
+            }
 
             Resume resume = new Resume();
             resume.Title = title;
@@ -187,6 +194,9 @@ namespace HR_Management_System.Pages
                 {
                     await profile_img.CopyToAsync(memoryStream);
                     resume.ProfileImage = memoryStream.ToArray();
+                    user.ProfileImage = memoryStream.ToArray();
+                    _accountManage.User.ProfileImage = memoryStream.ToArray();
+                    _accountManage.User.ProfileImageSrc = _accountManage.ImgSrc(_accountManage.User.ProfileImage);
                 }
             }
             else
@@ -196,15 +206,13 @@ namespace HR_Management_System.Pages
                 FileStream fileStream = new FileStream($"{current_directory}/wwwroot/img/user.png", FileMode.Open);
                 await fileStream.CopyToAsync(memoryStream);
                 resume.ProfileImage = memoryStream.ToArray();
+                user.ProfileImage = memoryStream.ToArray();
+                _accountManage.User.ProfileImage = memoryStream.ToArray();
+                _accountManage.User.ProfileImageSrc = _accountManage.ImgSrc(_accountManage.User.ProfileImage);
             }
 
             resume.Religion = religion;
-            UserModel user = null;
-            user =  _db.Users.Include(a=> a.Resume).Include(a=> a.Resume.Experiences).Include(a=> a.Resume.EducationalDetails).Single(aa=> aa.Id == _accountManage.User.Id);
-            if(user == null)
-            {
-                return NotFound();
-            }
+            
             user.Resume = resume;
 
             await _db.SaveChangesAsync();

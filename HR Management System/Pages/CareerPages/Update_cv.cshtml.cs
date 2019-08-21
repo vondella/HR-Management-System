@@ -34,7 +34,7 @@ namespace HR_Management_System.Pages
                 return RedirectToPage("./Career_Login");
             }
             ViewData["User_Name"] = _accountManage.User.Name;
-
+            ViewData.Add("ProfileImg", _accountManage.User.ProfileImageSrc);
 
             Resume = _db.Resumes.Include(a=> a.EducationalDetails).Include(a=>a.Experiences).Single(i=>i.Id == id);
             if(Resume == null)
@@ -237,10 +237,15 @@ namespace HR_Management_System.Pages
 
             if (profile_img != null)
             {
+                var user = await _db.Users.FindAsync(_accountManage.User.Id);
+
                 using (var memoryStream = new MemoryStream())
                 {
                     await profile_img.CopyToAsync(memoryStream);
                     Resume.ProfileImage = memoryStream.ToArray();
+                    user.ProfileImage = memoryStream.ToArray();
+                    _accountManage.User.ProfileImage = memoryStream.ToArray();
+                    _accountManage.User.ProfileImageSrc = _accountManage.ImgSrc(_accountManage.User.ProfileImage);
                 }
             }
          

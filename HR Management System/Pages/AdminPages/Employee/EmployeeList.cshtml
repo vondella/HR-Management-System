@@ -4,61 +4,116 @@
     ViewData["Title"] = "EmployeeList";
     Layout = "~/Views/Shared/_AdminDashboardLayout.cshtml";
 }
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, HR Management System
 
 <center><h1>Employee List</h1></center>
-<body>
-    <div class="container-fluid">
-
-
-        <br><!--            show when print start-->
-        <div class="row">
-            <div class="col-sm-12 wrap-fpanel" data-spy="scroll" data-offset="0">
-                <div class="panel panel-default">
-                    <!-- Default panel contents -->
-
-                    <br>
-                    <!-- Table -->
-                    <div id="dataTables-example_wrapper" class="dataTables_wrapper form-inline" role="grid">
-                        <div class="row"><div class="col-sm-6"><div class="dataTables_length" id="dataTables-example_length"><label><select name="dataTables-example_length" aria-controls="dataTables-example" class="form-control input-sm"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> <b>Records per page</b></label></div></div><div class="col-sm-6"><div id="dataTables-example_filter" class="dataTables_filter"><label>Search:<input type="search" style="margin:0px 10px;" class="form-control input-sm" aria-controls="dataTables-example"></label></div></div></div><table class="table table-bordered table-hover dataTable no-footer" id="dataTables-example" aria-describedby="dataTables-example_info">
-                            <thead>
-                                <tr role="row">
-                                    <th class="col-sm-1 sorting_asc" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="EMP ID: activate to sort column ascending" style="width: 73px;">Emp ID</th>
-                                    <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Employee: activate to sort column ascending" style="width: 149px;">Employee</th>
-                                    <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Department: activate to sort column ascending" style="width: 150px;">Department</th>
-                                    <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Designations: activate to sort column ascending" style="width: 150px;">Designations</th>
-                                    <th class="show_print sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Email: activate to sort column ascending" style="width: 33px;">Email</th>
-                                    <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Mobile: activate to sort column ascending" style="width: 105px;">Mobile</th>
-                                    <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Status: activate to sort column ascending" style="width: 111px;">Status</th>
-                                    <th class="col-sm-1 hidden-print sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="View: activate to sort column ascending" style="width: 73px;">View</th>
-                                    <th class="col-sm-2 hidden-print sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Action: activate to sort column ascending" style="width: 300px;">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
 
 
 
-
-                                <tr class="odd">
-                                    <td class="sorting_1">112</td>
-                                    <td class=" ">Ovijit Roy</td>
-                                    <td class=" ">Marketing</td>
-                                    <td class=" ">Manager</td>
-                                    <td class="show_print ">dsasds@gtds.com</td>
-                                    <td class=" ">12</td>
-                                    <td class=" "><span class="label label-success">Active</span></td>
-                                    <td class="hidden-print "><a href="https://localhost:44303/AdminPages/Employee/ViewEmployeeDetails" class="btn btn-info btn-xs" data-toggle="tooltip" data-placement="top" title="" data-original-title="View">View</a></td>
-                                    <td class="hidden-print ">
-                                        <a href="http://localhost/HRMS-FRESH/admin/employee/add_employee/3" class="btn btn-primary btn-xs" title="" data-toggle="tooltip" data-placement="top" data-original-title="Edit">Edit</a>
-                                        <a href="http://localhost/HRMS-FRESH/admin/employee/delete_employee/3/2/2" class="btn btn-danger btn-xs" title="" data-toggle="tooltip" data-placement="top" onclick="return confirm('You are about to delete a record. This cannot be undone. Are you sure?');" data-original-title="Delete"> Delete</a>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table><div class="row"><div class="col-sm-6"><div class="dataTables_info" id="dataTables-example_info" role="alert" aria-live="polite" aria-relevant="all">Showing 1 to 2 of 2 entries</div></div><div class="col-sm-6"><div class="dataTables_paginate paging_simple_numbers" id="dataTables-example_paginate"><ul class="pagination"><li class="paginate_button previous disabled" aria-controls="dataTables-example" tabindex="0" id="dataTables-example_previous"><a href="#">Previous</a></li><li class="paginate_button active" aria-controls="dataTables-example" tabindex="0"><a href="#">1</a></li><li class="paginate_button next disabled" aria-controls="dataTables-example" tabindex="0" id="dataTables-example_next"><a href="#">Next</a></li></ul></div></div></div>
+<div class="wrap-fpanel">
+    <div class="row">
+        <div class="col-sm-12" data-offset="0">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="panel-title">
+                        <strong>List of All Employee</strong>
                     </div>
                 </div>
+
+
+
+
+
+                <div class="card shadow mb-4">
+
+                    <div class="row">
+                        <div class="col-sm-6 col-md-6">
+                            <div id="dataTable_filter" class="dataTables_filter ml-4 mt-4">
+                                <form method="get">
+                                    <label>Search:<input type="search" class="form-control form-control-sm" placeholder="Search by Name" aria-controls="dataTable" name="src_string"></label>
+                                    <span><button class="btn btn-primary form-control-sm" type="submit">Search</button></span>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Name</th>
+                                        <th>Department</th>
+                                        <th>Designation</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+
+                                    </tr>
+                                </thead>
+                                @if (Model.Employees != null)
+                                {
+                                    if (Model.Employees.Count > 0)
+                                    {
+                                        @if (Model.Employees.Count > 10)
+                                        {
+                                            <tfoot>
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>Name</th>
+                                                    <th>Department</th>
+                                                    <th>Designation</th>
+                                                    <th>Status</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </tfoot>
+                                        }
+
+                                        <tbody>
+
+                                            @for (int i = 0; i < Model.Employees.Count; i++)
+                                            {
+                                                <tr>
+                                                    <td>@Model.Employees[i].Id</td>
+                                                    <td>@Model.Employees[i].Name</td>
+                                                    <td>@Model.Employees[i].Department</td>
+                                                    <td>@Model.Employees[i].Designation</td>
+                                                    <td>@Model.IsActive(Model.Employees[i].Status)</td>
+
+                                                    <td>
+                                                        <div class="row">
+                                                            <div class="col-6"><a asp-page="./ViewEmployeeDetails" asp-route-id="@Model.Employees[i].Id"><span class="fa fa-list-alt Edit-HyperLink"></span></a></div>
+                                                          
+                                                            <div class="col-6"><employee-is-active is-active="@Model.Employees[i].Status" id="@Model.Employees[i].Id"></employee-is-active></div>
+                                                            
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            }
+
+                                        </tbody>
+                                    }
+                                }
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                @*<div class="d-flex justify-content-center mt-lg-5">
+                        <div>
+                            <div class="panel-heading">
+                                <div class="panel-title">
+                                    <strong class="h2 font-weight-normal">Empty</strong>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>*@
+
             </div>
         </div>
     </div>
-
-</body>
-
+</div>

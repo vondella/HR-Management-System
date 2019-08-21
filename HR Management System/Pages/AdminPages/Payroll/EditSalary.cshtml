@@ -1,0 +1,133 @@
+﻿@page
+@model HR_Management_System.Pages.AdminPages.Payroll.EditSalaryModel
+@{
+    ViewData["Title"] = "EditSalary";
+    Layout = "~/Views/Shared/_AdminDashboardLayout.cshtml";
+}
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, HR Management System
+
+
+<center><h2>Edit Salary</h2></center>
+
+
+
+<div class="card shadow mb-4">
+    <div class="card-body">
+        <form method="post">
+            <input type="text" name="id" value="@Model.Salary.Id" hidden />
+
+            <div class="row">
+                <div class="col-lg-4">
+                    <div>
+                        <h4>Salary</h4>
+                    </div>
+                    <div class="form-group">
+                        <label>Basic Salary</label>
+                        <input type="text" id="BasicSalaryInput" class="form-control" asp-for="BasicSalary" onchange="CalculateSalary()" placeholder="Enter basic salary">
+                        <small><span asp-validation-for="BasicSalary" class="text-danger"></span></small>
+                    </div>
+
+                    <div class="form-group">
+                        <label>House Rent</label>
+                        <input type="text" class="form-control" id="HouseRentInput" asp-for="HouseRent" placeholder="Enter House Rent" onchange="CalculateSalary()">
+                        <small><span asp-validation-for="HouseRent" class="text-danger"></span></small>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Mobile Bill</label>
+                        <input type="text" class="form-control" asp-for="MobileBill" id="MobileBillInput" placeholder="Enter Mobile Bill" onchange="CalculateSalary()">
+                        <small><span asp-validation-for="MobileBill" class="text-danger"></span></small>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Medical Bill</label>
+                        <input type="text" class="form-control" asp-for="MedicalBill" id="MedicalBillInput" placeholder="Enter Medical Bill" onchange="CalculateSalary()">
+                        <small><span asp-validation-for="MedicalBill" class="text-danger"></span></small>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Other</label>
+                        <input type="text" class="form-control" asp-for="Other" id="OtherInput" placeholder="Enter Other salary" onchange="CalculateSalary()">
+                        <small><span asp-validation-for="Other" class="text-danger"></span></small>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div>
+                        <h4>Deductions</h4>
+                    </div>
+                    <!--Deductions-->
+                    <div class="form-group">
+                        <label>Provident Fund Deduction</label>
+                        <input type="text" class="form-control" asp-for="ProvidentFundDeduction" id="ProvidentFundDeductionInput" onchange="CalculateSalary()" placeholder="Enter Provident Fund Deduction">
+                        <small><span asp-validation-for="ProvidentFundDeduction" class="text-danger"></span></small>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Enter Tax</label>
+                        <input type="text" class="form-control" asp-for="TaxDeduction" id="TaxDeductionInput" onchange="CalculateSalary()" placeholder="Enter Tax">
+                        <small><span asp-validation-for="TaxDeduction" class="text-danger"></span></small>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Other Deduction</label>
+                        <input type="text" class="form-control" asp-for="OtherDeduction" id="OtherDeductionInput" onchange="CalculateSalary()" placeholder="Enter Other Deduction">
+                        <small><span asp-validation-for="OtherDeduction" class="text-danger"></span></small>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label>Gross Salary</label>
+                        <input type="text" class="form-control" value="@Model.Salary.GrossSalary" name="gross_salary" id="GrossSalaryInput" disabled>
+
+                    </div>
+
+                    <div class="form-group">
+                        <label>Net Salary</label>
+                        <input type="text" class="form-control" value="@Model.Salary.NetSalary" name="net_salary" id="NetSalaryInput" disabled>
+
+                    </div>
+                </div>
+
+
+            </div>
+
+
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary" value="     Save     " />
+            </div>
+
+        </form>
+    </div>
+</div>
+
+
+<script>
+    function CalculateSalary() {
+        var gross_salary = parseInt($("#BasicSalaryInput").val()) +
+            parseInt($("#HouseRentInput").val()) +
+            parseInt($("#MobileBillInput").val()) +
+            parseInt($("#MedicalBillInput").val()) +
+            parseInt($("#OtherInput").val());
+        $("#GrossSalaryInput").attr("value", gross_salary);
+
+        var all_deductions = parseInt($("#ProvidentFundDeductionInput").val()) +
+            parseInt($("#TaxDeductionInput").val()) +
+            parseInt($("#OtherDeductionInput").val());
+
+        var new_salary = gross_salary - all_deductions;
+
+        $("#NetSalaryInput").attr("value", new_salary);
+
+    }
+</script>
+
+
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+

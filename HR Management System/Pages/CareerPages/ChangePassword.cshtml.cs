@@ -58,6 +58,7 @@ namespace HR_Management_System.Pages.CareerPages
             }
 
             ViewData["User_Name"] = _accountManage.User.Name;
+            ViewData.Add("ProfileImg", _accountManage.User.ProfileImageSrc);
             return Page();
         }
 
