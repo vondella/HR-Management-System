@@ -1,0 +1,83 @@
+﻿
+@page
+@model HR_Management_System.Pages.AddNoticeModel
+@{
+    ViewData["Title"] = "AddNotice";
+    Layout = "~/Views/Shared/_AdminDashboardLayout.cshtml";
+}
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<center><h1>Create Notice</h1></center>
+
+
+
+
+    <div class="container-fluid">
+
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="wrap-fpanel">
+                    <div class="panel panel-default" data-collapsed="0">
+                        <div class="panel-heading">
+                            @*<div class="panel-title">
+                                    <strong>Create Notice</strong>
+                                </div>*@
+                        </div>
+                        <div class="panel-body">
+
+                            <form role="form" id="form" method="post" class="form-horizontal form-groups-bordered" novalidate="novalidate">
+                                <div class="form-group">
+                                    <label for="field-1" class="col-sm-3 control-label">Publication Status <span class="required" aria-required="true">*</span></label>
+
+                                    <div class="col-sm-2"><input type="checkbox" class="select_one" name="published" asp-for="Published" > Published</div>
+                                    @*<div class="col-sm-2"><input type="checkbox" class="select_one" name="flag" value="0" checked=""> UnPublished</div>*@
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="field-1" class="col-sm-3 control-label">Title <span class="required" aria-required="true">*</span></label>
+
+                                    <div class="col-sm-8">
+                                        <input type="text" name="title" value="" class="form-control" requried="" placeholder="Enter Notice Title Here">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="field-1" class="col-sm-3 control-label">Description <span class="required" aria-required="true">*</span></label>
+                                    <div class="col-sm-8">
+                                        <textarea class="form-control " name="long_description"  style=" width: 100%; height: 500px"></textarea>
+                                        @*<div id="cke_ck_editor" class="cke_1 cke cke_reset cke_chrome cke_editor_ck_editor cke_ltr cke_browser_webkit" dir="ltr" lang="en" role="application" aria-labelledby="cke_ck_editor_arialbl" style="width: 100%;">
+                                        <span id="cke_ck_editor_arialbl" class="cke_voice_label">Rich Text Editor, ck_editor</span>
+                                        <div class="cke_inner cke_reset" role="presentation">
+                                            <span id="cke_1_top" class="cke_top cke_reset_all" role="presentation" style="height: auto; user-select: none;"></span>
+                                            <span id="cke_7" class="cke_voice_label">Editor toolbars</span>
+                                            <span id="cke_1_toolbox" class="cke_toolbox" role="group" aria-labelledby="cke_7" onmousedown="return false;"></span>
+                                                </div></div>*@
+
+
+
+                                        @*<script type="text/javascript" src="~/js/ckeditor/ckeditor.js"></script>
+                                        <script type="text/javascript">CKEDITOR_BASEPATH = '~/js/ckeditor/';</script>
+                                        <script type="text/javascript">
+                                            CKEDITOR.replace('ck_editor', { toolbar: 'Full', width: '100%', height: '200px' });</script>*@
+
+                                        <!--hidden input values -->
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-3 col-sm-5">
+                                        <button type="submit" id="sbtn" class="btn btn-primary">Save</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+

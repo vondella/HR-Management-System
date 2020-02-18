@@ -1,0 +1,63 @@
+﻿@page
+@model HR_Management_System.Pages.LeaveApplicationListModel
+@{
+    ViewData["Title"] = "LeaveApplicationList";
+    Layout = "~/Views/Shared/_AdminDashboardLayout.cshtml";
+}
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, HR Management System
+
+
+<center><h2>Leave Application List</h2></center>
+
+
+<div class="card shadow">
+ 
+    <div class="card-body">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Total Days</th>
+                    <th>Leave Category</th>
+                    <th>Applied Date</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+
+
+            <tbody>
+
+                @if (Model.LeaveApplications != null)
+                {
+                    if (Model.LeaveApplications.Count > 0)
+                    {
+                        foreach (var item in Model.LeaveApplications)
+                        {
+                            <tr>
+                                <td>@item.User.Id</td>
+                                <td>@item.User.Name</td>
+                                <td>@Model.ShortDateString(item.StartDate)</td>
+                                <td>@Model.ShortDateString(item.EndDate)</td>
+                                <td>@item.Days</td>
+                                <td>@item.LeaveCategory.Title</td>
+                                <td>@Model.ShortDateString(item.AppliedDate)</td>
+                                <td>@item.Status</td>
+                                <td>
+                                    <a asp-page="./LeaveApplicationDetails" asp-route-id="@item.Id">View</a>
+                                </td>
+                            </tr>
+                        }
+                    }
+                }
+            </tbody>
+
+
+        </table>
+    </div>
+</div>

@@ -1,0 +1,71 @@
+﻿@page
+@model HR_Management_System.Pages.DepartmentlistModel
+@{
+    ViewData["Title"] = "Departmentlist";
+    Layout = "~/Views/Shared/_AdminDashboardLayout.cshtml";
+}
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<center><h1>Department List</h1></center>
+
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-sm-12" data-offset="0">
+            <div class="panel panel-default">
+                <!-- Default panel contents -->
+                <div class="panel-heading">
+                    @*<div class="panel-title">
+                        <center><h3 class="text-gray-800">Department List</h3></center>
+                    </div>*@
+                </div>
+                @if (Model.Departments != null)
+                {
+                    foreach (var departmentItem in Model.Departments)
+                    {
+                        <div class="panel-heading">
+                            <div class="panel-title">
+                                <strong>@departmentItem.Name</strong>
+
+                                <div class="pull-right" style="text-align:right">
+                                    <a asp-page-handler="EditDepartment" asp-route-id="@departmentItem.Id" class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o"></i> Edit</a>
+                                    <a asp-page-handler="DeleteDepartment" asp-route-id="@departmentItem.Id" class="btn btn-danger btn-xs" onclick="return confirm('You are about to delete This Department. All Designation Under This Department Will Be Deleted. Are you sure?');"><i class="fa fa-trash-o"></i> Delete</a>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <table class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>SL</th>
+                                    <th class="col-sm-2">Designations</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                @if (departmentItem.Designation != null)
+                                {
+                                    if (departmentItem.Designation.Count > 0)
+                                    {
+                                        for (var i = 0; i < departmentItem.Designation.Count; i++)
+                                        {
+                                            <tr>
+                                                <td>@(i + 1)</td>
+                                                <td>@departmentItem.Designation[i].Name</td>
+
+                                            </tr>
+                                        }
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+

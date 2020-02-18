@@ -1,0 +1,121 @@
+﻿@page
+@model HR_Management_System.Pages.EmployeePages.New_leaveModel
+@{
+    ViewData["Title"] = "New_leave";
+    Layout = "~/Views/Shared/_EmployeeLayout.cshtml";
+}
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, HR Management System
+
+
+<center><h2>New Leave Application</h2></center>
+
+
+<div>
+
+    <form method="post">
+
+        <div class="panel_controls">
+            <div class="form-group">
+                <label class="col-sm-3 control-label">Leave Category<span class="required" aria-required="true"> *</span></label>
+
+                <div class="col-sm-5">
+                    <select class="form-control" asp-items="@Model.LeaveCategories" asp-for="LeaveCategory">
+                        <option value="">Select Leave Category</option>
+                    </select>
+                    <small><span class="text-danger" asp-validation-for="LeaveCategory"></span></small>
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">Start Date <span class="required" aria-required="true"> *</span></label>
+
+                <div class="col-sm-5">
+                    <div class="input-group">
+                        <input type="date" onchange="CalculateDays()" id="StartDateInput" asp-for="StartDate" class="form-control datepicker" data-format="dd-mm-yyyy" aria-required="true">
+                        <small><span class="text-danger" asp-validation-for="StartDate"></span></small>
+                        @if (Model.InValidDateSelected == true)
+                        {
+                            <small><span class="text-danger">Invalid date selected</span></small>
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">End Date <span class="required" aria-required="true"> *</span></label>
+
+                <div class="col-sm-5">
+                    <div class="input-group">
+                        <input id="EndDateInput" onchange="CalculateDays()" type="date" class="form-control datepicker" asp-for="EndDate" data-format="dd-mm-yyyy" aria-required="true">
+                        <small><span class="text-danger" asp-validation-for="EndDate"></span></small>
+                        @if (Model.InValidDateSelected == true)
+                        {
+                            <small><span class="text-danger">Invalid date selected</span></small>
+                        }
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">Total Days</label>
+
+                <div class="col-sm-5">
+                    <div class="input-group">
+                        <input type="text" value="1" class="form-control" id="TotalDaysInput" disabled>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">Reason</label>
+                <div class="col-sm-5">
+                    <textarea id="present" class="form-control" rows="6" asp-for="Reason"></textarea>
+
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <div class="col-sm-offset-3 col-sm-5">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </div>
+
+    </form>
+
+</div>
+
+
+
+
+
+
+
+<script>
+
+    function CalculateDays() {
+        var start = $("#StartDateInput").val();
+        var end = $("#EndDateInput").val();
+        var diff = new Date(new Date(end) - new Date(start));
+        var days = (diff / 1000 / 60 / 60 / 24) + 1;
+        $("#TotalDaysInput").val(days);
+    }
+
+</script>
+
+
+
+
+
+
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+

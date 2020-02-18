@@ -7,28 +7,28 @@ using HR_Management_System.Data;
 using HR_Management_System.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 
 namespace HR_Management_System.Pages
 {
     public class LoginPageModel : PageModel
     {
         private readonly HRMS_DB_Context _db;
-
-        public LoginPageModel(HRMS_DB_Context context)
+        private readonly AccountManageModel _accountManage;
+        public LoginPageModel(HRMS_DB_Context context, AccountManageModel accountManage)
         {
-            _db = context;
+            _db = context; _accountManage = accountManage;
         }
 
-        public List<UserModel> Users { get; set; }
-
-       
 
 
+        public UserModel User { get; set; }
+
+        public bool WrongUsername { get; set; } = false;
+
+        public bool WrongPassword { get; set; } = false;
 
 
-        //public long Id { get; set; }
-
-        //public string Name { get; set; }
         [BindProperty]
         [Required]
         public string UserName { get; set; }
@@ -41,32 +41,49 @@ namespace HR_Management_System.Pages
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
-        //[Display(Name = "Remember me?")]
-        //public bool RememberMe { get; set; }
+     
 
 
         public void OnGet()
         {
-            var yes = _db.Users.Any();
+            
         }
 
         public IActionResult OnPostAsync()
         {
-            var _user = _db.Users.Where( a => a.UserName == UserName).ToList().SingleOrDefault();
 
-            if(_user == null)
+            try { User = _db.Users.Where(a => a.UserName == UserName.ToLower()).AsNoTracking().Single(); }
+            catch { }
+
+            if(User == null)
             {
+                WrongUsername = true;
+                WrongPassword = false;
+
                 return Page();
             }
 
-            if(Password == _user.Password)
+
+            if(Password == User.Password)
             {
-                return RedirectToPage("/Dashboard");
+                ViewData.Add("User_Name", (string)User.Name);
+
+                if (User.UserType == UserType.Admin)
+                {
+                    _accountManage.IsLoggedIn = true;
+                    _accountManage.User = User;
+                    return RedirectToPage("/AdminPages/AdminDashboard");
+                }
+                if (User.UserType ==  UserType.Employee)
+                {
+                    _accountManage.IsLoggedIn = true;
+                    _accountManage.User = User;
+                    return RedirectToPage("/EmployeePages/Employee_Dashboard");
+                }
             }
-            else
-            {
-                return Page();
-            }
+            WrongUsername = false;
+            WrongPassword = true;
+            return Page();
         }
     }
 }

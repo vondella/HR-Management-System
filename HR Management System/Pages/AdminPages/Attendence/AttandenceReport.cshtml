@@ -1,0 +1,106 @@
+﻿@page
+@model HR_Management_System.Pages.AttandenceReportModel
+@{
+    ViewData["Title"] = "AttandenceReport";
+    Layout = "~/Views/Shared/_AdminDashboardLayout.cshtml";
+}
+
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, HR Management System
+
+
+
+
+<center><h1>Attendence Report</h1></center>
+
+
+<div class="wrap-fpanel">
+    <div class="row">
+        <div class="col-sm-12" data-offset="0">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="panel-title">
+                        <strong>List of All Employees Attendence</strong>
+                    </div>
+                </div>
+
+                <div class="card shadow mb-4">
+
+                    <div class="row">
+                        <div class="col-sm-6 col-md-6">
+                            <div id="dataTable_filter" class="dataTables_filter ml-4 mt-4">
+                                <form method="get">
+                                    <label>Select Month:<input type="month" class="form-control form-control-sm" placeholder="Search by date" name="dateTime"></label>
+                                    <span><button class="btn btn-primary form-control-sm" type="submit">Search</button></span>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    @if (Model.TotalDays != 0)
+                    {
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr role="row">
+                                            <th>Name</th>
+                                            @for (int i = 0; i < Model.TotalDays; i++)
+                                            {
+                                                <th>@(i + 1)</th>
+                                            }
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var emp_item in Model.EmployeeAttendanceViews)
+                                        {
+                                            <tr class="odd">
+                                                <td>@emp_item.Name</td>
+                                                @foreach (var att_item in emp_item.Attendances)
+                                                {
+
+                                                    @if (att_item.Status == HR_Management_System.Models.AttendanceStatus.Absent)
+                                                    {
+                                                        <td>A</td>
+                                                    }
+                                                    else if (att_item.Status == HR_Management_System.Models.AttendanceStatus.Present)
+                                                    {
+                                                        <td>P</td>
+                                                    }
+                                                    else if (att_item.Status == HR_Management_System.Models.AttendanceStatus.NotJoined)
+                                                    {
+                                                        <td></td>
+                                                    }
+                                                    else if (att_item.Status == HR_Management_System.Models.AttendanceStatus.InLeave)
+                                                    {
+                                                        <td>L</td>
+                                                    }
+                                                    else if (att_item.Status == HR_Management_System.Models.AttendanceStatus.Holiday)
+                                                    {
+                                                        <td>H</td>
+                                                    }
+                                                    else
+                                                    {
+                                                        <td></td>
+                                                    }
+                                                }
+
+                                            </tr>
+                                        }
+
+
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    }
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,77 @@
+﻿@page
+@model HR_Management_System.Pages.HolidayListModel
+@{
+    ViewData["Title"] = "HolidayList";
+    Layout = "~/Views/Shared/_AdminDashboardLayout.cshtml";
+}
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, HR Management System
+
+<center><h1>Holiday List</h1></center>
+
+<body>
+    <div class="container-fluid">
+        <div class="panel panel-default" data-collapsed="0">
+            <div class="panel-heading">
+                <h4><a asp-page="/AdminPages/Settings/AddHoliday"><i class="fa fa-plus"></i> Add Holiday</a></h4>
+                <br>
+            </div>
+
+            <div class="panel-body">
+                <form id="attendance-form" role="form" method="get" class="form-horizontal form-groups-bordered">
+                    <div class="form-group">
+                        <label for="field-1" class="col-sm-3 control-label"> Select Month &amp; Year</label>
+                        <div class="input-group col-sm-5">
+                            <input type="month" class="form-control monthyear" value="@Model.SortedMonth" name="sort_date">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-3 col-sm-5 pull-right">
+                            <button type="submit" id="sbtn" class="btn btn-primary">Search</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div>
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th class="col-sm-1 sorting_asc" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="EMP ID: activate to sort column ascending" style="width: 50px;">SL</th>
+                        <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Employee: activate to sort column ascending" style="width: 300px;">Event Name</th>
+                        <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Department: activate to sort column ascending" style="width: 100px;">Start date</th>
+                        <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Designations: activate to sort column ascending" style="width: 100px;">End date</th>
+                        <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Designations: activate to sort column ascending" style="width: 150px;">Action</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model.SortedHolidays != null)
+                    {
+                        @if (Model.SortedHolidays.Count > 0)
+                        {
+                            @for (var i = 0; i < Model.SortedHolidays.Count; i++)
+                            {
+                                <tr>
+                                    <td>@(i + 1)</td>
+                                    <td>@Model.SortedHolidays[i].Name</td>
+                                    <td>@Model.SortedHolidays[i].StartDate.ToShortDateString()</td>
+                                    <td>@Model.SortedHolidays[i].EndDate.ToShortDateString()</td>
+                                    <td>
+                                        <a asp-page="./EditHoliday" asp-route-id="@Model.SortedHolidays[i].Id" class="btn btn-primary btn-xs"  data-toggle="tooltip" data-placement="top"><i class="fa fa-pencil-square-o"></i> Edit</a>
+                                        <a asp-page-handler="Delete" asp-route-id="@Model.SortedHolidays[i].Id"  class="btn btn-danger btn-xs" data-toggle="tooltip" data-placement="top" onclick="return confirm('You are about to delete a record. This cannot be undone. Are you sure?');" ><i class="fa fa-trash-o"></i> Delete</a>
+                                    </td>
+
+                                </tr>
+                            }
+                        }
+
+                    }
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+</body>

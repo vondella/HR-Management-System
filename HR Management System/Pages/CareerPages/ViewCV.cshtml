@@ -1,0 +1,293 @@
+﻿@page
+@model HR_Management_System.Pages.CareerPages.ViewCVModel
+@{
+    ViewData["Title"] = "ViewCV";
+    Layout = "~/Views/Shared/_CareerLayout.cshtml";
+}
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, HR Management System
+
+<center><h3>View CV Detail</h3></center>
+
+
+@if (Model.Resume != null)
+{
+    <a class="btn btn-primary text-gray-100" asp-route-id="@Model.Resume.Id" asp-page="./Update_cv" style="margin-top:-60px;">Update CV</a>
+
+    <div class="card shadow mb-4">
+
+        <div class="card-body p-0">
+            <div style="height:300px; background-color:dimgray;">
+
+            </div>
+            <div class="d-flex" style="margin-top:-250px; margin-left:40px; height:100%;">
+                <div style="height:100%; width:300px; background-color:whitesmoke;">
+                    <div class="p-4">
+                        <div class="d-flex justify-content-center">
+                            <img id="CVProfileImg" src="@Model.ImgSrc(Model.Resume.ProfileImage)" alt="Alternate Text" class="img-profile rounded-circle shadow" style="border:solid white 3px; margin-top:20px;" width="150" height="150" />
+                        </div>
+
+                        <div class="d-flex justify-content-end" style="margin-top:80px;">
+                            <div>
+                                <h5 style="text-align:right;" class="text-black-50">C O N T A C T</h5>
+                                @if (Model.Resume.PresentAddress != null && Model.Resume.PresentAddress != "")
+                                {
+                                    <div class="d-flex justify-content-end mt-4">
+                                        <p class="mr-2 text-right">@Model.Resume.PresentAddress</p>
+                                        <span class="oi" data-glyph="map-marker"></span>
+                                    </div>
+                                }
+
+                                @if (Model.Resume.MobileNumber != null && Model.Resume.MobileNumber != "")
+                                {
+                                    <div class="d-flex justify-content-end">
+                                        <p class="mr-2">@Model.Resume.MobileNumber</p>
+                                        <i class="fas fa-phone text-black-50"></i>
+                                    </div>
+                                }
+
+
+                                @if (Model.Resume.PhoneNumber != null && Model.Resume.PhoneNumber != "")
+                                {
+                                    <div class="d-flex justify-content-end">
+                                        <p class="mr-2">@Model.Resume.PhoneNumber</p>
+                                        <i class="fas fa-phone text-black-50"></i>
+                                    </div>
+                                }
+
+                                @if (Model.Resume.Email != null && Model.Resume.Email != "")
+                                {
+                                    <div class="d-flex justify-content-end">
+                                        <p class="mr-2">@Model.Resume.Email</p>
+                                        <span>  <i class="fas fa-envelope text-black-50"></i></span>
+                                    </div>
+                                }
+
+
+
+                                <div style="width:250px; height:2px;" class="bg-dark"></div>
+
+
+
+                                <div class="mt-4 mb-0">
+                                    <h5 class="text-right mb-0">D E T A I L S</h5>
+                                </div>
+
+                                @if (Model.Resume.FatherName != null && Model.Resume.FatherName != "")
+                                {
+                                    <div class="mt-4 d-flex justify-content-end">
+                                        <div>
+                                            <p class="font-weight-bold mb-0 text-right">Father Name</p>
+                                            <p class="text-right">@Model.Resume.FatherName</p>
+                                        </div>
+                                    </div>
+                                }
+
+                                @if (Model.Resume.MotherName != null && Model.Resume.MotherName != "")
+                                {
+                                    <div class="mt-0 d-flex justify-content-end">
+                                        <div>
+                                            <p class="font-weight-bold text-right mb-0">Mother Name</p>
+                                            <p class="text-right">@Model.Resume.MotherName</p>
+                                        </div>
+                                    </div>
+                                }
+
+
+                                @if (Model.Resume.PresentAddress != null && Model.Resume.PresentAddress != "")
+                                {
+                                    <div class="mt-0 d-flex justify-content-end">
+                                        <div>
+                                            <p class="font-weight-bold text-right mb-0">Present Address</p>
+                                            <p class="text-right">@Model.Resume.PresentAddress</p>
+                                        </div>
+                                    </div>
+                                }
+
+
+                                @if (Model.Resume.PermanentAddress != null && Model.Resume.PermanentAddress != "")
+                                {
+                                    <div class="mt-0 d-flex justify-content-end">
+                                        <div>
+                                            <p class="font-weight-bold text-right mb-0">Permanent Address</p>
+                                            <p class="text-right">@Model.Resume.PermanentAddress</p>
+                                        </div>
+                                    </div>
+                                }
+
+                                @if (Model.Resume.DateOfBirth != null)
+                                {
+                                    <div class="mt-0 d-flex justify-content-end">
+                                        <div>
+                                            <p class="font-weight-bold text-right mb-0">Date of Birth</p>
+                                            <p class="text-right">@Model.BirthdayString(Model.Resume.DateOfBirth)</p>
+                                        </div>
+                                    </div>
+                                }
+
+                                @if (Model.Resume.Gender != null && Model.Resume.Gender != "")
+                                {
+                                    <div class="mt-0 d-flex justify-content-end">
+                                        <div>
+                                            <p class="font-weight-bold text-right mb-0">Gender</p>
+                                            <p class="text-right">@Model.Resume.Gender</p>
+                                        </div>
+                                    </div>
+                                }
+
+                                @if (Model.Resume.MarritualStatus != null && Model.Resume.MarritualStatus != "")
+                                {
+                                    <div class="mt-0 d-flex justify-content-end">
+                                        <div>
+                                            <p class="font-weight-bold text-right mb-0">Marritual Status</p>
+                                            <p class="text-right">@Model.Resume.MarritualStatus</p>
+                                        </div>
+                                    </div>
+                                }
+
+
+                                @if (Model.Resume.NationalID != null && Model.Resume.NationalID != "")
+                                {
+                                    <div class="mt-0 d-flex justify-content-end">
+                                        <div>
+                                            <p class="font-weight-bold text-right mb-0">National ID</p>
+                                            <p class="text-right">@Model.Resume.NationalID</p>
+                                        </div>
+                                    </div>
+                                }
+
+
+                                @if (Model.Resume.Religion != null && Model.Resume.Religion != "")
+                                {
+                                    <div class="mt-0 d-flex justify-content-end">
+                                        <div>
+                                            <p class="font-weight-bold text-right mb-0">Religion</p>
+                                            <p class="text-right">@Model.Resume.Religion</p>
+                                        </div>
+                                    </div>
+                                }
+
+                                @if (Model.Resume.Nationality != null && Model.Resume.Nationality != "")
+                                {
+                                    <div class="mt-0 d-flex justify-content-end">
+                                        <div>
+                                            <p class="font-weight-bold text-right mb-0">Nationality</p>
+                                            <p class="text-right">@Model.Resume.Nationality</p>
+                                        </div>
+                                    </div>
+                                }
+
+
+
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div>
+                    <div class="mt-5 ml-4" style="position:absolute">
+                        <div class="text-gray-100">
+                            <p>Hello, I am</p>
+                            <div>
+                                <h3>@Model.Resume.FirstName @Model.Resume.LastName</h3>
+                            </div>
+                            <div>@Model.Resume.Title</div>
+                        </div>
+                    </div>
+                    <div style="margin-left:20px; margin-top:280px; position:absolute;" class="text-gray-900">
+                        @if (Model.Resume.Experiences != null)
+                        {
+                            if (Model.Resume.Experiences.Count > 0)
+                            {
+                                <h5>Experience</h5>
+                                <div>
+                                    <ul>
+                                        @foreach (var item in Model.Resume.Experiences)
+                                        {
+                                            <li>
+                                                <div>
+                                                    <h6 class="font-weight-bold mb-0">@item.Role</h6>
+                                                    <div class="d-inline-flex">
+                                                        <p class="mb-0">From</p>
+                                                        <p class="ml-2 mb-0">@Model.BirthdayString(item.DurationFrom)</p>
+                                                        <p class="ml-2 mb-0">To</p>
+                                                        <p class="ml-2 mb-0">@Model.BirthdayString(item.DurationTo)</p>
+                                                    </div>
+                                                    <p class="mb-0">@item.CompanyName</p>
+                                                    <P class="mb-0">@item.CompanyAddress</P>
+
+                                                </div>
+                                            </li>
+                                            <br />
+                                        }
+
+                                    </ul>
+                                </div>
+                                <div style="max-width:100%; height:2px; min-width:400px;" class="bg-dark mr-4"></div>
+
+                            }
+                        }
+                        @if (Model.Resume.EducationalDetails != null)
+                        {
+                            if (Model.Resume.EducationalDetails.Count > 0)
+                            {
+                                <h5 class="mt-4">Education</h5>
+                                <div>
+                                    <ul>
+                                        @foreach (var item in Model.Resume.EducationalDetails)
+                                        {
+                                            <li>
+                                                <div>
+                                                    <h6 class="font-weight-bold mb-0">@item.Institute</h6>
+                                                    <div class="d-inline-flex">
+                                                        <p class="mb-0">@item.Qualification</p>
+                                                        <p class="ml-2 mb-0">/</p>
+                                                        <p class="ml-2 mb-0">@item.Grade</p>
+                                                        <p class="mb-0 ml-2">/</p>
+                                                        <p class="ml-2 mb-0">@item.Subject</p>
+                                                        <p class="mb-0 ml-2">/</p>
+                                                        <p class="ml-2 mb-0">@item.PassingYear</p>
+                                                    </div>
+
+                                                </div>
+                                            </li>
+                                            <br />
+                                        }
+                                    </ul>
+                                </div>
+                            }
+                        }
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+}
+
+
+
+@if (Model.Resume == null)
+{
+    
+
+<div style="margin-top:100px;">
+    <div class="d-flex">
+        <h5 class="m-auto">No CV Found</h5>
+    </div>
+    <div class="d-flex mt-4">
+
+        <a class="btn btn-primary text-white shadow m-auto" style="width:150px;" asp-page="./Make_a_cv">Create CV</a>
+        @*<div class="d-flex justify-content-center">
+
+            </div>*@
+    </div>
+</div>
+
+}
+
+

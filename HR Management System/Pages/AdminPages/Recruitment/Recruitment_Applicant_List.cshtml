@@ -1,0 +1,106 @@
+﻿@page
+@model HR_Management_System.Pages.Recruitment_Applicant_ListModel
+@{
+    ViewData["Title"] = "Recruitment_Applicant_List";
+    Layout = "~/Views/Shared/_AdminDashboardLayout.cshtml";
+
+}
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, HR Management System
+
+
+
+<center><h1>Applicant List</h1></center>
+
+
+
+
+
+<div class="row">
+    <div class="col-sm-12 wrap-fpanel" data-offset="0">
+        <div class="panel panel-default">
+
+            <div class="panel-heading">
+                <div class="panel-title">
+                    <span>
+                        <strong>Recruitment Applicant List</strong>
+                    </span>
+                </div>
+            </div>
+
+
+            <div class="card shadow mb-4">
+
+                <div class="row">
+                    <div class="col-sm-6 col-md-6">
+                        <div id="dataTable_filter" class="dataTables_filter ml-4 mt-4">
+                            <form method="get">
+                                <label>Search:<input type="search" class="form-control form-control-sm" placeholder="Search by ID" aria-controls="dataTable" name="src_string"></label>
+                                <span><button class="btn btn-primary form-control-sm" type="submit">Search</button></span>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Department</th>
+                                    <th>Designation</th>
+                                    <th>Date of Application</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            @if (Model.Applicants != null)
+                            {
+                                if (Model.Applicants.Count > 0)
+                                {
+                                    @if (Model.Applicants.Count > 10)
+                                    {
+                                        <tfoot>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Name</th>
+                                                <th>Department</th>
+                                                <th>Designation</th>
+                                                <th>Date of Application</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </tfoot>
+                                    }
+
+                                    <tbody>
+
+                                        @for (int i = 0; i < Model.Applicants.Count; i++)
+                                        {
+                                            <tr>
+                                                <td>@Model.Applicants[i].Id</td>
+                                                <td>@Model.Applicants[i].Name</td>
+                                                <td>@Model.Applicants[i].Department</td>
+                                                <td>@Model.Applicants[i].Designation</td>
+                                                <td>@Model.DateOfApplcationShortForm(Model.Applicants[i].DateOfApplication)</td>
+                                                <td>
+                                                    <div class="row">
+                                                        <div class="col-12"><a asp-page-handler="View" asp-route-id="@Model.Applicants[i].Id">View</a></div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        }
+
+                                    </tbody>
+                                }
+                            }
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,86 @@
+﻿@page
+@model HR_Management_System.Pages.Selected_Applicant_ListModel
+@{
+    ViewData["Title"] = "Selected_Applicant_List";
+    Layout = "~/Views/Shared/_AdminDashboardLayout.cshtml";
+}
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, HR Management System
+
+
+
+<center><h1>Recruitment Selected List</h1></center>
+
+
+
+<div class="card shadow mb-4">
+
+    <div class="row">
+        <div class="col-sm-6 col-md-6">
+            <div id="dataTable_filter" class="dataTables_filter ml-4 mt-4">
+                <form method="get">
+                    <label>Search:<input type="search" class="form-control form-control-sm" placeholder="Search by Title" aria-controls="dataTable" name="src_string"></label>
+                    <span><button class="btn btn-primary form-control-sm" type="submit">Search</button></span>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Department</th>
+                        <th>Designation</th>
+                        <th>Date of interview</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+
+
+                <tbody>
+
+                    @if (Model.SelectedApplicants != null)
+                    {
+                        if (Model.SelectedApplicants.Count > 0)
+                        {
+                            for (int i = 0; i < Model.SelectedApplicants.Count; i++)
+                            {
+                                <tr>
+                                    <td>@Model.SelectedApplicants[i].Id</td>
+                                    <td>@Model.SelectedApplicants[i].Name</td>
+                                    <td>@Model.SelectedApplicants[i].Department</td>
+                                    <td>@Model.SelectedApplicants[i].Designation</td>
+                                    <td>@Model.DateOfApplcationShortForm(Model.SelectedApplicants[i].DateOfInterview)</td>
+                                    <td>
+                                        <div class="row">
+                                            <div class="col-6"><a asp-page="./ViewApplicantDetails" asp-route-id="@Model.SelectedApplicants[i].Id"><span class="fa fa-list-alt Edit-HyperLink"></span></a></div>
+                                            <div class="col-6"><a asp-page-handler="Delete" asp-route-id="@Model.SelectedApplicants[i].Id"><span class="oi Delete-HyperLink" data-glyph="trash"></span></a></div>
+
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    }
+
+
+
+                </tbody>
+
+
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+
+

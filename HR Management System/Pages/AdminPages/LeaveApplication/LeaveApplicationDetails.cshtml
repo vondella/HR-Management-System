@@ -1,0 +1,83 @@
+﻿@page
+@model HR_Management_System.Pages.AdminPages.LeaveApplication.LeaveApplicationDetailsModel
+@{
+    ViewData["Title"] = "LeaveApplicationDetails";
+    Layout = "~/Views/Shared/_AdminDashboardLayout.cshtml";
+}
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, HR Management System
+
+
+
+<center>
+    <h2>Leave Application Details</h2>
+</center>
+
+
+
+<div class="card shadow mb-4">
+
+    <div class="card-body">
+        <div class="d-flex justify-content-between">
+            <h3>@Model.LeaveApplication.User.Name</h3>
+            <div>
+                <img src="@Model.ImgSrc(Model.LeaveApplication.User.ProfileImage)" class="shadow img-profile rounded-circle" style="border:solid white 4px; object-fit:cover;" alt="Alternate Text" width="150" height="150" />
+            </div>
+        </div>
+
+        <div class="d-flex flex-row align-items-center">
+            <h4 class="d-flex align-items-center">Leave Application Details </h4>
+        </div>
+        <hr />
+        <div class="d-flex flex-column">
+            <div class="d-flex flex-row">
+                <strong>Start Date: </strong>
+                <strong class="ml-2">@Model.ShortDateString(Model.LeaveApplication.StartDate)</strong>
+            </div>
+        </div>
+        <div class="d-flex flex-column mt-4">
+            <div class="d-flex flex-row">
+                <strong>End Date: </strong>
+                <strong class="ml-2">@Model.ShortDateString(Model.LeaveApplication.EndDate)</strong>
+            </div>
+        </div>
+        <div class="d-flex flex-column mt-4">
+            <div class="d-flex flex-row">
+                <strong>Total Days: </strong>
+                <strong class="ml-2">@Model.LeaveApplication.Days</strong>
+            </div>
+        </div>
+        <div class="d-flex flex-column mt-4">
+            <div class="d-flex flex-row">
+                <strong>Leave Category: </strong>
+                <strong class="ml-2">@Model.LeaveApplication.LeaveCategory.Title</strong>
+            </div>
+        </div>
+        @if (Model.LeaveApplication.Status == HR_Management_System.Models.LeaveApplicationStatus.Approved || Model.LeaveApplication.Status == HR_Management_System.Models.LeaveApplicationStatus.Rejected)
+        {
+            <div class="d-flex flex-column mt-4">
+                <div class="d-flex flex-row">
+                    <strong>Status: </strong>
+                    <strong class="ml-2">@Model.LeaveApplication.Status</strong>
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="d-flex flex-column mt-4">
+                <form method="post">
+                    <div class="d-flex flex-row">
+                        <input type="text" value="@Model.LeaveApplication.Id" name="id" hidden />
+                        <strong class="align-self-md-center">Status: </strong>
+                        <select name="status" class="form-control col-3 ml-2">
+                            <option value="Pending">Pending</option>
+                            <option value="Approved">Approved</option>
+                            <option value="Rejected">Rejected</option>
+                        </select>
+                        <button type="submit" class="btn btn-primary ml-2">Apply</button>
+                    </div>
+                </form>
+            </div>
+        }
+    </div>
+</div>

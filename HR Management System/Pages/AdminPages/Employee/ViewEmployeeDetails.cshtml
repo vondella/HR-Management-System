@@ -1,0 +1,73 @@
+﻿@page
+@model HR_Management_System.Pages.AdminPages.Employee.ViewEmployeeDetailsModel
+@{
+    ViewData["Title"] = "ViewEmployeeDetails";
+    Layout = "~/Views/Shared/_AdminDashboardLayout.cshtml";
+}
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, HR Management System
+
+
+
+
+<center><h1>Employee Detail</h1></center>
+
+
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">@Model.Employee.Name, ID: @Model.Employee.Id</h6>
+    </div>
+    <div class="card-body">
+
+        <div class="d-flex flex-column">
+            <div class="col-lg-4">
+                <div>
+                    <img src="@Model.ImgSrc(Model.Employee.ProfileImage)" class="shadow img-profile rounded-circle" style="border:solid white 4px; object-fit:cover;" alt="Alternate Text" width="150" height="150" />
+                </div>
+                <h4 class="mt-4 mb-4">@Model.Employee.Name</h4>
+
+                <div class="d-flex flex-row">
+                    <h5>Username:</h5>
+                    <p class="ml-2">@Model.Employee.UserName</p>
+                </div>
+
+                <div class="d-flex flex-row">
+                    <h5>Status:</h5>
+
+                    <p class="ml-2">@Model.IsActive(Model.Employee.Status)</p>
+                </div>
+
+                <div class="d-flex flex-row">
+                    <h5>Department:</h5>
+
+                    <p class="ml-2">@Model.Employee.Department</p>
+                </div>
+
+                <div class="d-flex flex-row">
+                    <h5>Designation:</h5>
+
+                    <p class="ml-2">@Model.Employee.Designation</p>
+                </div>
+
+            </div>
+
+
+
+
+
+        </div>
+        @if (Model.ResumeId != null)
+        {
+            <div>
+                <a class="btn btn-primary" asp-page="./ViewEmployeeCV" asp-route-id="@Model.ResumeId">View CV</a>
+            </div>
+        }
+
+    </div>
+</div>
+
+
+
+
+

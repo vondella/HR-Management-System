@@ -1,0 +1,126 @@
+﻿@page
+@model HR_Management_System.Pages.Career_DashboardModel
+@{
+    ViewData["Title"] = "Career Dashboard";
+    Layout = "~/Views/Shared/_CareerLayout.cshtml";
+}
+
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+
+
+
+
+
+<div class="container-fluid">
+    <div class="wrap-fpanel">
+        <div class="row">
+            <div class="col-sm-12" data-offset="0">
+                <div class="panel panel-default">
+                    <div class="panel-heading ml-2">
+                        <div class="panel-title">
+                            <h3>Welcome to Career</h3>
+                        </div>
+                    </div>
+
+
+
+
+
+                    <div class="card shadow mb-4">
+
+                        <div class="row">
+                            <div class="col-sm-6 col-md-6">
+                                <div id="dataTable_filter" class="dataTables_filter ml-4 mt-4">
+                                    <form method="get">
+                                        <label>Search:<input type="search" class="form-control form-control-sm" placeholder="Search by Title" aria-controls="dataTable" name="src_string"></label>
+                                        <span><button class="btn btn-primary form-control-sm" type="submit">Search</button></span>
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>SL</th>
+                                            <th>Title</th>
+                                            <th>Created Date</th>
+                                            <th>Designation</th>
+                                            <th>No. of Vacancy</th>
+                                            <th>Last Date</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    @if (Model.RecruitementNotices != null)
+                                    {
+                                        if (Model.RecruitementNotices.Count > 0)
+                                        {
+                                            @if (Model.RecruitementNotices.Count > 10)
+                                            {
+                                                <tfoot>
+                                                    <tr>
+                                                        <th>SL</th>
+                                                        <th>Created Date</th>
+                                                        <th>Designation</th>
+                                                        <th>No. of Vacancy</th>
+                                                        <th>Last Date</th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                </tfoot>
+                                            }
+
+                                            <tbody>
+
+                                                @for (int i = 0; i < Model.RecruitementNotices.Count; i++)
+                                                {
+                                                    <tr>
+                                                        <td>@(i + 1)</td>
+                                                        <td>@Model.RecruitementNotices[i].Title</td>
+                                                        <td>@Model.RecruitementNotices[i].CreatedDate.ToShortDateString()</td>
+                                                        <td>@Model.RecruitementNotices[i].Designation</td>
+                                                        <td>@Model.RecruitementNotices[i].NumberOfVacancy</td>
+                                                        <td>@Model.RecruitementNotices[i].LastDate.ToShortDateString()</td>
+                                                        <td>
+                                                            <a asp-page-handler="View" asp-route-id="@Model.RecruitementNotices[i].Id">View</a>
+                                                            @*<div class="row">
+                                                                    <div class="col-12"><a asp-page-handler="View" asp-route-id="@Model.RecruitementNotices[i].Id"><span class="oi Delete-HyperLink" data-glyph="trash"></span></a></div>
+                                                                </div>*@
+                                                        </td>
+                                                    </tr>
+                                                }
+
+                                            </tbody>
+                                        }
+                                    }
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    @if (Model.RecruitementNotices != null)
+                    {
+                        if (Model.RecruitementNotices.Count == 0)
+                        {
+                            <div class="d-flex justify-content-center mt-lg-5">
+                                <div>
+                                    <div class="panel-heading">
+                                        <div class="panel-title">
+                                            <strong class="h2 font-weight-normal">Empty</strong>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        }
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

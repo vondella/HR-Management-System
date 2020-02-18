@@ -1,0 +1,70 @@
+﻿@page
+@model HR_Management_System.Pages.ApplyModel
+@{
+    ViewData["Title"] = "Apply";
+    Layout = "~/Views/Shared/_CareerLayout.cshtml";
+}
+<center><h1>Apply for a Post</h1></center>
+    <div class="container">
+        <div class="row">
+
+            <div class="margin">
+                <div class="col-md-12">
+                    <div class="main_content">
+                        <div class="row">
+
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-sm-12" data-offset="0">
+                                        <div class="panel panel-info">
+                                            <!-- Default panel contents -->
+
+                                            <div class="panel-heading">
+                                                <div class="panel-title">
+                                                    <strong>List of All Recruitment Notice</strong>
+                                                </div>
+                                            </div>
+                                            <!-- Table -->
+                                            <div id="dataTables-example_wrapper" class="dataTables_wrapper form-inline" role="grid">
+                                                <div class="row"><div class="col-sm-6"><div class="dataTables_length" id="dataTables-example_length"><label><select name="dataTables-example_length" aria-controls="dataTables-example" class="form-control input-sm"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> <b>Records per page</b></label></div></div><div class="col-sm-6"><div id="dataTables-example_filter" class="dataTables_filter"><label>Search:<input type="search" style="margin:0px 10px;" class="form-control input-sm" aria-controls="dataTables-example"></label></div></div></div><table class="table table-bordered table-hover dataTable no-footer" id="dataTables-example" aria-describedby="dataTables-example_info">
+                                                    <thead>
+                                                        <tr role="row">
+                                                            <th class="col-sm-1 sorting_asc" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Published: activate to sort column ascending" style="width: 73px;">Published</th>
+                                                            <th class="col-sm-3 sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Title: activate to sort column ascending" style="width: 256px;">Title</th>
+                                                            <th class="col-sm-1 sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Action: activate to sort column ascending" style="width: 73px;">Department</th>
+                                                            <th class="col-sm-1 sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Action: activate to sort column ascending" style="width: 73px;">Designation</th>
+                                                            <th class="col-sm-1 sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Action: activate to sort column ascending" style="width: 73px;">Status</th>
+
+                                                            <th class="col-sm-1 sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Action: activate to sort column ascending" style="width: 73px;">Interview Date</th>
+                                                            <th class="col-sm-1 sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Action: activate to sort column ascending" style="width: 73px;">Apply</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+
+
+                                                        <tr class="odd">
+
+                                                            <td class="sorting_1">09 Jun 2019</td>
+                                                            <td class=" ">salesman</td>
+                                                            <td class=" ">Marketing</td>
+                                                            <td class=" ">Manager</td>
+                                                            <td class=" "><span class="label label-success">Applied</span></td>
+
+                                                            <td> 30 jul 2019  </td>
+                                                            <td class=" ">
+                                                                <a href="#" class="btn btn-info btn-xs" data-toggle="tooltip" data-placement="top" title="" data-original-title="View">Apply</a>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table><div class="row"><div class="col-sm-6"><div class="dataTables_info" id="dataTables-example_info" role="alert" aria-live="polite" aria-relevant="all">Showing 1 to 1 of 1 entries</div></div><div class="col-sm-6"><div class="dataTables_paginate paging_simple_numbers" id="dataTables-example_paginate"><ul class="pagination"><li class="paginate_button previous disabled" aria-controls="dataTables-example" tabindex="0" id="dataTables-example_previous"><a href="#">Previous</a></li><li class="paginate_button active" aria-controls="dataTables-example" tabindex="0"><a href="#">1</a></li><li class="paginate_button next disabled" aria-controls="dataTables-example" tabindex="0" id="dataTables-example_next"><a href="#">Next</a></li></ul></div></div></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

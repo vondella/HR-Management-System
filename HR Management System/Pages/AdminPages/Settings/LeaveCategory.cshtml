@@ -1,0 +1,110 @@
+﻿@page
+@model HR_Management_System.Pages.LeaveCategoryModel
+@{
+    ViewData["Title"] = "LeaveCategory";
+    Layout = "~/Views/Shared/_AdminDashboardLayout.cshtml";
+}
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, HR Management System
+
+
+<center><h1>Leave Category</h1></center>
+
+
+<div class="container-fluid">
+    <div class="wrap-fpanel">
+        <div class="row">
+            <div class="col-sm-12" data-offset="0">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="panel-heading">
+                            <h5><a asp-page="./AddLeaveCategory"><i class="fa fa-plus"></i> Add Leave Category</a></h5>
+                           
+                        </div>
+                        <div class="panel-title">
+                            <strong class="mb-2">List of All Leave Category</strong>
+                        </div>
+                    </div>
+
+
+                   
+
+
+                    <div class="card shadow mb-4 mt-4">
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <colgroup>
+                                        <col />
+                                        <col class="col-7"/>
+                                        <col />
+                                        <col />
+                                    </colgroup>
+                                    <thead>
+                                        <tr>
+                                            <th>SL</th>
+                                            <th>Category Name</th>
+                                            <th>Days</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    @if (Model.LeaveCategories != null)
+                                    {
+                                        if (Model.LeaveCategories.Count > 0)
+                                        {
+                                            @if (Model.LeaveCategories.Count > 10)
+                                            {
+                                                <tfoot>
+                                                    <tr>
+                                                        <th>SL</th>
+                                                        <th>Category Name</th>
+                                                        <th>Days</th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                </tfoot>
+                                            }
+
+                                            <tbody>
+
+                                                @for (int i = 0; i < Model.LeaveCategories.Count; i++)
+                                                {
+                                                    <tr>
+                                                        <td>@(i + 1)</td>
+                                                        <td>@Model.LeaveCategories[i].Title</td>
+                                                        <td>@Model.LeaveCategories[i].Days</td>
+                                                        <td>
+                                                            <div class="row">
+                                                                <div class="col-6"><a asp-page-handler="Edit" asp-route-id="@Model.LeaveCategories[i].Id"><span class="oi Edit-HyperLink" data-glyph="pencil"></span></a></div>
+                                                                <div class="col-6"><a asp-page-handler="Delete" asp-route-id="@Model.LeaveCategories[i].Id"><span class="oi Delete-HyperLink" data-glyph="trash"></span></a></div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                }
+
+                                            </tbody>
+                                        }
+                                    }
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    @*<div class="d-flex justify-content-center mt-lg-5">
+                            <div>
+                                <div class="panel-heading">
+                                    <div class="panel-title">
+                                        <strong class="h2 font-weight-normal">Empty</strong>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>*@
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

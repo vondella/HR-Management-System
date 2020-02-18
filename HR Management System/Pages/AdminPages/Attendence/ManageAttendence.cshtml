@@ -1,0 +1,143 @@
+﻿@page
+@model HR_Management_System.Pages.ManageAttendenceModel
+@{
+    ViewData["Title"] = "ManageAttendence";
+    Layout = "~/Views/Shared/_AdminDashboardLayout.cshtml";
+}
+
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, HR Management System
+
+
+
+
+<center><h1>Set Attendence</h1></center>
+
+@if (Model.TodayIsHoliDay != true)
+{
+    <div class="wrap-fpanel">
+        <div class="row">
+            <div class="col-sm-12" data-offset="0">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="panel-title">
+                            <strong>List of Employees</strong>
+                        </div>
+                    </div>
+
+                    <div class="card shadow mb-4 mt-2">
+
+                        <div class="card-header">
+                            <div class="d-flex flex-row mb-0">
+                                <p>Date:</p>
+                                <p class="ml-2">@DateTime.Now.ToShortDateString()</p>
+                            </div>
+                        </div>
+
+
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr role="row">
+                                            <th>Emp ID</th>
+                                            <th>Emp Name</th>
+                                            <th>Department</th>
+                                            <th>Designation</th>
+                                            <th>Status</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        @if (Model.SortedEmployees != null)
+                                        {
+                                            if (Model.SortedEmployees.Count > 0)
+                                            {
+                                                for (int i = 0; i < Model.SortedEmployees.Count; i++)
+                                                {
+                                                    <tr class="odd">
+                                                        <td class="sorting_1">@Model.SortedEmployees[i].Id</td>
+                                                        <td>@Model.SortedEmployees[i].Name</td>
+                                                        <td>@Model.SortedEmployees[i].Department</td>
+                                                        <td>@Model.SortedEmployees[i].Designation</td>
+                                                        @{
+                                                            var t = DateTime.Today;
+                                                            var att = Model.SortedEmployees[i].Attendances.SingleOrDefault(a => a.Month == t.Month && a.Year == a.Year && a.Day == t.Day);
+
+                                                            if (att == null)
+                                                            {
+                                                                <td>No Defined</td>
+                                                            }
+                                                            else
+                                                            {
+                                                                <td>@att.Status.ToString()</td>
+                                                            }
+
+                                                        }
+                                                        <td>
+                                                            <emp-attendance id="@Model.SortedEmployees[i].Id"></emp-attendance>
+                                                            @*<div class="d-flex flex-row">
+                                                                    <a onclick="SetAttendance('present', this)" href="#">Present</a>
+                                                                    <a class="ml-2" onclick="SetAttendance('absent', this)" href="#">Absent</a>
+                                                                </div>*@
+                                                        </td>
+                                                    </tr>
+                                                }
+                                            }
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <center class="mt-5"><h1>Today is Holiday</h1></center>
+}
+
+
+
+
+
+<script>
+
+    function SetAttendance(id, status, link_control) {
+
+
+        $.ajax({
+            url: "https://localhost:44303/emp/presentabsentemployeeasync?" + `id=${id}` + `&status=${status}`, success: function (data, result) {
+                //alert(data);
+                if (data == "present") {
+
+                    var gg = link_control.parentElement;
+                    gg = gg.parentElement;
+                    gg = gg.previousElementSibling;
+
+                    gg.innerText = "Present"
+
+                }
+                else if (data == "absent") {
+                    var gg = link_control.parentElement;
+                    gg = gg.parentElement;
+                    gg = gg.previousElementSibling;
+
+                    gg.innerText = "Absent"
+                }
+                else if (data == "holiday") {
+                    var gg = link_control.parentElement;
+                    gg = gg.parentElement;
+                    gg = gg.previousElementSibling;
+
+                    gg.innerText = "Holiday"
+                }
+            }
+        });
+    }
+
+</script>

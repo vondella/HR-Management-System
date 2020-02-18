@@ -1,0 +1,67 @@
+﻿@page
+@model HR_Management_System.Pages.ProfileModel
+@{
+    ViewData["Title"] = "Profile";
+    Layout = "~/Views/Shared/_AdminDashboardLayout.cshtml";
+}
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, HR Management System
+
+
+
+<h1>Profile</h1>
+
+
+<div class="container-fluid">
+
+    <form role="form" class="form-horizontal form-groups-bordered" asp-page-handler="UpdateProfileData" method="post">
+        <div class="col-sm-12 wrap-fpanel">
+            <div class="panel panel-default" data-collapsed="0">
+
+                <div class="panel-body">
+
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Name <span class="required" aria-required="true"> *</span></label>
+                        <div class="col-sm-7">
+                            <input type="text" asp-for="Name" class="form-control" placeholder="Enter Your First Name">
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Username <span class="required" aria-required="true"> *</span></label>
+                        <div class="col-sm-7">
+                            <input type="text" asp-for="Username" class="form-control" placeholder="Enter Userame">
+                            <span asp-validation-for="Username" class="text-danger"></span>
+                            @if (Model.UsernameExisted == true)
+                            {
+                                <small> <span class="text-danger">Username existed. Try another username.</span></small>
+                            }
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-offset-4 col-sm-5">
+                            <button type="submit" class="btn btn-primary">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+
+
+    <div>
+        <a asp-page="./ChangePassword" class="btn btn-primary">Change Password</a>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+

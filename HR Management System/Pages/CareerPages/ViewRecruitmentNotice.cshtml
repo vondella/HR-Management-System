@@ -1,0 +1,65 @@
+﻿@page
+@model HR_Management_System.Pages.CareerPages.ViewRecruitmentNoticeModel
+@{
+    ViewData["Title"] = "ViewRecruitmentNotice";
+    Layout = "~/Views/Shared/_CareerLayout.cshtml";
+}
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+
+
+
+<div class="container-fluid">
+    <div class="wrap-fpanel">
+        <div class="row">
+            <div class="col-sm-12" data-offset="0">
+                <div class="panel panel-default">
+
+                    <input type="hidden" id="RecruitmentID" value="@Model.RecruitmentNotice.Id" />
+                    <input type="hidden" id="CareerID" value="@Model._accountManage.User.Id" />
+
+                    <div class="card shadow mb-4">
+                        <div class="card-header">
+                            <div class="d-flex justify-content-between p-0" id="HeaderContainer">
+                                <h6 class="m-0 font-weight-bold text-primary">@Model.RecruitmentNotice.Title</h6>
+
+                                @if (Model.Applied == false)
+                                {
+                                    <button class="btn btn-primary" type="button" onclick="ApplyForThePost(this)">
+                                        Apply
+                                    </button>
+                                }
+                                else
+                                {
+                                    <h6>Applied</h6>
+                                }
+
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            @Model.RecruitmentNotice.Description
+                        </div>
+                        <br />
+                        <div class="ml-4 text-gray-600">
+                            <span>Department: </span> <span>@Model.RecruitmentNotice.Department</span>
+                        </div>
+                        <br />
+                        <div class="ml-4 text-gray-600 card-subtitle">
+                            <span>Designation: </span> <span>@Model.RecruitmentNotice.Designation</span>
+                        </div>
+                        <br />
+                        <div class="ml-4 text-gray-600">
+                            <span>No. of Vacancy: </span> <span>@Model.RecruitmentNotice.NumberOfVacancy</span>
+                        </div>
+                        <div class="card-body text-danger">
+                            <span>Last Date: </span> <span>@Model.RecruitmentNotice.LastDate.ToShortDateString()</span>
+                        </div>
+                        <div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

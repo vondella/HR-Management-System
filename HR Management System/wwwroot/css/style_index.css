@@ -1,0 +1,23 @@
+/*
+    Theme Name: Bethany
+    Theme URL: https://bootstrapmade.com/bethany-free-onepage-bootstrap-theme/
+    Author: BootstrapMade.com
+    Author URL: https://bootstrapmade.com
+*/
+
+body {
+	line-height: 1.5;
+	font-family: 'Open Sans', sans-serif;
+    overflow-x: hidden; 
+}
+.navbar-default {
+    background-color: transparent;
+
+}
+.main-header
+{
+	background: url(../img/banner.jpg) no-repeat;
+	background-size: cover;
+	min-height: 500px;
+    margin-bottom:50px;
+}
